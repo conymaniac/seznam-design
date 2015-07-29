@@ -11,76 +11,104 @@ module.exports = function ( grunt ) {
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-processhtml');
     grunt.loadNpmTasks('grunt-concurrent');
+    grunt.loadNpmTasks('grunt-scp');
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         less: {
-          exp: {
+          demo: {
             src:'web/less/style.less',
-            dest:'exp/css/style.css'
+            dest:'demo/css/style.css'
           }
         },
         browserify: {
-          exp: {
-            src: 'web/scripts/exp.js',
-            dest: 'exp/js/js-app.js'
+          demo: {
+            src: 'web/scripts/grid.js',
+            dest: 'demo/js/js-app.js'
           }
         },
         copy: {
-            exp: {
+            demo: {
                 files:[
                     {
                         src: 'web/index-template.html',
-                        dest: 'exp/index.html',
+                        dest: 'demo/index.html',
                     },
                     {
                         expand: true,
                         cwd: 'web/img',
                         src: '**',
-                        dest: 'exp/img'
+                        dest: 'demo/img'
                     },
                     {
                         expand: true,
                         cwd: 'web/fonts',
                         src: '**',
-                        dest: 'exp/fonts'
+                        dest: 'demo/fonts'
                     }
                 ]
             }
         },
-        clean: {
-            exp: ['exp/js/js-app.js', 'tmp']
-        },
-        jshint: {
+        scp: {
             options: {
-              jshintrc:true
+                host: 'mrd.dev',
+                username: 'root',
+                password: 'live',
+                agent: '/usr/bin/ssh-agent'
             },
-            all: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js']
+            your_target: {
+                files: [
+                    {
+                        cwd: 'demo',
+                        src: 'index.html',
+                        filter: 'isFile',
+                        // path on the server
+                        dest: '/www/firmy/demo/www/templ'
+                    },
+                    {
+                        cwd: 'demo/js',
+                        src: '*',
+                        filter: 'isFile',
+                        // path on the server
+                        dest: '/www/firmy/demo/www/static/js'
+                    },
+                    {
+                        cwd: 'demo/css',
+                        src: '*',
+                        filter: 'isFile',
+                        // path on the server
+                        dest: '/www/firmy/demo/www/static/css'
+                    }
+                ]
+            },
         },
         watch: {
-
-            jsexp: {
-                files: ['web/scripts/**/*.js'],
-                tasks: ['exp']
+            index: {
+                files: ['web/index-template.html'],
+                tasks: ['demo']
             },
-            stylesexp: {
+            js: {
+                files: ['web/scripts/**/*.js'],
+                tasks: ['demo']
+            },
+            style: {
                 files: ['web/less/**/*.less'],
-                tasks: ['less:exp'],
+                tasks: ['less:demo'],
                 options: {
                     spawn: false
                 }
             },
-            imagesexp: {
+            image: {
                 files: ['web/img/**'],
-                tasks: ['exp'],
+                tasks: ['demo'],
                 options: {
                     spawn: false
                 }
             }
         },
         concurrent: {
-            exp: {
-                tasks: ['watch:htmlexp', 'watch:jsexp', 'watch:stylesexp', 'watch:imagesexp'],
+            demo: {
+                tasks: ['watch:index', 'watch:html', 'watch:js', 'watch:styles', 'watch:images'],
                 options: {
                     logConcurrentOutput: true
                 }
@@ -89,9 +117,12 @@ module.exports = function ( grunt ) {
     });
 
     // defaultne se provadi vsechny buildy
-    grunt.registerTask('default', ['exp']);
+    grunt.registerTask('default', ['demo']);
+
+    // vybuildíme skoro jako při relase, jen bez uglify pro rychlost a překopírujeme na mrd
+    grunt.registerTask('remote', ['demo', 'scp']);
 
     // pouze pro build jednoduchý
-    grunt.registerTask('exp', ['less:exp', 'browserify:exp', 'copy:exp', 'clean:exp']);
+    grunt.registerTask('demo', ['less:demo', 'browserify:demo', 'copy:demo']);
 
 };

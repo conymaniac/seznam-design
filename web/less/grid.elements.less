@@ -1,0 +1,77 @@
+/**
+ * @name: grid.elements.less
+ * @desc: Vzhled stránky - elementy
+ */
+
+/*** ------------ GRID – ELEMENTY ---------------- **/
+
+/* default – společné nastavení */ 
+.gr-ln,
+.gr-unt {
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+}
+
+/* řádek */
+.gr-ln {
+
+	/* reset floatování */
+	&:before,
+	&:after {
+		content: ' ';
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+
+
+	/* pouze při zanoření srovnáme gutter */
+	.gr-ln {
+
+		/* layout - mobil 1 - gutter (vyrovnání) */
+		margin-left: -@m1-gutter;
+
+		/* layout – mobil 2 */
+		@media screen and (min-width: @m2-minWidth) {
+			margin-left: -@m2-gutter;
+		}
+
+		/* layout – tablet */
+		@media screen and (min-width: @tb-minWidth) {
+			margin-left: -@tb-gutter;
+		}
+
+		/* layout – desktop */
+		@media screen and (min-width: @dk-minWidth) {
+			margin-left: -@dk-gutter;
+		}
+
+	}
+
+	/* unita */
+	.gr-unt {
+		position: relative;
+		float: left;
+
+		/* layout - mobil 1 - gutter */
+		padding-left: @m1-gutter;
+
+		/* layout – mobil 2 */
+		@media screen and (min-width: @m2-minWidth) {
+			padding-left: @m2-gutter;
+		}
+
+		/* layout – tablet */
+		@media screen and (min-width: @tb-minWidth) {
+			padding-left: @tb-gutter;
+		}
+
+		/* layout – desktop */
+		@media screen and (min-width: @dk-minWidth) {
+			padding-left: @dk-gutter;
+		}
+	}
+}

@@ -1,0 +1,87 @@
+/**
+ * @name: grid.overlay.less
+ * @desc: Mřížka překrývající všechny elementy
+ */
+
+/*** ------------ PROMĚNNÉ A NASTAVENÍ ---------------- **/
+
+/* barvy */
+@cl-gr: #D3E4B8; 		/* barva obalujícího gridu */
+@cl-unt-1: #FFE3FF; 	/* barva řádku/sloupečku */
+@cl-unt-2: #FFF0FF; 	/* barva řádku/sloupečku */
+@cl-unt-3: #FFFFFF; 	/* barva řádku/sloupečku */
+
+
+/*** ------------ GRID – OVERLAY ---------------- **/
+
+/* zobrazení obalujícího elementu */
+.gr-ol {
+
+	/* spec. nastavení pro grid */
+	.gr {
+
+		/* vzhled */
+		.mx-opacity(0.5);
+		min-height: 100%;
+
+		/* pozice */
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		margin: auto;
+
+		/* unity */
+		.gr-unt {
+			z-index: 1;
+			background-color: @cl-unt-3;
+		}
+		
+		/* obsah buněk */
+		.gr-cnt {
+			display: block;
+			width: 100%;
+			height: 100%;
+			background-color: @cl-unt-2;
+		}
+	}
+
+	/* zobrazení marginu */
+	.gr-mrgn {
+
+		/* pozice */
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		z-index: 2;
+
+		/* vzhled */
+		background-color: @cl-gr;
+
+		&:last-child {
+			left: auto;
+			right: 0;
+		}
+
+		/* rozměry */
+		width: @m1-padding;
+
+		/* layout – mobil 2 */
+		@media screen and (min-width: @m2-minWidth) {
+			width: @m2-padding;
+		}
+
+		/* layout – tablet */
+		@media screen and (min-width: @tb-minWidth) {
+			width: @tb-padding;
+		}
+
+		/* layout – desktop */
+		@media screen and (min-width: @dk-minWidth) {
+			width: @dk-padding;
+		}
+
+	}
+}

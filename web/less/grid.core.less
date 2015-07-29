@@ -1,0 +1,43 @@
+/**
+ * @name: grid.core.less
+ * @desc: Základ vzhledu stránky
+ */
+
+/*** ------------ GRID – OBAL ---------------- **/
+
+/* grid – základní obal */
+.gr {
+
+	/* default */
+	.mx-transition(500ms padding ease-in-out, 500ms width ease-in-out);
+	box-sizing: border-box;
+	margin: auto;
+
+	/* layout – mobil 1 */
+	min-width: @m1-minWidth;
+	padding: 0 @m1-padding;
+	padding-left: ~"calc(@{m1-padding} - @{m1-gutter})";
+
+	/* layout – mobil 2 */
+	@media screen and (min-width: @m2-minWidth) {
+		min-width: @m2-minWidth;
+		padding: 0 @m2-padding;
+		padding-left: ~"calc(@{m2-padding} - @{m2-gutter})";
+	}
+
+	/* layout – tablet */
+	@media screen and (min-width: @tb-minWidth) {
+		min-width: @tb-minWidth;
+		padding: 0 @tb-padding;
+		padding-left: ~"calc(@{tb-padding} - @{tb-gutter})";
+	}
+
+	/* layout – desktop */
+	@media screen and (min-width: @dk-minWidth) {
+		min-width: @dk-minWidth;
+		max-width: @dk-maxWidth;
+		padding: 0 @dk-padding;
+		padding-left: ~"calc(@{dk-padding} - @{dk-gutter})";
+	}
+
+}

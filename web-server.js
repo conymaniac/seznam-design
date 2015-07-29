@@ -4,7 +4,7 @@ var express = require('express')
   , app = express();
 
 // app.use(cors());
-app.use(express.static(__dirname + '/exp'));
+app.use(express.static(__dirname + '/demo'));
 
 // in NodeJS/Express (server)
 app.all('/*', function(req, res, next) {
@@ -16,7 +16,7 @@ app.all('/*', function(req, res, next) {
 });
 
 app.get("/*", function(req, res) {
-	res.sendfile('exp/index.html')
+	res.sendfile('demo/index.html')
 });
 
 var port = process.env.PORT || 8001;

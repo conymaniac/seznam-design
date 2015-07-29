@@ -6,20 +6,61 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
-		<meta content="Portál pro sdílení recenzí a názorů." name="description" />
 		<title>Seznam Design System – Experiment</title>
 		
 		<!-- build:css /css/style.min.css -->
-		<link rel="stylesheet" type="text/css" href="/css/style.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
 		<!-- /build -->
 		
 		<!-- build:js /js/js-all.min.js -->
-	    <script type="text/javascript" src="/js/js-all.js"></script>
+	    <script type="text/javascript" src="js/js-app.js"></script>
 		<!-- /build -->
 
 	</head>
 
-	<body>
-		Seznam Design System – Experiment
+	<body class="">
+
+		<div class="gr">
+			<div class="gr-ln">
+				<div class="gr-unt">
+					<h1 class="d1">Seznam Design Systém</h1>
+					<h2 class="d2">Seznam Design Systém je sada principů pro navrhování uživatelských rozhraní</h2>
+					<p class="sbh">Zatím ve fázi experimentování</p>
+					
+					<p class="bd">Dodržování sjednocené typografie posazené na osmipixelovou mřížku zajistí horizontalní rytmus, dobrou čitelnost a harmonii prvků a jejich vzdáleností. Seznam Design Systém dává jednoduchý mechanizmus kontroly. Zobrazením mřížky přes stránku může kdokoliv zkontrolovat, jsou-li text, ovládací a grafické prvky správně posazeny a zarovnány.</p>
+					
+					<p class="hl">Typografická škála</p>
+					<p class="bd">Každý textový styl má jasně definované vlastnosti. Každý styl má svoje jméno a jeho případná změna se děje globálně. Každý řádek textu sedí svým účařím na základní mřížce (s výjimkou Body, kdy v odstavci sedí každý druhý řádek.</p>
+
+					<ul>
+						<li class="ttl">Display 1</li>
+						<li class="ttl">Display 2</li>
+						<li class="ttl">Headline</li>
+						<li class="ttl">Title</li>
+						<li class="ttl">Subhead</li>
+						<li class="ttl">Body</li>
+						<li class="ttl">Caption</li>
+					</ul>
+					
+					<p class="hl">Základní mřížka</p>
+					<p class="bd">Mřížka o velikost 8 x 8px, kdy číslo osm slouží jako virtuální jednotka určující velikosti prvků a vzdálenosti mezi nimi. Každý vědomý rozměr je jejím násobkem.</p>
+					
+					<p class="hl">Vertikální mřížka</p>
+					<p class="bd">Sloupce o šířce 16 px slouží především ke stanovení šířky, poměrů a mezer vícesloupcových layoutů a svislému zarovnání dominantních prvků.</p>
+
+					<p class="cp">Poznámky: Styly Caption, Body, Subhead a Title mohou mít různé řezy, jako bold nebo italic.</p>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			// vypnutí posunutí vůči baseline mřížce
+		    document.addEventListener("DOMContentLoaded", function(event) {
+
+		    	// test: aktivujeme Grid.Build
+		    	Grid.Build.activate();
+
+		    });
+		</script>
 	</body>
 </html>
