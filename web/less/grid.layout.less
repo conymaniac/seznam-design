@@ -1,0 +1,49 @@
+/**
+ * @name: grid.layout.less
+ * @desc: Základní horizontální grid – layout
+ */
+
+/*** ------------ PROMĚNNÉ A NASTAVENÍ ---------------- **/
+
+/* barvy */
+@cl-unt-1: rgba(255, 226, 255, 0.5);    /* barva řádku/sloupečku */
+@cl-unt-2: rgba(255, 255, 255, 0.5);    /* barva řádku/sloupečku */
+
+
+/*** ------------ GRID – HORIZONTAL/LAYOUT ---------------- **/
+
+/* zobrazení základního horizontálního gridu – layout */
+.gr-lt {
+	z-index: 2000; 		/* většinou se používá v css kolem 999, tohle by snad mělo zajistit převýšení */
+
+	/* spec. nastavení pro grid */
+	.gr {
+
+		/* vzhled */
+		// .mx-opacity(0.5);
+		min-height: 100%;
+
+		/* pozice */
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		margin: auto;
+	}
+
+	/* unity */
+	.gr-unt {
+		.mx-opacity(0.5);
+		background-color: @cl-unt-2;
+		z-index: 1;
+	}
+	
+	/* obsah buněk */
+	.gr-cnt {
+		background-color: @cl-unt-1;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+}

@@ -3,6 +3,11 @@
  * @desc: Vzhled stránky - elementy
  */
 
+/*** ------------ PROMĚNNÉ A NASTAVENÍ ---------------- **/
+
+/* barvy */
+@cl-mrgn: #EFFBD5; 		/* barva marginu pro horizontální grid */
+
 /*** ------------ GRID – ELEMENTY ---------------- **/
 
 /* default – společné nastavení */ 
@@ -15,6 +20,7 @@
 
 /* řádek */
 .gr-ln {
+	z-index: 1;
 
 	/* reset floatování */
 	&:before,
@@ -74,4 +80,42 @@
 			padding-left: @dk-gutter;
 		}
 	}
+}
+
+/* zvýraznění marginu */
+.gr-mrgn {
+
+	/* pozice */
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 2;
+
+	/* vzhled */
+	background-color: @cl-mrgn;
+
+	&:last-child {
+		left: auto;
+		right: 0;
+	}
+
+	/* rozměry */
+	width: @m1-padding;
+
+	/* layout – mobil 2 */
+	@media screen and (min-width: @m2-minWidth) {
+		width: @m2-padding;
+	}
+
+	/* layout – tablet */
+	@media screen and (min-width: @tb-minWidth) {
+		width: @tb-padding;
+	}
+
+	/* layout – desktop */
+	@media screen and (min-width: @dk-minWidth) {
+		width: @dk-padding;
+	}
+
 }

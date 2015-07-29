@@ -18,9 +18,9 @@
 
 	</head>
 
-	<body class="">
+	<body>
 
-		<div class="gr">
+		<div id="content" class="gr content">
 			<div class="gr-ln">
 				<div class="gr-unt">
 					<h1 class="d1">Seznam Design Systém</h1>
@@ -56,9 +56,9 @@
 		<script type="text/javascript">
 			// vypnutí posunutí vůči baseline mřížce
 		    document.addEventListener("DOMContentLoaded", function(event) {
-
 		    	// test: aktivujeme Grid.Build
-		    	Grid.Build.activate();
+		    	Grid.Build.cfg();
+		    	Grid.Build.activate(true, true);
 
 		    });
 		</script>

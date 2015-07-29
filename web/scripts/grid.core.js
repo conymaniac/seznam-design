@@ -1,14 +1,11 @@
 module.exports = function() {
 
 /**
- * @overview Základní správce mřížky
+ * @overview Základní jádro mřížky
  * @version 0.1.0
  * @author Dominik Michna (dominik.michna@firma.seznam.cz)
  */
 
-/**
- * @class grid.build
- */
 (function() {
     'use strict';
 
@@ -16,7 +13,7 @@ module.exports = function() {
 	 * Namespace pro Grid
 	 * @type {object}
 	 *
-	 * @group grid
+	 * @group Grid
 	 */
 	var Grid = Grid || { 'Name': 'Grid' }
   	
