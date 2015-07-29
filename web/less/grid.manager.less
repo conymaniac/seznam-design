@@ -1,0 +1,230 @@
+/**
+ * @name: grid.manager.less
+ * @desc: Ovládací prvky pro zobrazení/skrytí mřížky
+ */
+
+/*** ------------ PROMĚNNÉ A NASTAVENÍ ---------------- **/
+
+/* výjimka ve velikostech */
+@exp-1-minWidth: 32em;        /* 512px */
+@exp-2-minWidth: 49em;        /* 768px */
+
+/* barvy */
+@cl-btn-1: #DC1F28;
+@cl-btn-2: #AF0E16;
+@cl-btn-3: #FFF;
+
+/*** ------------ GRID – MANAGER ---------------- **/
+
+/* zobrazení ovládacích prvků */
+.gr-mg {
+    position: absolute; /* přepozicování fixního gridu nad absolutně pozicovanými */
+    z-index: 2002;      /* většinou se používá v css kolem 999, tohle by snad mělo zajistit převýšení */
+
+    /* spec. nastavení pro grid */
+    .gr {
+
+        /* mixiny */
+        .mx-opacity(0.9);
+
+        /* vzhled */
+        width: 100%;
+        max-width: 100%;
+        height: 3em;
+        padding: .5em 0;
+        background-color: #000;
+        text-align: left;
+
+        /* pozice */
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+
+        @media screen and (min-width: @tb-minWidth) {
+            text-align: center;
+        }
+
+        /* zmenšená forma */
+        .shrnk& {
+            min-width: auto;
+            width: 4em;
+            right: auto;
+            border-top-right-radius: .5em;
+            overflow: hidden;
+
+            @media screen and (min-width: @tb-minWidth) {
+                width: 8.5em;
+            }
+        }
+
+    }
+
+    /* zarovnání */
+    .fl-lft {
+        float: left;
+    }
+
+    .fl-rght {
+        float: right;
+    }
+
+    /* tlačítko */
+    .btn {
+
+        /* mixiny */
+        .mx-clearBtn();
+        .mx-transition(500ms opacity ease-in-out, 500ms display ease-in-out);
+        .mx-opacity(1);
+
+        /* vzhled */
+        box-sizing: border-box;
+        display: inline-block;
+        padding: .25em .5em;
+        margin: 0 .5em;
+        color: @cl-btn-1;
+        border: 1px solid @cl-btn-2;
+        border-radius: 0.25em;
+        background: transparent;
+        cursor: pointer;
+
+        @media screen and (min-width: @tb-minWidth) {
+            margin: 0 1em;
+        }
+
+        /* zmenšená forma */
+        .shrnk& {
+            .mx-opacity(0);
+        }
+        
+        /* první tlačítko */
+        &.btnLg {
+            display: none;
+            
+            /* zmenšená forma */
+            .shrnk& {
+                .mx-opacity(1);
+                display: inline-block;
+            }
+        }
+
+        /* první tlačítko */
+        &.btnCls {
+            margin-right: 1em;
+        }
+
+        /* aktivní tlačítko */
+        &.actv {
+            color: @cl-btn-3;
+            background-color: @cl-btn-1;
+            border-color: @cl-btn-1;
+        }
+        
+        /* hover efekt */
+        &:hover, &.actv:hover {
+            color: @cl-btn-3;
+            background-color: @cl-btn-2;
+            border-color: @cl-btn-2;
+        }
+
+        /* ikonka */
+        .icn-ctrl {
+            margin-right: 0;
+
+            @media screen and (min-width: @tb-minWidth) {
+                margin-right: .5em;
+            }
+        }
+        
+        /* popisek */
+        .lbl {
+            position: relative;
+            top: -1px;
+            display: none;
+
+            @media screen and (min-width: @tb-minWidth) {
+                display: initial;
+            }
+        }
+
+    }
+
+    /* skupina tlačítek */
+    .btnGrp {
+
+        /* mixiny */
+        .mx-opacity(1);
+
+        /* vzhled */
+        box-sizing: border-box;
+        display: inline-block;
+        width: auto;
+        height: 100%;
+        margin-left: 1em;
+        text-align: center;
+
+        /* zmenšená forma */
+        .shrnk& {
+            .mx-opacity(0);
+        }
+
+        /* odsazení */
+        .btn:first-child {
+            margin-left: 0;
+        }
+
+        /* odsazení */
+        .btn:last-child {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        @media screen and (min-width: @tb-minWidth) {
+            margin: auto;
+        }
+
+    }
+
+    /* pomocné informace */
+    .inf {
+        /* mixiny */
+        .mx-opacity(1);
+
+        /* vzhled */
+        box-sizing: border-box;
+        display: inline-block;
+        height: 2em;
+        line-height: 2em;
+        margin: 0 1em;
+        color: @cl-btn-1;
+
+        .prt {
+            margin-right: .5em;
+        }
+
+        /* info o velikosti viewportu skryjeme na mobilu */
+        &.sz {
+            display: none;
+
+            @media screen and (min-width: @exp-1-minWidth) {
+                display: inline-block;
+            }
+
+            @media screen and (min-width: @tb-minWidth) {
+                display: none;
+            }
+
+            @media screen and (min-width: @exp-2-minWidth) {
+                display: inline-block;
+            }
+        }
+
+        /* zmenšená forma */
+        .shrnk& {
+            .mx-opacity(0);
+            display: none;
+        }
+
+    }
+}

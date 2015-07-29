@@ -41,35 +41,32 @@ module.exports = function() {
             this._setHeight();
             if (document.addEventListener) {
                 window.addEventListener('resize', this._setHeight.bind(this), false);
-            } else {
-                window.attachEvent('onresize', this._setHeight.bind(this));
             }
 
     	},
 
     	// zobrazení/skrytí mřížky
     	activate: function (activateLayout, activateBaseline) {
-    		// kontrola na parametry, default je zobrazení
-    		if (typeof(activateLayout) !== 'boolean') { activateLayout = true; }
-            if (typeof(activateBaseline) !== 'boolean') { activateBaseline = true; }
-
     		// zobrazíme/skryjeme layout
-    		if (activateLayout) {
-    			this._dom.layout.style = 'display: block';
-    		} else {
-    			this._dom.layout.style = 'display: none';
+    		if (activateLayout === true) {
+    			this._dom.layout.style.display = 'block';
+                this._activeLayout = !!activateLayout;
+    		} else if (activateLayout === false) {
+    			this._dom.layout.style.display = 'none';
+                this._activeLayout = !!activateLayout;
     		}
 
             // zobrazíme/skryjeme baseline
-            if (activateBaseline) {
-                this._dom.baseline.style = 'display: block';
-            } else {
-                this._dom.baseline.style = 'display: none';
+            if (activateBaseline === true) {
+                this._dom.baseline.style.display = 'block';
+                this._activeBaseline = !!activateBaseline;
+            } else if (activateBaseline === false) {
+                this._dom.baseline.style.display = 'none';
+                this._activeBaseline = !!activateBaseline;
             }
 
-    		// nastavíme semafor
-    		this._activeLayout = activateLayout;
-            this._activeBaseline = activateBaseline;
+            // nastavíme výšku
+            this._setHeight();
     	},
 
         // inicializace
@@ -96,7 +93,7 @@ module.exports = function() {
     		// layout element
     		this._dom.layout = document.createElement('div');
     		this._dom.layout.className = 'gr-lt';
-    		this._dom.layout.style = 'display: none';
+    		this._dom.layout.style.display = 'none';
 
     		// obalující element
     		var grid = document.createElement('div');
@@ -118,7 +115,7 @@ module.exports = function() {
             // baseline element
             this._dom.baseline = document.createElement('div');
             this._dom.baseline.className = 'gr-bl';
-            this._dom.baseline.style = 'display: none';
+            this._dom.baseline.style.display = 'none';
 
             // obalující element
             var grid = document.createElement('div');
@@ -190,12 +187,12 @@ module.exports = function() {
 
                 // kontrola na rozměry
                 var bHeight = document.body.offsetHeight;
-                var wHeight = Object.prototype.hasOwnProperty.call(window, 'outerHeight') ? window.outerHeight : document.body.clientHeight;
+                var wHeight = Object.prototype.hasOwnProperty.call(window, 'innerHeight') ? window.innerHeight : document.body.clientHeight;
 
                 // porovnání výšky viewportu a body
                 if (bHeight > wHeight) {
-                    lGrid.style = 'height: ' + bHeight + 'px';
-                    bGrid.style = 'height: ' + bHeight + 'px';
+                    lGrid.style.height = bHeight + 'px';
+                    bGrid.style.height = bHeight + 'px';
                 } else {
                     lGrid.removeAttribute('style');
                     bGrid.removeAttribute('style');
