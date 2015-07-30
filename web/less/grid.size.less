@@ -1,12 +1,225 @@
 /**
  * @name: grid.size.less
  * @desc: Vzhled stránky - rozměry elementů
- * 
+ * @see: http://ux.mailchimp.com/patterns
  */
 
-/*** ------------ GRID – VELIKOSTI ---------------- **/
+/*** ------------ GRID – VELIKOSTI - DEFAULT ---------------- **/
 
-/* default – 24 sloupečků, slouží pro zarovnání, jinak pravděpodobně se nebude používat */
+/* !! nejsou responsive, pouze adaptivní, slouží pro zarovnání */
+
+/* 24 částí */
 .size1of24 {
-	width: 4.1666666667%;
+	/* všechny typy layoutů */
+	width: calc(100/24%);
+}
+
+/* 12 částí */
+.size1of12 {
+	/* všechny typy layoutů */
+	width: calc(100/12%);
+}
+
+/*** ------------ GRID – VELIKOSTI - RESPONSIVE ---------------- **/
+
+/* 1 část z 8mi */
+.size1of8 {
+	/* layout - mobil 1 */
+	width: 100%;
+
+	/* layout – mobil 2 */
+	@media screen and (min-width: @m2-minWidth) {
+		width: 100%;
+	}
+
+	/* layout – tablet */
+	@media screen and (min-width: @tb-minWidth) {
+		width: calc(100/2%);
+	}
+
+	/* layout – desktop */
+	@media screen and (min-width: @dk-minWidth) {
+		width: calc(100/8%);
+	}
+}
+
+/* 1 část ze 4, 2 částí z 8mi */
+.size1of4,
+.size2of8 {
+	/* layout - mobil 1 */
+	width: 100%;
+
+	/* layout – mobil 2 */
+	@media screen and (min-width: @m2-minWidth) {
+		width: 100%;
+	}
+
+	/* layout – tablet */
+	@media screen and (min-width: @tb-minWidth) {
+		width: 100%;
+	}
+
+	/* layout – desktop */
+	@media screen and (min-width: @dk-minWidth) {
+		width: calc(100/4%);
+	}
+}
+
+/* 1 část ze 3 */
+.size1of3 {
+	/* layout - mobil 1 */
+	width: 100%;
+
+	/* layout – mobil 2 */
+	@media screen and (min-width: @m2-minWidth) {
+		width: 100%;
+	}
+
+	/* layout – tablet */
+	@media screen and (min-width: @tb-minWidth) {
+		width: 100%;
+	}
+
+	/* layout – desktop */
+	@media screen and (min-width: @dk-minWidth) {
+		width: calc(100/3%);
+	}
+}
+
+/* 3 části z 8mi */
+.size3of8 {
+	/* layout - mobil 1 */
+	width: 100%;
+
+	/* layout – mobil 2 */
+	@media screen and (min-width: @m2-minWidth) {
+		width: 100%;
+	}
+
+	/* layout – tablet */
+	@media screen and (min-width: @tb-minWidth) {
+		width: 100%;
+	}
+
+	/* layout – desktop */
+	@media screen and (min-width: @dk-minWidth) {
+		width: calc(100/3%);
+	}
+}
+
+/* 1 část ze 2, 2 části ze 4, 4 části z 8mi */
+.size1of2,
+.size2of4,
+.size4of8 {
+	/* layout - mobil 1 */
+	width: 100%;
+
+	/* layout – mobil 2 */
+	@media screen and (min-width: @m2-minWidth) {
+		width: 100%;
+	}
+
+	/* layout – tablet */
+	@media screen and (min-width: @tb-minWidth) {
+		width: 50%;
+	}
+
+	/* layout – desktop */
+	@media screen and (min-width: @dk-minWidth) {
+		width: 50%;
+	}
+}
+
+/* 5 částí z 8mi */
+.size5of8 {
+	/* layout - mobil 1 */
+	width: 100%;
+
+	/* layout – mobil 2 */
+	@media screen and (min-width: @m2-minWidth) {
+		width: 100%;
+	}
+
+	/* layout – tablet */
+	@media screen and (min-width: @tb-minWidth) {
+		width: 100%;
+	}
+
+	/* layout – desktop */
+	@media screen and (min-width: @dk-minWidth) {
+		width: calc(100/8*5%);
+	}
+}
+
+/* 2 části z 3 */
+.size2of3 {
+	/* layout - mobil 1 */
+	width: 100%;
+
+	/* layout – mobil 2 */
+	@media screen and (min-width: @m2-minWidth) {
+		width: 100%;
+	}
+
+	/* layout – tablet */
+	@media screen and (min-width: @tb-minWidth) {
+		width: 100%;
+	}
+
+	/* layout – desktop */
+	@media screen and (min-width: @dk-minWidth) {
+		width: calc(100/3*2%);
+	}
+}
+
+/* 3 části ze 4, 6 částí z 8mi */
+.size3of4, 
+.size6of8 {
+	/* layout - mobil 1 */
+	width: 100%;
+
+	/* layout – mobil 2 */
+	@media screen and (min-width: @m2-minWidth) {
+		width: 100%;
+	}
+
+	/* layout – tablet */
+	@media screen and (min-width: @tb-minWidth) {
+		width: 100%;
+	}
+
+	/* layout – desktop */
+	@media screen and (min-width: @dk-minWidth) {
+		width: calc(100/4*3%);
+	}
+}
+
+/* 7 části z 8mi */
+.size7of8 {
+	/* layout - mobil 1 */
+	width: 100%;
+
+	/* layout – mobil 2 */
+	@media screen and (min-width: @m2-minWidth) {
+		width: 100%;
+	}
+
+	/* layout – tablet */
+	@media screen and (min-width: @tb-minWidth) {
+		width: 100%;
+	}
+
+	/* layout – desktop */
+	@media screen and (min-width: @dk-minWidth) {
+		width: calc(100/8*7%);
+	}
+}
+
+/* 1 část 1, 2 části 2, 3 části 3, 4 části 4, 8 částí 8mi */
+.size1of1,
+.size2of2,
+.size3of3,
+.size4of4,
+.size8of8 {
+	width: 100%;
 }

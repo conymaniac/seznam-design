@@ -235,6 +235,9 @@ module.exports = function() {
         _setGridActive: function(e) {
             // target element
             var target = e.target;
+            if (target.className.indexOf('btn') === -1) {
+                target = target.parentNode;
+            }
 
             // kontrola na třídu
             var classes = target.className;
