@@ -46,14 +46,20 @@
         }
 
         /* zmenšená forma */
+        .shrnking&,
+        .unshrnking& {
+            min-width: 0;
+        }
+
+        /* zmenšená forma */
         .shrnk& {
-            min-width: inherit;
-            width: 4em;
+            min-width: 0;
+            width: 3.5em;
             border-top-right-radius: .5em;
             overflow: hidden;
 
             @media screen and (min-width: @tb-minWidth) {
-                width: 8.5em;
+                width: 7.5em;
             }
         }
 
@@ -75,10 +81,12 @@
         .mx-clearBtn();
         .mx-transition(500ms opacity ease-in-out, 500ms display ease-in-out);
         .mx-opacity(1);
-
+        
         /* vzhled */
         box-sizing: border-box;
         display: inline-block;
+        width: 2.5em;
+        height: 2em;
         padding: .25em .5em;
         margin: 0 .5em;
         color: @cl-btn-1;
@@ -89,17 +97,37 @@
 
         @media screen and (min-width: @tb-minWidth) {
             margin: 0 1em;
+            width: auto;
+            height: auto;
+        }
+
+        /* zmenšená forma – animace */
+        .shrnking& {
+            .mx-opacity(0);
+        }
+
+        /* zmenšená forma – animace */
+        .unshrnking& {
+            .mx-opacity(0);
+            display: none;
         }
 
         /* zmenšená forma */
         .shrnk& {
-            .mx-opacity(0);
+            display: none;
         }
         
         /* první tlačítko */
         &.btnLg {
+            .mx-opacity(0);
             display: none;
             
+            /* zmenšená forma – animace */
+            .unshrnking& {
+                .mx-opacity(0);
+                display: none;
+            }
+
             /* zmenšená forma */
             .shrnk& {
                 .mx-opacity(1);
@@ -117,13 +145,21 @@
             color: @cl-btn-3;
             background-color: @cl-btn-1;
             border-color: @cl-btn-1;
+
+            .no-touch& {
+                color: @cl-btn-3;
+                background-color: @cl-btn-1;
+                border-color: @cl-btn-1;
+            }
         }
         
         /* hover efekt */
         &:hover, &.actv:hover {
-            color: @cl-btn-3;
-            background-color: @cl-btn-2;
-            border-color: @cl-btn-2;
+            :not(.no-touch)& {
+                color: @cl-btn-3;
+                background-color: @cl-btn-2;
+                border-color: @cl-btn-2;
+            }
         }
 
         /* ikonka */
@@ -153,6 +189,7 @@
 
         /* mixiny */
         .mx-opacity(1);
+        display: inherit;
 
         /* vzhled */
         box-sizing: border-box;
@@ -162,9 +199,21 @@
         margin-left: 1em;
         text-align: center;
 
+        /* zmenšená forma – animace */
+        .shrnking& {
+            .mx-opacity(0);
+        }
+
+        /* zmenšená forma – animace */
+        .unshrnking& {
+            .mx-opacity(0);
+            display: none;
+        }
+
         /* zmenšená forma */
         .shrnk& {
             .mx-opacity(0);
+            display: none;
         }
 
         /* odsazení */
@@ -188,6 +237,7 @@
     .inf {
         /* mixiny */
         .mx-opacity(1);
+        display: inherit;
 
         /* vzhled */
         box-sizing: border-box;
@@ -218,9 +268,19 @@
             }
         }
 
+        /* zmenšená forma – animace */
+        .shrnking& {
+            .mx-opacity(0);
+        }
+
+        /* zmenšená forma – animace */
+        .unshrnking& {
+            .mx-opacity(0);
+            display: none;
+        }
+
         /* zmenšená forma */
         .shrnk& {
-            .mx-opacity(0);
             display: none;
         }
 

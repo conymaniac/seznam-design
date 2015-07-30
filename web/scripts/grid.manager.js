@@ -20,7 +20,8 @@ module.exports = function() {
         _opt: {
             units: 24,
             directlyManager: true,      // přímo zapnout ovládací prvky
-            directlyGrid: false         // přímo zapnout mřížku
+            directlyGrid: false,        // přímo zapnout mřížku
+            directlyShrink: false,      // přímo zmenšená verze
         },
 
         // DOM objekty
@@ -60,8 +61,10 @@ module.exports = function() {
             // zobrazíme/skryjeme ovládací prvky
             if (activate) {
                 this._dom.manager.style.display = 'block';
+                document.body.style.paddingBottom = '3.5em';
             } else {
                 this._dom.manager.style.display = 'none';
+                document.body.removeAttribute('style');
             }
 
             // nastavíme semafor
@@ -74,15 +77,15 @@ module.exports = function() {
             this._build();
 
             // zobrazení/skrytí ovládacích prvků dle nastavení
-            this.activate(this._opt.directlyActiveManager);
+            this.activate(this._opt.directlyManager);
 
             // konfigurace mřížky
-            if (window.Grid && window.Grid.Build) {
-                window.Grid.Build.cfg(this._opt);
+            if (window.Grid && window.Grid.Builder) {
+                window.Grid.Builder.cfg(this._opt);
 
                 // dle možností můžeme rovnou i aktivovat kompletní mřížku
                 if (this._opt.directlyGrid) {
-                    window.Grid.Build.activate(true, true);
+                    window.Grid.Builder.activate(true, true);
                 }
             }
         },
@@ -96,13 +99,18 @@ module.exports = function() {
                 // přidáme do body
                 document.body.appendChild(this._dom.manager);
             }
-        },
+
+            // kontrola na touch zařízení
+            if ('ontouchstart' in document) {
+                this._dom.manager.className += ' no-touch';
+            }
+         },
 
         // vytvoření managera
         _buildManager: function () {
             // manager element
             this._dom.manager = document.createElement('div');
-            this._dom.manager.className = 'gr-mg';
+            this._dom.manager.className = 'gr-mg' + (this._opt.directlyShrink ? ' shrnk' : '');
             this._dom.manager.style.display = 'block';
 
             // obalující element
@@ -114,7 +122,7 @@ module.exports = function() {
 
             // vybuildíme unity
             this._buildGridControls(grid);
-            this._buildSizeControls(grid);
+            this._buildSizeInfo(grid);
             this._buildManagerControls(grid);
 
             // přidáme do body
@@ -131,7 +139,7 @@ module.exports = function() {
                 this._dom.logo.setAttribute('type', 'button');
                 this._dom.logo.className = 'btn btnLg';
                 this._dom.logo.innerHTML = '<span class="icn-ctrl icn-ctrl-lg"></span><span class="lbl">Otevřít</span>';
-                this._dom.left.appendChild(this._dom.logo);
+                this._dom.right.appendChild(this._dom.logo);
 
                 // ikonka – zavřít
                 this._dom.close = this._dom.logo.cloneNode();
@@ -160,14 +168,14 @@ module.exports = function() {
                 // zobrazení layoutu
                 this._dom.layout = document.createElement('button');
                 this._dom.layout.setAttribute('type', 'button');
-                this._dom.layout.className = 'btn btnLt' + (this._opt.directlyGrid ? ' active' : '');
+                this._dom.layout.className = 'btn btnLt' + (this._opt.directlyGrid ? ' actv' : '');
                 this._dom.layout.id = 'btnLt';
                 this._dom.layout.innerHTML = '<span class="icn-ctrl icn-ctrl-lt"></span><span class="lbl">Zobrazit layout</span>';
 
                 // zobrazení baseline
                 this._dom.baseline = document.createElement('button');
                 this._dom.baseline.setAttribute('type', 'button');
-                this._dom.baseline.className = 'btn btnBl' + (this._opt.directlyGrid ? ' active' : '');
+                this._dom.baseline.className = 'btn btnBl' + (this._opt.directlyGrid ? ' actv' : '');
                 this._dom.baseline.id = 'btnBl';
                 this._dom.baseline.innerHTML = '<span class="icn-ctrl icn-ctrl-bl"></span><span class="lbl">Zobrazit baseline</span>';
 
@@ -185,7 +193,7 @@ module.exports = function() {
         },
 
         // vybuildnění informací o layoutu
-        _buildSizeControls: function(grid) {
+        _buildSizeInfo: function(grid) {
             // pokud existuje rodič a máme počet sloupečků
             if (grid !== null) {
 
@@ -217,21 +225,46 @@ module.exports = function() {
             }     
         },
 
-        // aktivování/deaktivování mřížky
+        // aktivování/deaktivování managera
         _setManagerActive: function(e) {
             // kontrola na element
             if (this._dom.manager === null) { return; }
 
-            // kontrola na třídu
+            // kontrola na třídu stavu
+            var shrink = true;
             var classes = this._dom.manager.className;
-            if (classes.indexOf('shrnk') > -1) {
-                this._dom.manager.className = this._dom.manager.className.replace(' shrnk', '');
-            } else {
+            if (classes.indexOf('shrnk') > -1 && classes.indexOf('shrnking') === -1 && classes.indexOf('unshrnking') === -1) {
+                this._dom.manager.className = classes.replace(' shrnk', '');
+                shrink = false;
+            }
+
+            // kontrola na třídu
+            this._dom.manager.className +=  shrink ? ' shrnking' : ' unshrnking';
+
+            // "animace"
+            this._timeOut = setTimeout(this._doneManagerActive.bind(this, shrink), 500);
+        },
+
+        // ukončení aktivování/deaktivování managera
+        _doneManagerActive: function(shrink) {
+            // kontrola na element
+            if (this._dom.manager === null) { return; }
+
+            // kontrola na třídu animace
+            var classes = this._dom.manager.className;
+            if (classes.indexOf('shrnking') > -1 && classes.indexOf('unshrnking') === -1) {
+                this._dom.manager.className = classes.replace(' shrnking', '');
+            } else if (classes.indexOf('unshrnking') > -1) {
+                this._dom.manager.className = classes.replace(' unshrnking', '');
+            }
+
+            // kontrola na třídu stavu
+            if (shrink) {
                 this._dom.manager.className += ' shrnk';
             }
         },
 
-        // aktivování/deaktivování managera
+        // aktivování/deaktivování mřížky
         _setGridActive: function(e) {
             // target element
             var target = e.target;
@@ -248,10 +281,10 @@ module.exports = function() {
             }
 
             // odpovídající aktivování mřížky
-            if (window.Grid && window.Grid.Build) {
+            if (window.Grid && window.Grid.Builder) {
                 var activateLayout = this._dom.layout.className.indexOf('actv') > -1;
                 var activateBaseline = this._dom.baseline.className.indexOf('actv') > -1;
-                window.Grid.Build.activate(activateLayout, activateBaseline);
+                window.Grid.Builder.activate(activateLayout, activateBaseline);
             }
         },
 

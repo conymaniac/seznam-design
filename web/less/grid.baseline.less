@@ -21,6 +21,7 @@
         /* vzhled */
         .mx-opacity(0.5);
         min-height: 100%;
+        overflow: hidden;
 
         /* pozice */
         position: absolute;
@@ -34,8 +35,8 @@
     /* řádky */
     .gr-ln {
         /* mřížka na backgroundu */
-        background: linear-gradient(to bottom, @cl-unt-1, @cl-unt-1 50%, @cl-unt-2 50%, @cl-unt-2);
-        background-size: 100% 16px;
+        .mx-background-image(linear-gradient(to bottom, @cl-unt-1, @cl-unt-1 50%, @cl-unt-2 50%, @cl-unt-2));
+        .mx-background-size(100% 16px);
     }
 
 }

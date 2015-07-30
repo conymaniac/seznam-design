@@ -11,6 +11,6 @@
 
     // vloží všechny požadované části
 	require('./grid.core')();
-	require('./grid.build')();
+	require('./grid.builder')();
 	require('./grid.manager')();
 })();

@@ -47,6 +47,26 @@ module.exports = function ( grunt ) {
                         dest: 'demo/fonts'
                     }
                 ]
+            },
+            remote: {
+                files:[
+                    {
+                        src: 'web/index-remote.html',
+                        dest: 'demo/index.html',
+                    },
+                    {
+                        expand: true,
+                        cwd: 'web/img',
+                        src: '**',
+                        dest: 'demo/img'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'web/fonts',
+                        src: '**',
+                        dest: 'demo/fonts'
+                    }
+                ]
             }
         },
         scp: {
@@ -63,21 +83,21 @@ module.exports = function ( grunt ) {
                         src: 'index.html',
                         filter: 'isFile',
                         // path on the server
-                        dest: '/www/firmy/demo/www/templ'
+                        dest: '/www/firmy/demo/templ'
                     },
                     {
                         cwd: 'demo/js',
-                        src: '*',
+                        src: '**',
                         filter: 'isFile',
                         // path on the server
-                        dest: '/www/firmy/demo/www/static/js'
+                        dest: '/www/firmy/demo/static/js'
                     },
                     {
                         cwd: 'demo/css',
-                        src: '*',
+                        src: '**',
                         filter: 'isFile',
                         // path on the server
-                        dest: '/www/firmy/demo/www/static/css'
+                        dest: '/www/firmy/demo/static/css'
                     }
                 ]
             },
@@ -120,7 +140,10 @@ module.exports = function ( grunt ) {
     grunt.registerTask('default', ['demo']);
 
     // vybuildíme skoro jako při relase, jen bez uglify pro rychlost a překopírujeme na mrd
-    grunt.registerTask('remote', ['demo', 'scp']);
+    grunt.registerTask('remote', ['demo-remote', 'scp', 'demo']);
+
+    // pouze pro build jednoduchý
+    grunt.registerTask('demo-remote', ['less:demo', 'browserify:demo', 'copy:remote']);
 
     // pouze pro build jednoduchý
     grunt.registerTask('demo', ['less:demo', 'browserify:demo', 'copy:demo']);

@@ -10,9 +10,9 @@ module.exports = function() {
     'use strict';
 
     /**
-	 * @class Grid.Build
+	 * @class Grid.Builder
 	 */
-    var Build = {
+    var Builder = {
 
     	// status, semafor
     	_activeLayout: false,
@@ -38,7 +38,6 @@ module.exports = function() {
             this._build();
 
             // výška gridu při resize okna
-            this._setHeight();
             if (document.addEventListener) {
                 window.addEventListener('resize', this._setHeight.bind(this), false);
             }
@@ -66,7 +65,7 @@ module.exports = function() {
             }
 
             // nastavíme výšku
-            this._setHeight();
+            this._timeOut = setTimeout(this._setHeight.bind(this), 0);
     	},
 
         // inicializace
@@ -152,7 +151,7 @@ module.exports = function() {
     			for (var i = 0; i < this._opt.units; i++) {
     				// vytvoříme unitu
     				unit = document.createElement('div');
-    				unit.className = 'gr-unt size1of24' + (i === (this._opt.units - 1) ? ' gr-lst': '');
+    				unit.className = 'gr-unt size1of' + this._opt.units + (i === (this._opt.units - 1) ? ' gr-lst': '');
     				unit.innerHTML = '<span class="gr-cnt">&nbsp;</span>';
 
     				// přidáme do řádku
@@ -189,10 +188,16 @@ module.exports = function() {
                 var bHeight = document.body.offsetHeight;
                 var wHeight = Object.prototype.hasOwnProperty.call(window, 'innerHeight') ? window.innerHeight : document.body.clientHeight;
 
+                console.info('set height');
+                console.log(document.body.clientHeight);
+                console.log(document.body.offsetHeight);
+
                 // porovnání výšky viewportu a body
                 if (bHeight > wHeight) {
                     lGrid.style.height = bHeight + 'px';
                     bGrid.style.height = bHeight + 'px';
+                    lGrid.style.bottom = 'auto';
+                    bGrid.style.bottom = 'auto';
                 } else {
                     lGrid.removeAttribute('style');
                     bGrid.removeAttribute('style');
@@ -203,7 +208,7 @@ module.exports = function() {
 	};
 
 	// uložíme do window objektu
-	window.Grid.Build = Build;
+	window.Grid.Builder = Builder;
 
 })();
 
