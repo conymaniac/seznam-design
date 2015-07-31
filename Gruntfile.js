@@ -37,13 +37,13 @@ module.exports = function ( grunt ) {
                     {
                         expand: true,
                         cwd: 'web/img',
-                        src: '**',
+                        src: ["*.*", "**/*.*"],
                         dest: 'demo/img'
                     },
                     {
                         expand: true,
                         cwd: 'web/fonts',
-                        src: '**',
+                        src: ["*.*", "**/*.*"],
                         dest: 'demo/fonts'
                     }
                 ]
@@ -57,13 +57,13 @@ module.exports = function ( grunt ) {
                     {
                         expand: true,
                         cwd: 'web/img',
-                        src: '**',
+                        src: ["*.*", "**/*.*"],
                         dest: 'demo/img'
                     },
                     {
                         expand: true,
                         cwd: 'web/fonts',
-                        src: '**',
+                        src: ["*.*", "**/*.*"],
                         dest: 'demo/fonts'
                     }
                 ]
