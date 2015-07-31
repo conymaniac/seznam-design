@@ -64,7 +64,8 @@ module.exports = function() {
                 this._activeBaseline = !!activateBaseline;
             }
 
-            // nastavíme výšku
+            // nastavíme výšku, synchro
+            this._timeOut = this._timeOut && clearTimeout(this._timeOut);
             this._timeOut = setTimeout(this._setHeight.bind(this), 0);
     	},
 
@@ -125,7 +126,7 @@ module.exports = function() {
 
             // vytvoříme elementy – řádek
             var line = document.createElement('div');
-            line.className = 'gr-ln';
+            line.className = 'ln';
 
             // přidáme řádek do rodiče
             grid.appendChild(line);
@@ -144,15 +145,15 @@ module.exports = function() {
 
     			// vytvoříme elementy – řádek
     			var line = document.createElement('div');
-    			line.className = 'gr-ln';
+    			line.className = 'ln';
 
     			// vytvoříme odpovídající počet unit
     			var unit;
     			for (var i = 0; i < this._opt.units; i++) {
     				// vytvoříme unitu
     				unit = document.createElement('div');
-    				unit.className = 'gr-unt size1of' + this._opt.units + (i === (this._opt.units - 1) ? ' gr-lst': '');
-    				unit.innerHTML = '<span class="gr-cnt">&nbsp;</span>';
+    				unit.className = 'unt s1of' + this._opt.units + (i === (this._opt.units - 1) ? ' lst': '');
+    				unit.innerHTML = '<span class="cnt">&nbsp;</span>';
 
     				// přidáme do řádku
     				line.appendChild(unit);
@@ -169,7 +170,7 @@ module.exports = function() {
             if (grid !== null) {
                 // vytvoříme fake element pro zobrazení marginu
                 var mrgn = document.createElement('div');
-                mrgn.className = 'gr-mrgn';
+                mrgn.className = 'mrgn';
                 grid.insertBefore(mrgn, grid.firstChild);
                 grid.appendChild(mrgn.cloneNode(), grid.firstChild);
             }
@@ -187,10 +188,6 @@ module.exports = function() {
                 // kontrola na rozměry
                 var bHeight = document.body.offsetHeight;
                 var wHeight = Object.prototype.hasOwnProperty.call(window, 'innerHeight') ? window.innerHeight : document.body.clientHeight;
-
-                console.info('set height');
-                console.log(document.body.clientHeight);
-                console.log(document.body.offsetHeight);
 
                 // porovnání výšky viewportu a body
                 if (bHeight > wHeight) {

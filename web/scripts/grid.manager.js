@@ -43,9 +43,13 @@ module.exports = function() {
             // nastavení – možnosti z argumentu
             for (var key in opt) { this._opt[key] = opt[key]; }
 
-            // po načtení DOMu nakonfigujerem mřížku a inicializujeme
+            // kontrla na event listener
             if (document.addEventListener) {
+                // po načtení DOMu nakonfigujerem mřížku a inicializujeme
                 document.addEventListener('DOMContentLoaded', this._init.bind(this));
+
+                // výška gridu při resize okna
+                window.addEventListener('resize', this._setBodyPadding.bind(this), false);
             }
 
         },
@@ -61,7 +65,10 @@ module.exports = function() {
             // zobrazíme/skryjeme ovládací prvky
             if (activate) {
                 this._dom.manager.style.display = 'block';
-                document.body.style.paddingBottom = '3.5em';
+
+                // nastavíme výšku, synchro
+                this._timeOut = this._timeOut && clearTimeout(this._timeOut);
+                this._timeOut = setTimeout(this._setBodyPadding.bind(this), 0);
             } else {
                 this._dom.manager.style.display = 'none';
                 document.body.removeAttribute('style');
@@ -242,6 +249,7 @@ module.exports = function() {
             this._dom.manager.className +=  shrink ? ' shrnking' : ' unshrnking';
 
             // "animace"
+            this._timeOut = this._timeOut && clearTimeout(this._timeout);
             this._timeOut = setTimeout(this._doneManagerActive.bind(this, shrink), 500);
         },
 
@@ -313,6 +321,20 @@ module.exports = function() {
 
                 // zobrazíme info
                 this._dom.layoutType.textContent = 'Layout ' + type;
+            }
+        },
+
+        // nastavení paddingu
+        _setBodyPadding: function() {
+            // kontrola na rozměry
+            var bHeight = document.body.offsetHeight;
+            var wHeight = Object.prototype.hasOwnProperty.call(window, 'innerHeight') ? window.innerHeight : document.body.clientHeight;
+
+            // porovnání výšky viewportu a body
+            if (bHeight > wHeight) {
+                document.body.style.paddingBottom = '3.5em';
+            } else {
+                document.body.removeAttribute('style');
             }
         }
     };
