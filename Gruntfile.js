@@ -99,6 +99,7 @@ module.exports = function ( grunt ) {
                         // path on the server
                         dest: '/www/firmy/demo/static/css'
                     }
+                    // dořešit kopírování font i img
                 ]
             },
         },

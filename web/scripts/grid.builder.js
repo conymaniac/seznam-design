@@ -1,212 +1,212 @@
-module.exports = function() {
-
 /**
  * @overview Vytvoření mřížky na pozadí
  * @version 0.1.0
  * @author Dominik Michna (dominik.michna@firma.seznam.cz)
  */
 
-(function() {
-    'use strict';
+module.exports = function(Grid) {
 
-    /**
-	 * @class Grid.Builder
-	 */
-    var Builder = {
+'use strict';
 
-    	// status, semafor
-    	_activeLayout: false,
-        _activeBaseline: false,
+/**
+ * @class Grid.Builder
+ */
+var Builder = function() {
 
-    	// nastavení – defaultní možnosti
-    	_opt: {
-    		units: 24
-    	},
+	// status, semafor
+	var _activeLayout = false;
+    var _activeBaseline = false;
 
-    	// DOM objekty
-    	_dom: {
-    		layout: null,
-            baseline: null
-    	},
-
-    	// konfigurace
-    	cfg: function (opt) {
-    		// nastavení – možnosti z argumentu
-    		for (var key in opt) { this._opt[key] = opt[key]; }
-
-            // incializace
-            this._build();
-
-            // výška gridu při resize okna
-            if (document.addEventListener) {
-                window.addEventListener('resize', this._setHeight.bind(this), false);
-            }
-
-    	},
-
-    	// zobrazení/skrytí mřížky
-    	activate: function (activateLayout, activateBaseline) {
-    		// zobrazíme/skryjeme layout
-    		if (activateLayout === true) {
-    			this._dom.layout.style.display = 'block';
-                this._activeLayout = !!activateLayout;
-    		} else if (activateLayout === false) {
-    			this._dom.layout.style.display = 'none';
-                this._activeLayout = !!activateLayout;
-    		}
-
-            // zobrazíme/skryjeme baseline
-            if (activateBaseline === true) {
-                this._dom.baseline.style.display = 'block';
-                this._activeBaseline = !!activateBaseline;
-            } else if (activateBaseline === false) {
-                this._dom.baseline.style.display = 'none';
-                this._activeBaseline = !!activateBaseline;
-            }
-
-            // nastavíme výšku, synchro
-            this._timeOut = this._timeOut && clearTimeout(this._timeOut);
-            this._timeOut = setTimeout(this._setHeight.bind(this), 0);
-    	},
-
-        // inicializace
-        _build: function() {
-            // kontrola na existenci layout mřížky
-            if (this._dom.layout === null) {
-                this._buildLayout();
-            } else if (this._dom.layout.parentNode !== document.body) {
-                // přidáme do body
-                document.body.appendChild(this._dom.layout);
-            }
-
-            // kontrola na existenci baseline mřížky
-            if (this._dom.baseline === null) {
-                this._buildBaseline();
-            } else if (this._dom.baseline.parentNode !== document.body) {
-                // přidáme do body
-                document.body.appendChild(this._dom.baseline);
-            }
-        },
-
-    	// vybuildnění layout mřížky
-    	_buildLayout: function() {
-    		// layout element
-    		this._dom.layout = document.createElement('div');
-    		this._dom.layout.className = 'gr-lt';
-    		this._dom.layout.style.display = 'none';
-
-    		// obalující element
-    		var grid = document.createElement('div');
-    		grid.className = 'gr';
-
-    		// přidáme rodiče do layout
-    		this._dom.layout.appendChild(grid);
-
-    		// vybuildíme unity
-    		this._buildUnits(grid);
-            this._buildMrgn(grid);
-
-    		// přidáme do body
-    		document.body.appendChild(this._dom.layout);
-    	},
-
-        // vybuildnění baseline mřížky
-        _buildBaseline: function() {
-            // baseline element
-            this._dom.baseline = document.createElement('div');
-            this._dom.baseline.className = 'gr-bl';
-            this._dom.baseline.style.display = 'none';
-
-            // obalující element
-            var grid = document.createElement('div');
-            grid.className = 'gr';
-
-            // přidáme rodiče do baseline
-            this._dom.baseline.appendChild(grid);
-
-            // vytvoříme elementy – řádek
-            var line = document.createElement('div');
-            line.className = 'ln';
-
-            // přidáme řádek do rodiče
-            grid.appendChild(line);
-
-            // vytvoříme fake element pro zobrazení marginu
-            this._buildMrgn(grid)
-
-            // přidáme do body
-            document.body.appendChild(this._dom.baseline);
-        },
-
-    	// vybuildnění unit
-    	_buildUnits: function(grid) {
-    		// pokud existuje rodič a máme počet sloupečků
-    		if (grid !== null && this._opt.units > 0) {
-
-    			// vytvoříme elementy – řádek
-    			var line = document.createElement('div');
-    			line.className = 'ln';
-
-    			// vytvoříme odpovídající počet unit
-    			var unit;
-    			for (var i = 0; i < this._opt.units; i++) {
-    				// vytvoříme unitu
-    				unit = document.createElement('div');
-    				unit.className = 'unt s1of' + this._opt.units + (i === (this._opt.units - 1) ? ' lst': '');
-    				unit.innerHTML = '<span class="cnt">&nbsp;</span>';
-
-    				// přidáme do řádku
-    				line.appendChild(unit);
-    			};
-
-	    		// přidáme řádek do rodiče
-	    		grid.appendChild(line);
-    		}
-    	},
-
-        // vybuildnění fake unit – zobrazení marginu
-        _buildMrgn: function(grid) {
-            // pokud existuje rodič a máme počet sloupečků
-            if (grid !== null) {
-                // vytvoříme fake element pro zobrazení marginu
-                var mrgn = document.createElement('div');
-                mrgn.className = 'mrgn';
-                grid.insertBefore(mrgn, grid.firstChild);
-                grid.appendChild(mrgn.cloneNode(), grid.firstChild);
-            }
-        },
-
-        // nastavíme výšku
-        _setHeight: function() {
-            // kontrola na gridy
-            if (this._dom.layout !== null && this._dom.baseline !== null) {
-
-                // jednotlivé gridy
-                var lGrid = this._dom.layout.querySelector('.gr');
-                var bGrid = this._dom.baseline.querySelector('.gr');
-
-                // kontrola na rozměry
-                var bHeight = document.body.offsetHeight;
-                var wHeight = Object.prototype.hasOwnProperty.call(window, 'innerHeight') ? window.innerHeight : document.body.clientHeight;
-
-                // porovnání výšky viewportu a body
-                if (bHeight > wHeight) {
-                    lGrid.style.height = bHeight + 'px';
-                    bGrid.style.height = bHeight + 'px';
-                    lGrid.style.bottom = 'auto';
-                    bGrid.style.bottom = 'auto';
-                } else {
-                    lGrid.removeAttribute('style');
-                    bGrid.removeAttribute('style');
-                }
-
-            }
-        }
+	// nastavení – defaultní možnosti
+	var _opt = {
+		units: 24         // počet unit v layout mřížce
 	};
 
-	// uložíme do window objektu
-	window.Grid.Builder = Builder;
+	// DOM objekty
+	var _dom = {
+		layout: null,
+        baseline: null
+	};
 
-})();
+    // timeout
+    var _timeOut = null;
+
+	// konfigurace
+	this.cfg = function (opt) {
+		// nastavení – možnosti z argumentu
+		for (var key in opt) { _opt[key] = opt[key]; }
+
+        // incializace
+        _build();
+
+        // výška gridu při resize okna
+        if (document.addEventListener) {
+            window.addEventListener('resize', _setHeight.bind(this), false);
+        }
+
+	};
+
+	// zobrazení/skrytí mřížky
+	this.activate = function (activateLayout, activateBaseline) {
+		// zobrazíme/skryjeme layout
+		if (activateLayout === true) {
+			_dom.layout.style.display = 'block';
+            _activeLayout = !!activateLayout;
+		} else if (activateLayout === false) {
+			_dom.layout.style.display = 'none';
+            _activeLayout = !!activateLayout;
+		}
+
+        // zobrazíme/skryjeme baseline
+        if (activateBaseline === true) {
+            _dom.baseline.style.display = 'block';
+            _activeBaseline = !!activateBaseline;
+        } else if (activateBaseline === false) {
+            _dom.baseline.style.display = 'none';
+            _activeBaseline = !!activateBaseline;
+        }
+
+        // nastavíme výšku, synchro
+        _timeOut = _timeOut && clearTimeout(_timeOut);
+        _timeOut = setTimeout(_setHeight.bind(this), 0);
+	};
+
+    // inicializace
+    var _build = function() {
+        // kontrola na existenci layout mřížky
+        if (_dom.layout === null) {
+            _buildLayout();
+        } else if (_dom.layout.parentNode !== document.body) {
+            // přidáme do body
+            document.body.appendChild(_dom.layout);
+        }
+
+        // kontrola na existenci baseline mřížky
+        if (_dom.baseline === null) {
+            _buildBaseline();
+        } else if (_dom.baseline.parentNode !== document.body) {
+            // přidáme do body
+            document.body.appendChild(_dom.baseline);
+        }
+    };
+
+	// vybuildnění layout mřížky
+	var _buildLayout = function() {
+		// layout element
+		_dom.layout = document.createElement('div');
+		_dom.layout.className = 'gr-lt';
+		_dom.layout.style.display = 'none';
+
+		// obalující element
+		var grid = document.createElement('div');
+		grid.className = 'gr';
+
+		// přidáme rodiče do layout
+		_dom.layout.appendChild(grid);
+
+		// vybuildíme unity
+		_buildUnits(grid);
+        _buildMrgn(grid);
+
+		// přidáme do body
+		document.body.appendChild(_dom.layout);
+	};
+
+    // vybuildnění baseline mřížky
+    var _buildBaseline = function() {
+        // baseline element
+        _dom.baseline = document.createElement('div');
+        _dom.baseline.className = 'gr-bl';
+        _dom.baseline.style.display = 'none';
+
+        // obalující element
+        var grid = document.createElement('div');
+        grid.className = 'gr';
+
+        // přidáme rodiče do baseline
+        _dom.baseline.appendChild(grid);
+
+        // vytvoříme elementy – řádek
+        var line = document.createElement('div');
+        line.className = 'ln';
+
+        // přidáme řádek do rodiče
+        grid.appendChild(line);
+
+        // vytvoříme fake element pro zobrazení marginu
+        _buildMrgn(grid)
+
+        // přidáme do body
+        document.body.appendChild(_dom.baseline);
+    };
+
+	// vybuildnění unit
+	var _buildUnits = function(grid) {
+		// pokud existuje rodič a máme počet sloupečků
+		if (grid !== null && _opt.units > 0) {
+
+			// vytvoříme elementy – řádek
+			var line = document.createElement('div');
+			line.className = 'ln';
+
+			// vytvoříme odpovídající počet unit
+			var unit;
+			for (var i = 0; i < _opt.units; i++) {
+				// vytvoříme unitu
+				unit = document.createElement('div');
+				unit.className = 'unt s1of' + _opt.units + (i === (_opt.units - 1) ? ' lst': '');
+				unit.innerHTML = '<span class="cnt">&nbsp;</span>';
+
+				// přidáme do řádku
+				line.appendChild(unit);
+			};
+
+    		// přidáme řádek do rodiče
+    		grid.appendChild(line);
+		}
+	};
+
+    // vybuildnění fake unit – zobrazení marginu
+    var _buildMrgn = function(grid) {
+        // pokud existuje rodič a máme počet sloupečků
+        if (grid !== null) {
+            // vytvoříme fake element pro zobrazení marginu
+            var mrgn = document.createElement('div');
+            mrgn.className = 'mrgn';
+            grid.insertBefore(mrgn, grid.firstChild);
+            grid.appendChild(mrgn.cloneNode(), grid.firstChild);
+        }
+    };
+
+    // nastavíme výšku
+    var _setHeight = function() {
+        // kontrola na gridy
+        if (_dom.layout !== null && _dom.baseline !== null) {
+
+            // jednotlivé gridy
+            var lGrid = _dom.layout.querySelector('.gr');
+            var bGrid = _dom.baseline.querySelector('.gr');
+
+            // kontrola na rozměry
+            var bHeight = document.body.offsetHeight;
+            var wHeight = Object.prototype.hasOwnProperty.call(window, 'innerHeight') ? window.innerHeight : document.body.clientHeight;
+
+            // porovnání výšky viewportu a body
+            if (bHeight > wHeight) {
+                lGrid.style.height = bHeight + 'px';
+                bGrid.style.height = bHeight + 'px';
+                lGrid.style.bottom = 'auto';
+                bGrid.style.bottom = 'auto';
+            } else {
+                lGrid.removeAttribute('style');
+                bGrid.removeAttribute('style');
+            }
+
+        }
+    }
+};
+
+// uložíme do Grid objektu
+Grid.Builder = new Builder();
 
 }
