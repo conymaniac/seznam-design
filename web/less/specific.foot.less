@@ -1,0 +1,39 @@
+/**
+ * @name: specific.foot.less
+ * @desc: Patička
+ */
+
+/*** ------------ PATIČKA ---------------- **/
+
+.foot {
+	position: absolute;
+	margin: auto;
+	left: 0;
+	right: 0;
+	padding-top: 1.5em;
+	padding-bottom: 1.5em;
+	text-align: center;
+
+	@media screen and (min-width: @dk-minWidth) {
+		padding-top: 2.5em;
+		padding-bottom: 2.5em;
+	}
+	
+	/* odkazy */
+	.lnk {
+		display: inline-block;
+		margin-left: 1em;
+
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+
+	/* copyright */
+	.copyright {
+		.mx-opacity(.4);
+		margin-top: 1em;
+		text-align: center;
+	}
+
+}

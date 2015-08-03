@@ -1,0 +1,116 @@
+/**
+ * @name: general.extension.less
+ * @desc: Rozšiřující třídy
+ */
+
+/*** ------------ DEFAULT ----------------- **/
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/*** ------------ FLOW -------------------- **/
+
+/* float left */
+.fl-lft {
+    float: left;
+}
+
+/* float right */
+.fl-rght {
+    float: right;
+}
+
+/* reset floatování */
+.fl-clr {
+	&:before,
+	&:after {
+		content: ' ';
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
+/*** ------------ SKRYVÁNÍ ----------------- **/
+
+/* nezobrazovat na mobilu 1 */
+.nt-m1 {
+	/* layout – mobil 1 */
+	@media screen and (max-width: @m1-maxWidth) {
+		display: none !important;
+	}
+}
+
+/* nezobrazovat na mobilu 2 */
+.nt-m2 {
+	/* layout – mobil 2 */
+	@media screen and (max-width: @m2-maxWidth) {
+		display: none !important;
+	}
+}
+
+/* nezobrazovat na tablet */
+.nt-tb {
+	/* layout – tablet  */
+	@media screen and (max-width: @tb-maxWidth) {
+		display: none !important;
+	}
+}
+
+/* nezobrazovat na desktopu */
+.nt-dk {
+	/* layout – desktop */
+	@media screen and (max-width: @dk-maxWidth) {
+		display: none !important;
+	}
+}
+
+
+/*** ------------ PRVKY -------------------- **/
+
+/* odkazy */
+.lnk {
+
+	/* základní vzhled */
+	cursor: pointer;
+
+	/* podtržení */
+	&:hover {
+		&.undrln,
+		.undrln {
+			text-decoration: underline;
+		}
+	}
+	&:focus {
+		&.undrln,
+		.undrln {
+			text-decoration: none;
+		}
+	}
+
+}
+
+/* tlačítka */
+.btn {
+
+	/* základní vzhled */
+	cursor: pointer;
+	
+	/* podtržení */
+	&:hover {
+		&.undrln,
+		.undrln {
+			text-decoration: underline;
+		}
+	}
+	&:focus {
+		&.undrln,
+		.undrln {
+			text-decoration: none;
+		}
+	}
+
+}

@@ -20,42 +20,323 @@
 
 	<body>
 
-		<div id="content" class="gr content">
-			<div class="ln">
-				<div class="unt">
-					<h1 class="dspl">Seznam Design Systém</h1>
-					<h2 class="ttl">Seznam Design Systém je sada principů pro navrhování uživatelských rozhraní</h2>
-					<p class="cptn">Zatím ve fázi experimentování</p>
-					
-					<p class="bd">Dodržování sjednocené typografie posazené na osmipixelovou mřížku zajistí horizontalní rytmus, dobrou čitelnost a harmonii prvků a jejich vzdáleností. Seznam Design Systém dává jednoduchý mechanizmus kontroly. Zobrazením mřížky přes stránku může kdokoliv zkontrolovat, jsou-li text, ovládací a grafické prvky správně posazeny a zarovnány.</p>
-					
-					<p class="hl">Typografická škála</p>
-					<p class="bd">Každý textový styl má jasně definované vlastnosti. Každý styl má svoje jméno a jeho případná změna se děje globálně. Každý řádek textu sedí svým účařím na základní mřížce (s výjimkou Body, kdy v odstavci sedí každý druhý řádek.</p>
-
-					<ul>
-						<li class="sbhl">Display 1</li>
-						<li class="sbhl">Display 2</li>
-						<li class="sbhl">Headline</li>
-						<li class="sbhl">Title</li>
-						<li class="sbhl">Subhead</li>
-						<li class="sbhl">Body</li>
-						<li class="sbhl">Caption</li>
-					</ul>
-					
-					<p class="hl">Základní mřížka</p>
-					<p class="bd">Mřížka o velikost 8 x 8px, kdy číslo osm slouží jako virtuální jednotka určující velikosti prvků a vzdálenosti mezi nimi. Každý vědomý rozměr je jejím násobkem.</p>
-					
-					<p class="hl">Vertikální mřížka</p>
-					<p class="bd">Sloupce o šířce 16 px slouží především ke stanovení šířky, poměrů a mezer vícesloupcových layoutů a svislému zarovnání dominantních prvků.</p>
-
-					<p class="cptn">Poznámky: Styly Caption, Body, Subhead a Title mohou mít různé řezy, jako bold nebo italic.</p>
+		<div id="content" class="content">
+			
+			<!-- HLAVIČKA -->
+			<div class="gr head">
+				<div class="ln">
+					<div class="unt size1of1">
+						<div class="fl-lft">	
+							<a href="/" class="logo">&nbsp;</a>
+						</div>
+						<div class="fl-rght links">
+							<span class="fl-lft bd nt-m2">jakub.bartasek@email.cz</span>
+							<button type="button" class="fl-lft lnk favourite">
+								<span class="iconfont icof-oblibene-akce-hlavicka"></span>
+								<span class="bd undrln">Moje oblíbené</span>
+							</button>
+							<button type="button" class="fl-lft lnk nt-m2">
+								<span class="bd undrln">Odhlásit</span>
+							</button>
+							<a href="http://seznam.cz" class="fl-lft lnk nt-tb hp" target="_blank">
+								<span class="bd undrln">Seznam.cz</span>
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
+
+			<!-- HLAVNÍ OBSAH -->
+			<div class="gr main">
+				<div class="ln">
+
+					<!-- DŮLEŽITÉ INFORMACE -->
+					<div class="unt s2of3">
+
+						<!-- NADPIS + ADRESA + LOGO -->
+						<div class="wrp s1of1 info">
+							<div class="fl-clr">	
+								<div class="fl-lft">
+									<p class="pstr title">Ing. Helena Friedrichová</p>
+									<p class="sbhl address">Lidická 337/30, 15000 Praha, Smíchov</p>
+								</div>
+								<div class="fl-rght">
+									<img class="fl-rght logo" src="img/demo/custom-logo.png" />
+								</div>
+							</div>
+							<div class="separator"></div>
+						</div>
+
+						<!-- HODNOCENÍ + KONTAKTY -->
+						<div class="wrp s1of1 contact">
+							<p class="wrp">
+								<span class="fl-lft sbhl label">Hodnocení</span>
+								<span class="fl-rght value stars">
+									<span class="icof-hvezda-plna star-16"></span>
+									<span class="icof-hvezda-plna star-16"></span>
+									<span class="icof-hvezda-plna star-16"></span>
+									<span class="icof-hvezda-prazdna star-empty-16"></span>
+									<span class="icof-hvezda-prazdna star-empty-16"></span>
+									<span class="sbhl">od 6 lidí</span>
+								</span>
+							</p>
+							<p class="wrp">
+								<span class="fl-lft sbhl label">Web</span>
+								<a class="fl-rght lnk sbhl undrln client value" href="www.hefriedrich-boty.cz" target="_blank">www.hefriedrich-boty.cz</a>
+							</p>
+							<p class="wrp">
+								<span class="fl-lft sbhl label">Telefon</span>
+								<span class="fl-rght sbhl value">+420 775 329 394</span>
+								<span class="iconfont icof-dolu-loc"></span>
+							</p>
+							<p class="wrp">
+								<span class="fl-lft sbhl label">Email</span>
+								<a class="fl-rght lnk sbhl undrln value" href="mailto:rajpasku@email.cz">rajpasku@email.cz</a>
+							</p>
+							<p class="wrp">
+								<span class="fl-lft sbhl label">Otevírací doba</span>
+								<span class="fl-rght sbhl value">Dnes 9:00 &ndash; 18:00</span>
+								<span class="iconfont icof-dolu-loc"></span>
+							</p>
+						</div>
+						
+						<!-- POPIS -->
+						<div class="wrp s1of1 description">
+							<p class="bd">
+								Vyrábíme a prodáváme individuální, speciální ortopedické vložky dle otisku a odlitku chodidla. Zakázková ortopedická obuv, úprava vnitřního prostoru dle otisku. Prodej luxusní německé zdravotní obuvi Finn Comfort. Prodej kosmetiky Gehwoll a Collonil.
+							</p>
+						</div>
+						
+						<!-- FOTOGALERIE -->
+						<div class="wrp s1of1 gallery">
+							<div class="fl-clr">
+								<img src="/img/demo/custom-1.jpg" alt="" class="fl-lft photo" />
+								<img src="/img/demo/custom-2.jpg" alt="" class="fl-lft photo" />
+								<img src="/img/demo/custom-3.jpg" alt="" class="fl-lft photo" />
+							</div>
+							<button type="button" class="bd lnk undrln">Ukaž všech 7 fotografií</button>
+						</div>
+
+					</div>
+
+					<!-- AKCE, MOŽNOSTI, PRÁCE S DETAILEM -->
+					<div class="unt s1of3">
+						<div class="wrap fl-clr action">
+							<div class="unt s1of2">	
+								<button type="button" class="btn">
+									<span class="iconfont icof-pobocky-akce"></span>
+									<span class="sbhl undrln">Zobrazit pobočky</span>
+								</button>
+								<button type="button" class="btn">
+									<span class="iconfont icof-oblibene-akce"></span>
+									<span class="sbhl undrln">Přidat do oblíbených</span>
+								</button>
+							</div>
+							<div class="unt s1of2">
+								<button type="button" class="btn">
+									<span class="iconfont icof-nepresnosti"></span>
+									<span class="sbhl undrln">Nahlásit nepřesnost</span>
+								</button>
+								<button type="button" class="btn">
+									<span class="iconfont icof-sdilet-akce"></span>
+									<span class="sbhl undrln">Sdílet detail</span>
+								</button>
+							</div>
+							<div class="unt s1of1 direction">
+								<button type="button" class="btn">
+									<span class="iconfont icof-rozvoz-akce"></span>
+									<span class="sbhl undrln">Naplánovat trasu</span>
+								</button>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="ln">
+					
+					<!-- HODNOCENÍ -->
+					<div class="unt s2of3 rating">
+						<p class="ttl">Jak lidé hodnotí tuto firmu</p>
+						<div class="wrp">
+							<p class="bd name">radmirrk</p>
+							<p class="stars">
+								<span class="icof-hvezda-plna star-16"></span>
+								<span class="icof-hvezda-plna star-16"></span>
+								<span class="icof-hvezda-plna star-16"></span>
+								<span class="icof-hvezda-plna star-16"></span>
+								<span class="icof-hvezda-plna star-16"></span>
+								<span class="cptn">před třemi měsíci</span>
+							</p>
+							<p class="bd text">
+								Skvělý obchod, moc doporučuji. Zejména obuv ORTO plus, prostě úžasná a pohodlná obuv!
+							</p>
+						</div>
+						<div class="wrp">
+							<p class="bd name">Turková</p>
+							<p class="stars">
+								<span class="icof-hvezda-plna star-16"></span>
+								<span class="icof-hvezda-plna star-16"></span>
+								<span class="icof-hvezda-plna star-16"></span>
+								<span class="icof-hvezda-plna star-16"></span>
+								<span class="icof-hvezda-plna star-16"></span>
+								<span class="cptn">před půl rokem</span>
+							</p>
+							<p class="bd text">
+								Chtěla bych se podělit o zkušenost, kterou mám s prodejnou Rieker na Praze 5, prodejna u paní Fridrichové. Prodavačka, starší paní je neochotná podat odbornou informaci ohledně bot, je většinou vzadu v kumbále na telefonu.
+							</p>
+						</div>
+						<div class="wrp">
+							<p class="bd name">Kaiser Lukas</p>
+							<p class="stars">
+								<span class="icof-hvezda-plna star-16"></span>
+								<span class="icof-hvezda-plna star-16"></span>
+								<span class="icof-hvezda-plna star-16"></span>
+								<span class="icof-hvezda-plna star-16"></span>
+								<span class="icof-hvezda-plna star-16"></span>
+								<span class="cptn">před dvěma lety</span>
+							</p>
+						</div>
+						<div class="fl-clr">
+							<button type="button" class="fl-lft lnk">
+								<span class="bd undrln">Ukaž vše</span>
+							</button>
+							<button type="button" class="fl-rght lnk add">
+								<span class="iconfont icof-plus"></span>
+								<span class="bd undrln">Přidat vlastní hodnocení</span>
+							</button>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="ln">
+
+					<!-- HODNOCENÍ -->
+					<div class="unt s2of3 category">
+						<p class="ttl">Kategorie</p>
+						<a href="/Obchody-a-obchudky" class="lnk item" target="_blank">
+							<span class="sbhl">Obchody a obchůdky</span>
+							<span class="iconfont icof-doprava-navigace"></span>
+						</a>
+						<a href="/Obchody-a-obchudky/Prodejci-textilu-odevu-a-obuvi" class="lnk item" target="_blank">
+							<span class="sbhl">Prodej textilu, oděvů a obuvy</span>
+							<span class="iconfont icof-doprava-navigace"></span>
+						</a>
+						<a href="/Obchody-a-obchudky/Prodejci-textilu-odevu-a-obuvi/Prodejci-obuvi" class="lnk item" target="_blank">
+							<span class="sbhl">Prodej obuvi</span>
+							<span class="iconfont icof-doprava-navigace"></span>
+						</a>
+						<button type="button" class="lnk show-more">
+							<span class="bd undrln">Ukaž všechny kategorie</span>
+						</button>
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- PODOBNÉ FIRMY -->
+			<div class="gr similar">
+				<div class="ln">
+					<div class="unt s1of1">
+						<p class="ttl">Podobné firmy</p>
+						<span class="iconfont icof-doprava-navigace"></span>
+					</div>
+				</div>
+				<div class="ln premises">
+					<div class="unt s1of3">
+						<img src="/img/demo/custom-similar-1.jpg" alt="" class="photo" />
+						<a href="/detail/412023-svorto-cz-s-r-o-praha-strasnice.html" class="lnk title">
+							<span class="hl undrln">Svorto.cz, s.r.o.</span>
+						</a>
+						<p class="cptn address">Průběžná 787/30, Praha, Strašnice</p>
+						<p class="bd">Vyrábíme ortopedické pomůcky, ortopedické vložky, zdravotní vložky pro ploché &hellip;</p>
+						<a href="http://www.ortopedicke-pomucky.cz/" class="lnk client">
+							<span class="bd undrln">www.ortopedicke-pomucky.cz</span>
+						</a>
+					</div>
+					<div class="unt s1of3">
+						<img src="/img/demo/custom-similar-1.jpg" alt="" class="photo" />
+						<a href="/detail/412023-svorto-cz-s-r-o-praha-strasnice.html" class="lnk title">
+							<span class="hl undrln">ORTOPEDICA, s.r.o.</span>
+						</a>
+						<p class="cptn address">Průběžná 787/30, Praha, Strašnice</p>
+						<p class="bd">Vyrábíme ortopedické pomůcky, ortopedické vložky, zdravotní vložky pro ploché &hellip;</p>
+						<a href="http://www.ortopedicke-pomucky.cz/" class="lnk client">
+							<span class="bd undrln">www.ortopedica.cz</span>
+						</a>
+					</div>
+					<div class="unt s1of3">
+						<img src="/img/demo/custom-similar-3.jpg" alt="" class="photo" />
+						<a href="/detail/12944473-freebody-s-r-o-praha-dejvice.html" class="lnk title">
+							<span class="hl undrln">Freebody, s.r.o.</span>
+						</a>
+						<p class="cptn address">Zikova 522/3, Praha, Dejvice</p>
+						<p class="bd">Velkoobchodní a maloobchodní prodej pánské, dámské a dětské obuvi pro bosou &hellip;</p>
+						<a href="http://www.ortopedicke-pomucky.cz/" class="lnk client">
+							<span class="bd undrln">www.leguano.cz</span>
+						</a>
+					</div>
+					<p class="unt s1of1">
+						<button type="button" class="lnk">
+							<span class="bd undrln">Ukaž další podobné firmy</span>
+						</button>
+					</p>
+				</div>
+			</div>
+
+			<!-- ÚČET -->
+			<div class="gr account">
+				<div class="ln">
+					<div class="unt s1of1">
+						<span class="fl-lft bd">jakub.bartasek@email.cz</span>
+						<button type="button" class="fl-rght lnk">
+							<span class="bd undrln">Odhlásit</span>
+						</button>
+					</div>
+					<div class="unt s1of1 favourite">
+						<button type="button" class="fl-lft lnk">
+							<span class="iconfont icof-oblibene-akce-hlavicka"></span>
+							<span class="bd undrln">Moje oblíbené</span>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- PATIČKA -->
+			<div class="gr foot sticky">
+				<div class="ln">
+					<div class="unt s1of1">
+						<a href="/" class="lnk" target="_blank">
+							<span class="cptn undrln">Přidat svou firmu zdarma</span>
+						</a>
+						<a href="/" class="lnk" target="_blank">
+							<span class="cptn undrln">Poslat tip na firmu</span>
+						</a>
+						<a href="/" class="lnk" target="_blank">
+							<span class="cptn undrln">Napište nám</span>
+						</a>
+						<a href="/" class="lnk" target="_blank">
+							<span class="cptn undrln">Vytvořte si web</span>
+						</a>
+						<a href="/" class="lnk" target="_blank">
+							<span class="cptn undrln">Nápověda</span>
+						</a>
+					</div>
+					<p class="copyright">
+						<span class="cptn">
+							Copyright &copy; 1996&ndash;2015 Seznam.cz, a.s.
+						</span>
+					</p>
+				</div>
+			</div>
+
 		</div>
 
 		<script type="text/javascript">
 			// konfigurace gridu
-			Grid.cfg({ directlyShrink: true });
+			Grid.cfg({ directlyGrid: false });
 		</script>
 	</body>
 </html>

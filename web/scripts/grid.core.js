@@ -21,6 +21,9 @@ var Core = function() {
 
 	// konfigurace
 	this.cfg = function (opt) {
+		// nastavení – možnosti z argumentu
+		for (var key in opt) { _opt[key] = opt[key]; }
+			
         // po načtení DOMu nakonfigurujeme vše
         document.addEventListener('DOMContentLoaded', _init.bind(this));
 	};

@@ -49,18 +49,23 @@
 /*** ------------ SPECIFICKÉ MIXINY ----------------- **/
 
 /* posunutí textu, aby seděl na baseline dle BBC GEL () – http://www.bbc.co.uk/gel/web/building-blocks/typography/css-discrepancy */
-.mx-discrepancy (@fontSize, @lineHeight) {
-	padding-top: ~"calc(0.5*@{lineHeight} - 0.35*@{fontSize})";
+.mx-discrepancy (@lineHeight) {
+    padding-top: ~"calc(0.5*@{lineHeight}em - 0.35*1em)";
 }
 
-/* clear buttonu od všech stylů */
-.mx-clearBtn () {
+/* clear buttonu od default stylů */
+.mx-clear-element () {
     display: inherit;
-    float: none;
     margin: 0;
     padding: 0;
     border: none;
-    outline: none;
+    outline: 0;
     background: none;
     font-size: 1em;
+    text-decoration: none;
+
+    &:hover, &:visited, &:focus {
+      outline: none;
+      text-decoration: none;
+    }
 }

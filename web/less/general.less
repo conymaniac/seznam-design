@@ -3,10 +3,17 @@
  * @desc: Import všech obecných stylů
  */
 
+/*** ------------ PROMĚNNÉ A NASTAVENÍ ---------------- **/
+
+@dfs: 1em; 				/* default font-size */
+
 /*** ------------ STYLY ---------------- **/
 
 /* obecné styly */
+@import "general.mixins.less";
 @import "general.reset.less";
 @import "general.font.less";
-@import "general.mixins.less";
 @import "general.text.less";
+
+/* rozšiřující obecné styly – nemusí být součástí */
+@import "general.extension.less";

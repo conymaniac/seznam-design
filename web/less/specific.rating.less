@@ -1,0 +1,55 @@
+/**
+ * @name: specific.rating.less
+ * @desc: Hodnocení
+ */
+
+/*** ------------ HODNOCENÍ ---------------- **/
+
+.rating {
+	margin-top: 1.5em;
+
+	@media screen and (min-width: @dk-minWidth) {
+		display: none;
+		margin-top: 2.5em;
+	}
+
+	/* titulek */
+	.ttl {
+		margin-bottom: 1em;
+
+		@media screen and (min-width: @dk-minWidth) {
+			margin-bottom: 1.6666666667em;
+		}
+	}
+
+	/* odsazení recenzí */
+	.wrp {
+		margin-bottom: 1.5em;
+
+		@media screen and (min-width: @dk-minWidth) {
+			margin-bottom: 2.5em;
+		}
+	}
+
+	
+	/* název uživatele */
+	.name {
+		font-weight: bold;
+	}
+
+	/* poznámky */
+	.cptn {
+		.mx-opacity(0.4);
+	}
+
+	/* přidat hodnocení */
+	.add {
+		font-weight: bold;
+
+		.iconfont {
+			position: relative;
+			top: 1px;
+		}
+	}
+
+}

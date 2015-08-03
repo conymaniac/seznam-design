@@ -230,7 +230,7 @@ var Manager = function() {
         _dom.manager.className +=  shrink ? ' shrnking' : ' unshrnking';
 
         // "animace"
-        _timeOut = _timeOut && clearTimeout(_timeout);
+        _timeOut = _timeOut && clearTimeout(_timeOut);
         _timeOut = setTimeout(_doneManagerActive.bind(this, shrink), 500);
     };
 
@@ -313,7 +313,7 @@ var Manager = function() {
 
         // porovnání výšky viewportu a body
         if (bHeight > wHeight) {
-            document.body.style.paddingBottom = '3.5em';
+            document.body.style.paddingBottom = '3em';
         } else {
             document.body.removeAttribute('style');
         }
