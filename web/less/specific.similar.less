@@ -41,6 +41,7 @@
 	/* seznam firem */
 	.premises {
 		display: none;
+		padding-top: .25em;
 
 		@media screen and (min-width: @dk-minWidth) {
 			display: inherit;
@@ -54,11 +55,24 @@
 		/* klient */
 		.client {
 			color: @cl-client;
+			margin: 0.25em 0;
 		}
 
 		/* adresa */
 		.address {
 			.mx-opacity(.4);
+			margin: 0.25em 0 0.5em;
+		}
+
+		/* zobrazit více*/
+		.show-more {
+			margin-top: 2.5em;
+			margin-bottom: 1.5em;
+
+			@media screen and (min-width: @dk-minWidth) {
+				margin-top: 4em;
+				margin-bottom: 2.5em;
+			}
 		}
 	}
 
