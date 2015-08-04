@@ -6,7 +6,7 @@
 /*** ------------ PROMĚNNÉ A NASTAVENÍ ---------------- **/
 
 /* barvy */
-@cl-unt-1: rgba(255, 226, 255, 1);    /* barva řádku/sloupečku */
+@cl-unt-1: rgba(300, 75, 100, 1);  /* barva řádku/sloupečku */
 @cl-unt-2: rgba(255, 255, 255, 0);    /* barva řádku/sloupečku */
 
 /*** ------------ GRID – VERTICAL/BASELINE ---------------- **/
@@ -19,7 +19,7 @@
     .gr {
 
         /* vzhled */
-        .mx-opacity(0.5);
+        // .mx-opacity(0.12);
         min-height: 100%;
         overflow: hidden;
 
@@ -37,6 +37,7 @@
         /* mřížka na backgroundu */
         .mx-background-image(linear-gradient(to bottom, @cl-unt-1, @cl-unt-1 50%, @cl-unt-2 50%, @cl-unt-2));
         .mx-background-size(100% 16px);
+        .mx-opacity(0.12);
     }
 
 }
