@@ -66,9 +66,11 @@ var Manager = function() {
         if (activate) {
             _dom.manager.style.display = 'block';
 
-            // nastavíme výšku, synchro
-            _timeOut = _timeOut && clearTimeout(_timeOut);
-            _timeOut = setTimeout(_setBodyPadding.bind(this), 0);
+            // nastavíme padding, synchro
+            if (!_opt.directlyShrink) {
+                _timeOut = _timeOut && clearTimeout(_timeOut);
+                _timeOut = setTimeout(_setBodyPadding.bind(this), 0);
+            }
         } else {
             _dom.manager.style.display = 'none';
             document.body.removeAttribute('style');
@@ -250,6 +252,12 @@ var Manager = function() {
         // kontrola na třídu stavu
         if (shrink) {
             _dom.manager.className += ' shrnk';
+
+            // pokud je zkrácený, zrušíme padding na body
+            document.body.removeAttribute('style');
+
+        } else {
+            _setBodyPadding();
         }
     };
 
