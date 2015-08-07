@@ -237,7 +237,7 @@ module.exports = function ( grunt ) {
     grunt.registerTask('demo-base', ['less:demoBase', 'cssmin:demo', 'browserify:demo', 'uglify:demo', 'clean:demo', 'copy:demoBase']);
 
     // build pro remote
-    grunt.registerTask('demo-extended', ['less:demoExtended', 'browserify:demo',  'uglify:demo', 'clean:demo', 'copy:demoExtended']);
+    grunt.registerTask('demo-extended', ['less:demoExtended', 'cssmin:demo', 'browserify:demo',  'uglify:demo', 'clean:demo', 'copy:demoExtended']);
 
     // speciální task pro sledování
     grunt.registerTask('watch-base', ['concurrent:base']);
