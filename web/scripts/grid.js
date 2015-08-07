@@ -21,6 +21,10 @@
 	 * Namespace pro Responsive Design
 	 */
 	Grid.RD = Grid.RD || { 'Name': 'Grid.RD' };
+	Grid.RD.M1 = Grid.RD.M1 || { 'Name': 'Grid.RD.M1' };
+	Grid.RD.M2 = Grid.RD.M2 || { 'Name': 'Grid.RD.M2' };
+	Grid.RD.TB = Grid.RD.TB || { 'Name': 'Grid.RD.TB' };
+	Grid.RD.DK = Grid.RD.DK || { 'Name': 'Grid.RD.DK' };
 
 	/**
 	 * Breakpointy pro Responsive Design
@@ -29,20 +33,24 @@
 	 */
 
     /* layout – mobil 1 */
-	Grid.RD.MIN_M1 = 20; 		/* 320px */
-	Grid.RD.MAX_M1 = 25.4375; 	/* 407px */
+    Grid.RD.M1.TITLE = 'Mobile 1';
+	Grid.RD.M1.MIN_WIDTH = 0; 			/* 320px – chceme mobile 1, i když je menší */
+	Grid.RD.M1.MAX_WIDTH = 25.4375; 	/* 407px */
 
 	/* layout – mobil 2 */
-	Grid.RD.MIN_M2 = 25.5; 		/* 408px */
-	Grid.RD.MAX_M2 = 37.4375; 	/* 599px */
+    Grid.RD.M2.TITLE = 'Mobile 2';
+	Grid.RD.M2.MIN_WIDTH = 25.5; 		/* 408px */
+	Grid.RD.M2.MAX_WIDTH = 37.4375; 	/* 599px */
 
 	/* layout – tablet */
-	Grid.RD.MIN_TB = 37.5; 		/* 600px */
-	Grid.RD.MAX_TB = 62.9375; 	/* 1007px */
+    Grid.RD.TB.TITLE = 'Tablet';
+	Grid.RD.TB.MIN_WIDTH = 37.5; 		/* 600px */
+	Grid.RD.TB.MAX_WIDTH = 62.9375; 	/* 1007px */
 
 	/* layout – desktop */
-	Grid.RD.MIN_DK = 63; 		/* 1008px */
-	Grid.RD.MAX_DK = 63; 		/* 1008px */
+    Grid.RD.DK.TITLE = 'Desktop';
+	Grid.RD.DK.MIN_WIDTH = 63; 			/* 1008px */
+	Grid.RD.DK.MAX_WIDTH = 100; 		/* 1008px – ale chceme desktop, i když je větší */
 
     // vloží všechny požadované části
 	require('./grid.builder')(Grid);

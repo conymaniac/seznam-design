@@ -299,14 +299,29 @@ var Manager = function() {
             _dom.viewPort.innerHTML += '<span class="prt">h: ' + wHeight + 'px</span>';
 
             // typ layoutu
-            var type = 'Mobile 1';
-            if (wWidth >= Grid.RD.MIN_M2 * Grid.RD.FS && wWidth <= Grid.RD.MAX_M2 * Grid.RD.FS) {
-                type = 'Mobile 2';
-            } else if (wWidth >= Grid.RD.MIN_TB * Grid.RD.FS && wWidth <= Grid.RD.MAX_TB * Grid.RD.FS) {
-                type = 'Tablet';
-            } else if (wWidth >= Grid.RD.MIN_DK * Grid.RD.FS) {
-                type = 'Desktop';
-            }
+            // var type = 'Mobile 1';
+            // if (wWidth >= Grid.RD.MIN_M2 * Grid.RD.FS && wWidth <= Grid.RD.MAX_M2 * Grid.RD.FS) {
+            //     type = 'Mobile 2';
+            // } else if (wWidth >= Grid.RD.MIN_TB * Grid.RD.FS && wWidth <= Grid.RD.MAX_TB * Grid.RD.FS) {
+            //     type = 'Tablet';
+            // } else if (wWidth >= Grid.RD.MIN_DK * Grid.RD.FS) {
+            //     type = 'Desktop';
+            // }
+            var type = 'Too small';
+            for (var layout in Grid.RD) {
+                if (layout !== 'Name' && layout !== 'FS') {
+                    console.log(Grid.RD[layout]);
+                    console.log(Grid.RD[layout].MIN_WIDTH * Grid.RD.FS);
+                    console.log(Grid.RD[layout].MAX_WIDTH * Grid.RD.FS);
+                    console.log(wWidth);
+                    console.log(wWidth >= Grid.RD[layout].MIN_WIDTH * Grid.RD.FS && wWidth <= Grid.RD[layout].MAX_WIDTH * Grid.RD.FS)
+                    if (wWidth >= Grid.RD[layout].MIN_WIDTH * Grid.RD.FS && wWidth <= Grid.RD[layout].MAX_WIDTH * Grid.RD.FS) {
+                        console.log('this');
+                        console.log(Grid.RD[layout].TITLE);
+                        type = Grid.RD[layout].TITLE;
+                    }
+                }
+            };
 
             // zobrazíme info
             _dom.layoutType.textContent = 'Layout ' + type;
