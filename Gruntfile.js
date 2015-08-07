@@ -3,133 +3,220 @@ module.exports = function ( grunt ) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-replace');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-browserify');
-    grunt.loadNpmTasks('grunt-processhtml');
     grunt.loadNpmTasks('grunt-concurrent');
-    grunt.loadNpmTasks('grunt-scp');
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         less: {
-          demo: {
-            src:'web/less/style.less',
-            dest:'demo/css/style.css'
-          }
+            base: {
+                options: {
+                    cleancss: true
+                },
+                src:'web/less/style.base.less',
+                dest:'base/css/style.css'
+            },
+            extended: {
+                options: {
+                    cleancss: true
+                },
+                src:'web/less/style.extended.less',
+                dest:'extended/css/style.css'
+            },
+            demoBase: {
+                options: {
+                    cleancss: true
+                },
+                src:'web/less/style.demo.base.less',
+                dest:'demo/css/style.css'
+            },
+            demoExtended: {
+                options: {
+                    cleancss: true
+                },
+                src:'web/less/style.demo.extended.less',
+                dest:'demo/css/style.css'
+            }
         },
         browserify: {
-          demo: {
-            src: 'web/scripts/grid.js',
-            dest: 'demo/js/js-app.js'
-          }
+            base: {
+                src: 'web/scripts/grid.js',
+                dest: 'base/js/grid.js'
+            },
+            extended: {
+                src: 'web/scripts/grid.js',
+                dest: 'extended/js/grid.js'
+            },
+            demo: {
+                src: 'web/scripts/grid.js',
+                dest: 'demo/js/grid.js'
+            }
+        },
+        cssmin: {
+            base: {
+                files: [{
+                    expand: true,
+                    cwd: 'base/css',
+                    src: ['*.css', '!*.min.css'],
+                    dest: 'base/css',
+                    ext: '.min.css'
+                }]
+            },
+            extended: {
+                files: [{
+                    expand: true,
+                    cwd: 'extended/css',
+                    src: ['*.css', '!*.min.css'],
+                    dest: 'extended/css',
+                    ext: '.min.css'
+                }]
+            },
+            demo: {
+                files: [{
+                    expand: true,
+                    cwd: 'demo/css',
+                    src: ['*.css', '!*.min.css'],
+                    dest: 'demo/css',
+                    ext: '.min.css'
+                }]
+            }
+        },
+        uglify: {
+            base: {
+                files: {
+                    'base/js/grid.min.js': ['base/js/grid.js']
+                }
+            },
+            extended: {
+                files: {
+                    'extended/js/grid.min.js': ['extended/js/grid.js']
+                }
+            },
+            demo: {
+                files: {
+                    'demo/js/grid.min.js': ['demo/js/grid.js']
+                }
+            }
         },
         copy: {
-            demo: {
+            base: {
                 files:[
                     {
-                        src: 'web/index-template.html',
-                        dest: 'demo/index.html',
-                    },
-                    {
                         expand: true,
-                        cwd: 'web/img',
-                        src: ["*.*", "**/*.*"],
-                        dest: 'demo/img'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'web/fonts',
-                        src: ["*.*", "**/*.*"],
-                        dest: 'demo/fonts'
+                        cwd: 'web/fonts/icn-ctrl',
+                        src: ['*.*', '**/*.*'],
+                        dest: 'base/fonts/icn-ctrl'
                     }
                 ]
             },
-            remote: {
+            extended: {
                 files:[
                     {
-                        src: 'web/index-remote.html',
+                        expand: true,
+                        cwd: 'web/fonts/',
+                        src: ['*.*', '**/*.*', '!demo/*.*'],
+                        dest: 'extended/fonts/'
+                    }
+                ]
+            },
+            demoBase: {
+                files:[
+                    {
+                        src: 'web/index-base.html',
+                        dest: 'demo/index.html',
+                    },
+                    {
+                        expand: true,
+                        cwd: 'web/fonts/icn-ctrl',
+                        src: ['*.*', '**/*.*'],
+                        dest: 'base/fonts/icn-ctrl'
+                    }
+                ]
+            },
+            demoExtended: {
+                files:[
+                    {
+                        src: 'web/index-extended.html',
                         dest: 'demo/index.html',
                     },
                     {
                         expand: true,
                         cwd: 'web/img',
-                        src: ["*.*", "**/*.*"],
+                        src: ['*.*', '**/*.*'],
                         dest: 'demo/img'
                     },
                     {
                         expand: true,
                         cwd: 'web/fonts',
-                        src: ["*.*", "**/*.*"],
+                        src: ['*.*', '**/*.*'],
                         dest: 'demo/fonts'
                     }
                 ]
             }
         },
-        scp: {
-            options: {
-                host: 'mrd.dev',
-                username: 'root',
-                password: 'live',
-                agent: '/usr/bin/ssh-agent'
-            },
-            your_target: {
-                files: [
-                    {
-                        cwd: 'demo',
-                        src: 'index.html',
-                        filter: 'isFile',
-                        // path on the server
-                        dest: '/www/firmy/demo/templ'
-                    },
-                    {
-                        cwd: 'demo/js',
-                        src: '**',
-                        filter: 'isFile',
-                        // path on the server
-                        dest: '/www/firmy/demo/static/js'
-                    },
-                    {
-                        cwd: 'demo/css',
-                        src: '**',
-                        filter: 'isFile',
-                        // path on the server
-                        dest: '/www/firmy/demo/static/css'
-                    }
-                    // dořešit kopírování font i img
-                ]
-            },
+        clean: {
+            base: ['base/js/grid.js', 'base/css/style.css'],
+            extended: ['extended/js/grid.js', 'extended/css/style.css', 'extended/fonts/**/*'],
+            demo: ['demo/js/grid.js', 'demo/css/style.css']
         },
         watch: {
-            index: {
-                files: ['web/index-template.html'],
-                tasks: ['demo']
+            htmlBase: {
+                files: ['web/index-base.html'],
+                tasks: ['demo-base']
             },
-            js: {
+            htmlExtended: {
+                files: ['web/index-extended.html'],
+                tasks: ['demo-extended']
+            },
+            jsBase: {
                 files: ['web/scripts/**/*.js'],
-                tasks: ['demo']
+                tasks: ['demo-base']
             },
-            style: {
+            jsExtended: {
+                files: ['web/scripts/**/*.js'],
+                tasks: ['demo-extended']
+            },
+            styleBase: {
                 files: ['web/less/**/*.less'],
-                tasks: ['less:demo'],
+                tasks: ['less:demoBase'],
                 options: {
                     spawn: false
                 }
             },
-            image: {
+            styleExtended: {
+                files: ['web/less/**/*.less'],
+                tasks: ['less:demoExtended'],
+                options: {
+                    spawn: false
+                }
+            },
+            imageBase: {
                 files: ['web/img/**'],
-                tasks: ['demo'],
+                tasks: ['demo-base'],
+                options: {
+                    spawn: false
+                }
+            },
+            imageExtended: {
+                files: ['web/img/**'],
+                tasks: ['demo-extended'],
                 options: {
                     spawn: false
                 }
             }
         },
         concurrent: {
-            demo: {
-                tasks: ['watch:index', 'watch:html', 'watch:js', 'watch:styles', 'watch:images'],
+            base: {
+                tasks: ['watch:htmlBase', 'watch:jsBase', 'watch:styleBase', 'watch:imageBase'],
+                options: {
+                    logConcurrentOutput: true
+                }
+            },
+            extended: {
+                tasks: ['watch:htmlExtended', 'watch:jsExtended', 'watch:styleExtended', 'watch:imageExtended'],
                 options: {
                     logConcurrentOutput: true
                 }
@@ -137,16 +224,22 @@ module.exports = function ( grunt ) {
         }
     });
 
-    // defaultne se provadi vsechny buildy
-    grunt.registerTask('default', ['demo']);
+    // defaultne se provadi všechny buildy
+    grunt.registerTask('default', ['base', 'extended', 'demo']);
 
-    // vybuildíme skoro jako při relase, jen bez uglify pro rychlost a překopírujeme na mrd
-    grunt.registerTask('remote', ['demo-remote', 'scp', 'demo']);
+    // build se základními styly
+    grunt.registerTask('base', ['less:base', 'cssmin:base', 'browserify:base',  'uglify:base', 'clean:base', 'copy:base']);
 
-    // pouze pro build jednoduchý
-    grunt.registerTask('demo-remote', ['less:demo', 'browserify:demo', 'copy:remote']);
+    // build se rozšiřujícími styly
+    grunt.registerTask('extended', ['less:extended', 'cssmin:extended', 'browserify:extended',  'uglify:extended', 'clean:extended', 'copy:extended']);
 
-    // pouze pro build jednoduchý
-    grunt.registerTask('demo', ['less:demo', 'browserify:demo', 'copy:demo']);
+    // build pro demo
+    grunt.registerTask('demo-base', ['less:demoBase', 'cssmin:demo', 'browserify:demo', 'uglify:demo', 'clean:demo', 'copy:demoBase']);
 
+    // build pro remote
+    grunt.registerTask('demo-extended', ['less:demoExtended', 'browserify:demo',  'uglify:demo', 'clean:demo', 'copy:demoExtended']);
+
+    // speciální task pro sledování
+    grunt.registerTask('watch-base', ['concurrent:base']);
+    grunt.registerTask('watch-extended', ['concurrent:extended']);
 };

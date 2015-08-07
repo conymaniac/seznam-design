@@ -94,7 +94,7 @@ var Builder = function() {
 	var _buildLayout = function() {
 		// layout element
 		_dom.layout = document.createElement('div');
-		_dom.layout.className = 'gr-lt';
+		_dom.layout.className = 'gr-lt no-change';
 		_dom.layout.style.display = 'none';
 
 		// obalující element
@@ -154,7 +154,7 @@ var Builder = function() {
 			for (var i = 0; i < _opt.units; i++) {
 				// vytvoříme unitu
 				unit = document.createElement('div');
-				unit.className = 'unt s1of' + _opt.units + (i === (_opt.units - 1) ? ' lst': '');
+				unit.className = 'unt s1of' + _opt.units;
 				unit.innerHTML = '<span class="cnt">&nbsp;</span>';
 
 				// přidáme do řádku
