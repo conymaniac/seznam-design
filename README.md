@@ -2,7 +2,7 @@
 
 Základní třídy + widget pro jednodušší práci s návrhy a komunikaci s Návrháři.  
 Widget psán v čistém Javascriptu, zatím řešeno pouze pro moderní prohlížeče.  
-Za připomínky či případné problémy budu rád – [Dominik Michna](mailto:dominik.michna@firma.seznam.cz).
+Budu rád, když se ozvete s připomínkami či případnými problémy – [Dominik Michna](mailto:dominik.michna@firma.seznam.cz).
 
 ### Použití
 
