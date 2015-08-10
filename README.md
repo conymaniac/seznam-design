@@ -1,6 +1,6 @@
-Seznam Design System – Experiment
+Seznam Design System – Working Draft
 
 -- npm install
 -- bower install
--- grunt exp
+-- grunt base || grunt extended || grunt demo-base || grunt demo-extended
 -- npm start

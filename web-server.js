@@ -4,7 +4,7 @@ var express = require('express')
   , app = express();
 
 // app.use(cors());
-app.use(express.static(__dirname + '/demo'));
+app.use(express.static(__dirname + '/build/demo'));
 
 // in NodeJS/Express (server)
 app.all('/*', function(req, res, next) {
