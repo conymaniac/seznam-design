@@ -1,0 +1,64 @@
+/**
+ * @name: specific.category.less
+ * @desc: Kategorie
+ */
+
+/*** ------------ PROMĚNNÉ A NASTAVENÍ ---------------- **/
+
+/* barvy */
+@cl-border: rgba(229, 229, 229, 1);
+@cl-bground: rgba(250, 250, 250, 1);
+@cl-link: rgba(0, 0, 0, 1);
+
+/*** ------------ KATEGORIE ---------------- **/
+
+.category {
+	margin-top: 2.5em;
+	margin-bottom: 2.5em;
+
+	@media screen and (min-width: @dk-minWidth) {
+		margin-top: 4em;
+		margin-bottom: 4em;
+	}
+
+	.ttl {
+		padding-bottom: 0.4166666667em;
+		border-bottom: 1px solid @cl-border;
+	}
+
+	.item {
+		display: block;
+		position: relative;
+		padding: .6875em 0;
+		border-bottom: 1px solid @cl-border;
+
+		&:hover {
+			background-color: @cl-bground;
+
+			.iconfont {
+				color: @cl-link;
+			}
+		}
+
+		.sbhl {
+			color: @cl-link;
+		}
+
+		.iconfont {
+			position: absolute;
+			top: 1.2142857143em;
+			right: 0;
+			font-size: 0.875em;
+			color: @cl-link;
+		}
+	}
+
+	.show-more {
+		margin-top: 1.5em;
+		// margin-left: -.25em;
+
+		@media screen and (min-width: @dk-minWidth) {
+			margin-top: 2.5em;
+		}
+	}
+}

@@ -1,6 +1,6 @@
 /**
  * @overview Vytvoření mřížky na pozadí
- * @version 0.1.0
+ * @version 0.1.1
  * @author Dominik Michna (dominik.michna@firma.seznam.cz)
  */
 

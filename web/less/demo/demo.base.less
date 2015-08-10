@@ -1,0 +1,48 @@
+/**
+ * @name: demo.base.less
+ * @desc: Styly určené pro základní demo
+ */
+
+/*** ------------ PROMĚNNÉ A NASTAVENÍ ---------------- **/
+
+/* barvy */
+@cl-bground: rgba(204, 0, 0, 0.9);
+@cl-text: rgba(255, 255, 255, 1);
+
+/*** ------------ STYLY ---------------- **/
+
+.content {
+
+	.pstr,
+	.hl {
+		text-align: center;
+	}
+
+	.bd {
+		text-align: justify;
+	}
+
+	.ln {
+		margin: 1em auto;
+	}
+
+	.wrp {
+		.ln {
+			margin: 0;
+		}
+
+		.unt {
+			margin: .5em 0;
+		}
+
+		.cnt {
+			box-sizing: border-box;
+			height: 2em;
+			padding: 0.5em 0;
+			text-align: center;
+			color: @cl-text;
+			background-color: @cl-bground;
+		}
+	}
+
+}

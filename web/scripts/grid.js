@@ -1,6 +1,6 @@
 /**
  * @overview Pack všech skriptů pro Grid
- * @version 0.1.0
+ * @version 0.1.1
  * @author Dominik Michna (dominik.michna@firma.seznam.cz)
  *
  * @notes Zatím pouze pro moderní browsery
@@ -59,4 +59,5 @@
 
   	// zveřejním do window objektu pouze instanci samotného jádra
     window.Grid = Grid.Core;
+
 })();

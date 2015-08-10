@@ -1,6 +1,6 @@
 /**
  * @overview Ovládání mřížky na pozadí
- * @version 0.1.0
+ * @version 0.1.1
  * @author Dominik Michna (dominik.michna@firma.seznam.cz)
  */
 
@@ -299,14 +299,6 @@ var Manager = function() {
             _dom.viewPort.innerHTML += '<span class="prt">h: ' + wHeight + 'px</span>';
 
             // typ layoutu
-            // var type = 'Mobile 1';
-            // if (wWidth >= Grid.RD.MIN_M2 * Grid.RD.FS && wWidth <= Grid.RD.MAX_M2 * Grid.RD.FS) {
-            //     type = 'Mobile 2';
-            // } else if (wWidth >= Grid.RD.MIN_TB * Grid.RD.FS && wWidth <= Grid.RD.MAX_TB * Grid.RD.FS) {
-            //     type = 'Tablet';
-            // } else if (wWidth >= Grid.RD.MIN_DK * Grid.RD.FS) {
-            //     type = 'Desktop';
-            // }
             var type = 'Too small';
             for (var layout in Grid.RD) {
                 if (layout !== 'Name' && layout !== 'FS') {

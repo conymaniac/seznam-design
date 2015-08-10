@@ -17,69 +17,69 @@ module.exports = function ( grunt ) {
                     cleancss: true
                 },
                 src:'web/less/style.base.less',
-                dest:'base/css/style.css'
+                dest:'build/base/css/style.css'
             },
             extended: {
                 options: {
                     cleancss: true
                 },
                 src:'web/less/style.extended.less',
-                dest:'extended/css/style.css'
+                dest:'build/extended/css/style.css'
             },
             demoBase: {
                 options: {
                     cleancss: true
                 },
                 src:'web/less/style.demo.base.less',
-                dest:'demo/css/style.css'
+                dest:'build/demo/css/style.css'
             },
             demoExtended: {
                 options: {
                     cleancss: true
                 },
                 src:'web/less/style.demo.extended.less',
-                dest:'demo/css/style.css'
+                dest:'build/demo/css/style.css'
             }
         },
         browserify: {
             base: {
                 src: 'web/scripts/grid.js',
-                dest: 'base/js/grid.js'
+                dest: 'build/base/js/grid.js'
             },
             extended: {
                 src: 'web/scripts/grid.js',
-                dest: 'extended/js/grid.js'
+                dest: 'build/extended/js/grid.js'
             },
             demo: {
                 src: 'web/scripts/grid.js',
-                dest: 'demo/js/grid.js'
+                dest: 'build/demo/js/grid.js'
             }
         },
         cssmin: {
             base: {
                 files: [{
                     expand: true,
-                    cwd: 'base/css',
+                    cwd: 'build/base/css',
                     src: ['*.css', '!*.min.css'],
-                    dest: 'base/css',
+                    dest: 'build/base/css',
                     ext: '.min.css'
                 }]
             },
             extended: {
                 files: [{
                     expand: true,
-                    cwd: 'extended/css',
+                    cwd: 'build/extended/css',
                     src: ['*.css', '!*.min.css'],
-                    dest: 'extended/css',
+                    dest: 'build/extended/css',
                     ext: '.min.css'
                 }]
             },
             demo: {
                 files: [{
                     expand: true,
-                    cwd: 'demo/css',
+                    cwd: 'build/demo/css',
                     src: ['*.css', '!*.min.css'],
-                    dest: 'demo/css',
+                    dest: 'build/demo/css',
                     ext: '.min.css'
                 }]
             }
@@ -87,17 +87,17 @@ module.exports = function ( grunt ) {
         uglify: {
             base: {
                 files: {
-                    'base/js/grid.min.js': ['base/js/grid.js']
+                    'build/base/js/grid.min.js': ['build/base/js/grid.js']
                 }
             },
             extended: {
                 files: {
-                    'extended/js/grid.min.js': ['extended/js/grid.js']
+                    'build/extended/js/grid.min.js': ['build/extended/js/grid.js']
                 }
             },
             demo: {
                 files: {
-                    'demo/js/grid.min.js': ['demo/js/grid.js']
+                    'build/demo/js/grid.min.js': ['build/demo/js/grid.js']
                 }
             }
         },
@@ -108,7 +108,7 @@ module.exports = function ( grunt ) {
                         expand: true,
                         cwd: 'web/fonts/icn-ctrl',
                         src: ['*.*', '**/*.*'],
-                        dest: 'base/fonts/icn-ctrl'
+                        dest: 'build/base/fonts/icn-ctrl'
                     }
                 ]
             },
@@ -118,7 +118,7 @@ module.exports = function ( grunt ) {
                         expand: true,
                         cwd: 'web/fonts/',
                         src: ['*.*', '**/*.*', '!demo/*.*'],
-                        dest: 'extended/fonts/'
+                        dest: 'build/extended/fonts/'
                     }
                 ]
             },
@@ -126,13 +126,13 @@ module.exports = function ( grunt ) {
                 files:[
                     {
                         src: 'web/index-base.html',
-                        dest: 'demo/index.html',
+                        dest: 'build/demo/index.html',
                     },
                     {
                         expand: true,
                         cwd: 'web/fonts/icn-ctrl',
                         src: ['*.*', '**/*.*'],
-                        dest: 'base/fonts/icn-ctrl'
+                        dest: 'build/base/fonts/icn-ctrl'
                     }
                 ]
             },
@@ -140,27 +140,27 @@ module.exports = function ( grunt ) {
                 files:[
                     {
                         src: 'web/index-extended.html',
-                        dest: 'demo/index.html',
+                        dest: 'build/demo/index.html',
                     },
                     {
                         expand: true,
                         cwd: 'web/img',
                         src: ['*.*', '**/*.*'],
-                        dest: 'demo/img'
+                        dest: 'build/demo/img'
                     },
                     {
                         expand: true,
                         cwd: 'web/fonts',
                         src: ['*.*', '**/*.*'],
-                        dest: 'demo/fonts'
+                        dest: 'build/demo/fonts'
                     }
                 ]
             }
         },
         clean: {
-            base: ['base/js/grid.js', 'base/css/style.css'],
-            extended: ['extended/js/grid.js', 'extended/css/style.css', 'extended/fonts/**/*'],
-            demo: ['demo/js/grid.js', 'demo/css/style.css']
+            base: ['build/base/js/grid.js', 'build/base/css/style.css'],
+            extended: ['build/extended/js/grid.js', 'build/extended/css/style.css', 'build/extended/fonts/**/*'],
+            demo: ['build/demo/js/grid.js', 'build/demo/css/style.css']
         },
         watch: {
             htmlBase: {
