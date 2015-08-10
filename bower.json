@@ -1,7 +1,7 @@
 {
   "name": "seznam-design-system",
-  "version": "0.1.0",
-  "description": "Seznam Design System – Experiment",
+  "version": "0.1.1",
+  "description": "Seznam Design System – Working Draft",
   "authors": [
     "Dominik Michna <dominik.michna@firma.seznam.cz>"
   ],
@@ -9,16 +9,14 @@
   "keywords": [
     "seznam",
     "design",
-    "experiment"
+    "working draft"
   ],
   "license": "MIT",
   "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+    "bower_components"
   ],
   "dependencies": {
     "lesshat": "3.x",

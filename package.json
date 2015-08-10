@@ -1,7 +1,7 @@
 {
   "name": "seznam-design-system",
-  "version": "0.1.0",
-  "description": "Seznam Design System – Experiment",
+  "version": "0.1.1",
+  "description": "Seznam Design System – Working Draft",
   "devDependencies": {
     "express": "^4.6.1",
     "express-http-proxy": "^0.1.1",
