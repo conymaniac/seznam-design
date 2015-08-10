@@ -1,6 +1,6 @@
 /**
  * @overview Pack všech skriptů pro Grid
- * @version 0.1.1
+ * @version 0.1.2
  * @author Dominik Michna (dominik.michna@firma.seznam.cz)
  *
  * @notes Zatím pouze pro moderní browsery
@@ -21,10 +21,10 @@
 	 * Namespace pro Responsive Design
 	 */
 	Grid.RD = Grid.RD || { 'Name': 'Grid.RD' };
-	Grid.RD.M1 = Grid.RD.M1 || { 'Name': 'Grid.RD.M1' };
-	Grid.RD.M2 = Grid.RD.M2 || { 'Name': 'Grid.RD.M2' };
-	Grid.RD.TB = Grid.RD.TB || { 'Name': 'Grid.RD.TB' };
-	Grid.RD.DK = Grid.RD.DK || { 'Name': 'Grid.RD.DK' };
+	Grid.RD.M1 = Grid.RD.M1 || { 'Name': 'Grid.RD.M1' }; 		// layout – mobile 1
+	Grid.RD.M2 = Grid.RD.M2 || { 'Name': 'Grid.RD.M2' };		// layout - mobile 2
+	Grid.RD.TB = Grid.RD.TB || { 'Name': 'Grid.RD.TB' };		// layout – tablet
+	Grid.RD.DK = Grid.RD.DK || { 'Name': 'Grid.RD.DK' };		// layout – desktop
 
 	/**
 	 * Breakpointy pro Responsive Design
@@ -50,7 +50,7 @@
 	/* layout – desktop */
     Grid.RD.DK.TITLE = 'Desktop';
 	Grid.RD.DK.MIN_WIDTH = 63; 			/* 1008px */
-	Grid.RD.DK.MAX_WIDTH = 100; 		/* 1008px – ale chceme desktop, i když je větší */
+	Grid.RD.DK.MAX_WIDTH = 1000; 		/* 1008px – ale chceme desktop, i když je větší */
 
     // vloží všechny požadované části
 	require('./grid.builder')(Grid);

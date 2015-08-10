@@ -1,5 +1,5 @@
 /**
- * @overview Vytvoření mřížky na pozadí
+ * @overview Vytvoření mřížky
  * @version 0.1.1
  * @author Dominik Michna (dominik.michna@firma.seznam.cz)
  */
@@ -31,7 +31,14 @@ var Builder = function() {
     // timeout
     var _timeOut = null;
 
-	// konfigurace
+	/**
+     * Konfigurace
+     * 
+     * @param {object} [opt] - nastavení, možnosti
+     * @param {units} [opt.units=24] - počet sloupečků
+     * @method cfg
+     * @public
+     */
 	this.cfg = function (opt) {
 		// nastavení – možnosti z argumentu
 		for (var key in opt) { _opt[key] = opt[key]; }
@@ -46,7 +53,14 @@ var Builder = function() {
 
 	};
 
-	// zobrazení/skrytí mřížky
+	/**
+     * Zobrazení/skrytí mřížky
+     * 
+     * @param {boolean} [activateLayout] - aktivovat mřížku pro layout
+     * @param {boolean} [activateBaseline] - aktivovat mřížku pro baseline
+     * @method activate
+     * @public
+     */
 	this.activate = function (activateLayout, activateBaseline) {
 		// zobrazíme/skryjeme layout
 		if (activateLayout === true) {
@@ -71,7 +85,12 @@ var Builder = function() {
         _timeOut = setTimeout(_setHeight.bind(this), 0);
 	};
 
-    // inicializace
+    /**
+     * Základní build, kontrola na existenci
+     * 
+     * @method _build
+     * @private
+     */
     var _build = function() {
         // kontrola na existenci layout mřížky
         if (_dom.layout === null) {
@@ -90,7 +109,12 @@ var Builder = function() {
         }
     };
 
-	// vybuildnění layout mřížky
+	/**
+     * Vytvoření horizontální mřížky – layout, sloupečky
+     * 
+     * @method _buildLayout
+     * @private
+     */
 	var _buildLayout = function() {
 		// layout element
 		_dom.layout = document.createElement('div');
@@ -112,7 +136,12 @@ var Builder = function() {
 		document.body.appendChild(_dom.layout);
 	};
 
-    // vybuildnění baseline mřížky
+    /**
+     * Vytvoření vertikální mřížky – baseline, řádky
+     * 
+     * @method _buildBaseline
+     * @private
+     */
     var _buildBaseline = function() {
         // baseline element
         _dom.baseline = document.createElement('div');
@@ -140,7 +169,13 @@ var Builder = function() {
         document.body.appendChild(_dom.baseline);
     };
 
-	// vybuildnění unit
+	/**
+     * Vytvoření prvků pro horizontální mřížku, pro layout
+     * 
+     * @param {object} [grid] - obalující element
+     * @method _buildUnits
+     * @private
+     */
 	var _buildUnits = function(grid) {
 		// pokud existuje rodič a máme počet sloupečků
 		if (grid !== null && _opt.units > 0) {
@@ -166,7 +201,13 @@ var Builder = function() {
 		}
 	};
 
-    // vybuildnění fake unit – zobrazení marginu
+    /**
+     * Vytvoření "falešných" prvků pro horizontální mřížku – odsazení
+     * 
+     * @param {object} [grid] - obalující element
+     * @method _buildMrgn
+     * @private
+     */
     var _buildMrgn = function(grid) {
         // pokud existuje rodič a máme počet sloupečků
         if (grid !== null) {
@@ -178,7 +219,12 @@ var Builder = function() {
         }
     };
 
-    // nastavíme výšku
+    /**
+     * Nastavení výšky
+     * 
+     * @method _setHeight
+     * @private
+     */
     var _setHeight = function() {
         // kontrola na gridy
         if (_dom.layout !== null && _dom.baseline !== null) {

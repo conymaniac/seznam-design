@@ -1,6 +1,6 @@
 /**
- * @overview Ovládání mřížky na pozadí
- * @version 0.1.1
+ * @overview Ovládání mřížky
+ * @version 0.1.2
  * @author Dominik Michna (dominik.michna@firma.seznam.cz)
  */
 
@@ -38,7 +38,15 @@ var Manager = function() {
     // timeout
     var _timeOut = null;
 
-    // konfigurace
+    /**
+     * Konfigurace
+     * 
+     * @param {object} [opt] - nastavení, možnosti
+     * @param {boolean} [directlyShrink=false] - zmenšený stav widgetu
+     * @param {boolean} [directlyGrid] - zapnout rovnou zobrazení mřížky
+     * @method cfg
+     * @public
+     */
     this.cfg = function (opt) {
         // nastavení – možnosti z argumentu
         for (var key in opt) { _opt[key] = opt[key]; }
@@ -54,7 +62,13 @@ var Manager = function() {
 
     };
 
-    // zobrazení/skrytí ovládacích prvků
+    /**
+     * Zobrazení/skrytí ovládacích prvků
+     * 
+     * @param {boolean} [activate=true] - aktivovat/deaktivovat ovládací prvky
+     * @method activate
+     * @public
+     */
     this.activate = function (activate) {
         // kontrola na ovládací prvky
         if (_dom.manager === null) { return; }
@@ -80,7 +94,12 @@ var Manager = function() {
         _active = activate;
     };
 
-    // základní build, kontrola na existenci
+    /**
+     * Základní build, kontrola na existenci
+     * 
+     * @method _build
+     * @private
+     */
     var _build = function () {
         // kontrola na existenci ovládacích prvků
         if (_dom.manager === null) {
@@ -96,7 +115,12 @@ var Manager = function() {
         }
      };
 
-    // vytvoření managera
+    /**
+     * Vytvoření managera
+     * 
+     * @method _buildManager
+     * @private
+     */
     var _buildManager = function () {
         // manager element
         _dom.manager = document.createElement('div');
@@ -119,7 +143,13 @@ var Manager = function() {
         document.body.appendChild(_dom.manager);
     };
 
-    // vybuildnění ovládacích prvků pro mřížku
+    /**
+     * Vytvoření ovládacích prvků pro managera
+     * 
+     * @param {object} [grid] - obalující element
+     * @method _buildManagerControls
+     * @private
+     */
     var _buildManagerControls = function(grid) {
         // pokud existuje rodič a máme počet sloupečků
         if (grid !== null) {
@@ -145,8 +175,13 @@ var Manager = function() {
         }     
     };
 
-
-    // vybuildnění ovládacích prvků pro managera
+    /**
+     * Vytvoření ovládacích prvků pro mřížku
+     * 
+     * @param {object} [grid] - obalující element
+     * @method _buildGridControls
+     * @private
+     */
     var _buildGridControls = function(grid) {
         // pokud existuje rodič a máme počet sloupečků
         if (grid !== null) {
@@ -182,7 +217,13 @@ var Manager = function() {
         }     
     };
 
-    // vybuildnění informací o layoutu
+    /**
+     * Vytvoření informací o layoutu
+     * 
+     * @param {object} [grid] - obalující element
+     * @method _buildSizeInfo
+     * @private
+     */
     var _buildSizeInfo = function(grid) {
         // pokud existuje rodič a máme počet sloupečků
         if (grid !== null) {
@@ -215,7 +256,13 @@ var Manager = function() {
         }     
     };
 
-    // aktivování/deaktivování managera
+    /**
+     * Aktivace/deaktivace managera
+     * 
+     * @param {object} [e] - event objekt z posluchače
+     * @method _setManagerActive
+     * @private
+     */
     var _setManagerActive = function(e) {
         // kontrola na element
         if (_dom.manager === null) { return; }
@@ -236,7 +283,13 @@ var Manager = function() {
         _timeOut = setTimeout(_doneManagerActive.bind(this, shrink), 500);
     };
 
-    // ukončení aktivování/deaktivování managera
+    /**
+     * Ukončení aktivace/deaktivace managera
+     * 
+     * @param {boolean} [shrink] - informace o zmenšení
+     * @method _doneManagerActive
+     * @private
+     */
     var _doneManagerActive = function(shrink) {
         // kontrola na element
         if (_dom.manager === null) { return; }
@@ -261,7 +314,13 @@ var Manager = function() {
         }
     };
 
-    // aktivování/deaktivování mřížky
+    /**
+     * Aktivace/deaktivace mřížky
+     * 
+     * @param {object} [e] - event objekt z posluchače
+     * @method _setGridActive
+     * @private
+     */
     var _setGridActive = function(e) {
         // target element
         var target = e.target;
@@ -285,7 +344,12 @@ var Manager = function() {
         }
     };
 
-    // nastavení rozměrů
+    /**
+     * Nastavení rozměrů
+     * 
+     * @method _setSize
+     * @private
+     */
     var _setSize = function() {
         // kontrola na gridy
         if (_dom.viewPort !== null && _dom.layoutType !== null) {
@@ -302,14 +366,7 @@ var Manager = function() {
             var type = 'Too small';
             for (var layout in Grid.RD) {
                 if (layout !== 'Name' && layout !== 'FS') {
-                    console.log(Grid.RD[layout]);
-                    console.log(Grid.RD[layout].MIN_WIDTH * Grid.RD.FS);
-                    console.log(Grid.RD[layout].MAX_WIDTH * Grid.RD.FS);
-                    console.log(wWidth);
-                    console.log(wWidth >= Grid.RD[layout].MIN_WIDTH * Grid.RD.FS && wWidth <= Grid.RD[layout].MAX_WIDTH * Grid.RD.FS)
                     if (wWidth >= Grid.RD[layout].MIN_WIDTH * Grid.RD.FS && wWidth <= Grid.RD[layout].MAX_WIDTH * Grid.RD.FS) {
-                        console.log('this');
-                        console.log(Grid.RD[layout].TITLE);
                         type = Grid.RD[layout].TITLE;
                     }
                 }
@@ -320,7 +377,12 @@ var Manager = function() {
         }
     };
 
-    // nastavení paddingu
+    /**
+     * Nastavení odsazení
+     * 
+     * @method _setBodyPadding
+     * @private
+     */
     var _setBodyPadding = function() {
         // kontrola na rozměry
         var bHeight = document.body.offsetHeight;

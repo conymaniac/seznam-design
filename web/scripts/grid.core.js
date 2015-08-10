@@ -1,6 +1,6 @@
 /**
  * @overview Základní jádro mřížky
- * @version 0.1.1
+ * @version 0.1.2
  * @author Dominik Michna (dominik.michna@firma.seznam.cz)
  */
 
@@ -19,7 +19,15 @@ var Core = function() {
         directlyGrid: false        	// přímo zapnout mřížku
 	};
 
-	// konfigurace
+	/**
+	 * Konfigurace
+	 * 
+	 * @param {object} [opt] - nastavení, možnosti
+	 * @param {boolean} [directlyManager=true] - zapnout zobrazení manažera/widgetu
+	 * @param {boolean} [directlyGrid] - zapnout rovnou zobrazení mřížky
+	 * @method cfg
+	 * @public
+	 */
 	this.cfg = function (opt) {
 		// nastavení – možnosti z argumentu
 		for (var key in opt) { _opt[key] = opt[key]; }
@@ -28,7 +36,12 @@ var Core = function() {
         document.addEventListener('DOMContentLoaded', _init.bind(this));
 	};
 
-	// inicializace
+	/**
+	 * Inicializace
+	 * 
+	 * @method _init
+	 * @private
+	 */
 	var _init = function() {
 
 		/* default font-size */
