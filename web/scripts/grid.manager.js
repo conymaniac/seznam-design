@@ -18,7 +18,8 @@ var Manager = function() {
 
     // nastavení – defaultní možnosti
     var _opt = {
-        directlyShrink: false      // přímo zmenšená verze
+        directlyShrink: true,       // přímo zmenšená verze
+        directlyGrid: false         // přímo zapnout mřížku
     };
 
     // DOM objekty
@@ -42,8 +43,8 @@ var Manager = function() {
      * Konfigurace
      * 
      * @param {object} [opt] - nastavení, možnosti
-     * @param {boolean} [directlyShrink=false] - zmenšený stav widgetu
-     * @param {boolean} [directlyGrid] - zapnout rovnou zobrazení mřížky
+     * @param {boolean} [directlyShrink=true] - zmenšený stav widgetu
+     * @param {boolean} [directlyGrid=false] - zapnout rovnou zobrazení mřížky
      * @method cfg
      * @public
      */
