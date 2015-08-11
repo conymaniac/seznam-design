@@ -61,6 +61,8 @@ npm start               // start express serveru
 
 Breakpointy jsou předdefinované, ale lze je upravit v odpovídajícím souboru v CSS a Javascriptu.  
 
+---  
+
 Stav: Working Draft  
 Verze: 0.1.1  
 Využívá:  npm, grunt, less, browserify  
