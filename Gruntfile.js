@@ -132,7 +132,13 @@ module.exports = function ( grunt ) {
                         expand: true,
                         cwd: 'web/fonts/icn-ctrl',
                         src: ['*.*', '**/*.*'],
-                        dest: 'build/base/fonts/icn-ctrl'
+                        dest: 'build/demo/fonts/icn-ctrl'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'build/demo/',
+                        src: ['*.*', '**/*.*'],
+                        dest: 'build/demo-base/'
                     }
                 ]
             },
@@ -153,6 +159,12 @@ module.exports = function ( grunt ) {
                         cwd: 'web/fonts',
                         src: ['*.*', '**/*.*'],
                         dest: 'build/demo/fonts'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'build/demo/',
+                        src: ['*.*', '**/*.*'],
+                        dest: 'build/demo-extended/'
                     }
                 ]
             }
