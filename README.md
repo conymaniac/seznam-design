@@ -1,4 +1,4 @@
-### Seznam Design Systém
+### Seznam Design
 
 Základní třídy + widget pro jednodušší práci s návrhy a komunikaci s Návrháři.  
 Widget psán v čistém Javascriptu, zatím řešeno pouze pro moderní prohlížeče.  
@@ -47,7 +47,7 @@ Jednotlivé soubory pak vložíme do HTML a inicializujeme Grid widget.
 
 #### Demo
 
-Defaultně složka obsahuje jednoduché demo s použitím Seznam Design Systému.  
+Defaultní složka obsahuje vždy aktuálně vybuilděné demo.    
 Lze možné spusit pomocí jednoduché express serveru.  
 Pomocí Gruntu lze vybuildit jednoduché nebo pokročilé demo.
 
@@ -56,6 +56,15 @@ grunt demo-base         // jednoduché demo
 grunt demo-extended     // pokročilé demo
 npm start               // start express serveru
 ```
+
+Při builděni se současně vždy vytvoří kopie souborů do vlastní složky pro rychlý přístup.  
+
+```
+/build/demo/            // defaultní složka, nastavena pro express server
+/build/demo-base        // kopie jednoduchého dema
+/build/demo-extended    // kopie pokročilejšího dema
+```
+
 
 #### Další informace
 
