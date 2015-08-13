@@ -13,17 +13,17 @@
 
 .content {
 
-	.pstr,
-	.hl {
-		text-align: center;
+	* {
+		box-sizing: border-box;
 	}
 
-	.bd {
-		text-align: justify;
+	strong {
+		font-weight: bold;
 	}
 
-	.ln {
-		margin: 1em auto;
+	/* odsazení defaultních tříd */
+	.unt {
+		margin-bottom: 1em;
 	}
 
 	.wrp {
@@ -34,7 +34,8 @@
 		.unt {
 			margin: .5em 0;
 		}
-
+		
+		/* zobrazení responzivní třídy */
 		.cnt {
 			box-sizing: border-box;
 			height: 2em;
@@ -42,6 +43,84 @@
 			text-align: center;
 			color: @cl-text;
 			background-color: @cl-bground;
+		}
+	}
+	
+	/* vlastní třídy */
+	.title,
+	.description {
+		text-align: center;
+	}
+
+	.section {
+		margin-bottom: .6666em;
+	}
+
+	.text {
+		margin-bottom: .5714285714em;
+		text-align: justify;
+	}
+
+	.list {
+		padding-left: 8.46395%;
+
+		.item {
+			margin-bottom: .25em;
+			padding-left: 4.5%;
+			list-style-type: disc;
+		}
+
+		/* layout mobile 2 */
+		@media screen and (min-width: @tb-minWidth) {
+			padding-left: 16.464%;
+
+			.item {
+				padding-left: 11%;
+			}
+		}
+
+		&.quatro {
+			/* layout mobile 2 */
+			@media screen and (min-width: @m2-minWidth) {
+				padding-left: 8.46395%;
+
+				.item {
+					float: left;
+					padding-left: 4.5%;
+					width: 45.768025%;
+
+					&:nth-child(odd) {
+						margin-right: 6.1087%;
+					}
+				}
+			}
+
+			/* layout tablet */
+			@media screen and (min-width: @tb-minWidth) {
+				.item {
+					width: 22.8840125%;
+
+					&:nth-child(2n+1),
+					&:nth-child(2n+2) {
+						margin-right: 9.5%;
+					}
+				}
+			}
+
+			/* layout desktop */
+			@media screen and (min-width: @dk-minWidth) {
+				.item {
+					width: 23.1214%;
+					padding-left: 4.7%;
+
+					&:nth-child(2n+1),
+					&:nth-child(2n+2) {
+						margin-right: 0;
+					}
+				}
+			}
+
+			
 		}
 	}
 

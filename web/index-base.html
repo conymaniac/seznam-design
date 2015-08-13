@@ -1,44 +1,97 @@
 <!doctype html>
-<html lang="cs">
+<html lang="cs"> 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
-		<title>Seznam Design System – Working Draft</title>
-		<link rel="stylesheet" type="text/css" href="/css/style.min.css" media="all" />
-	    <script type="text/javascript" src="/js/grid.min.js"></script>
+		<title>Seznam Design – Working Draft</title>
+		<link rel="stylesheet" type="text/css" href="css/style.min.css" media="all" />
+	    <script type="text/javascript" src="js/grid.min.js"></script>
 	</head>
 	<body>
 		<div class="gr content">
 			<div class="ln">
 				<div class="unt s1of1">
-					<h1 class="pstr">Seznam Design Systém</h1>
-					<h2 class="hl">Seznam Design Systém je sada principů pro navrhování uživatelského rozhraní</h2>
+					<h1 class="pstr title">Seznam Design</h1>
+					<h2 class="hl description">Seznam Design je sada principů pro navrhování uživatelského rozhraní</h2>
 				</div>
 			</div>
 			<div class="ln">
 				<div class="unt s1of2">
-					<h3 class="ttl">Principy</h3>
-					<p class="bd">Seznam Design Systém dává jednoduchý mechanizmus kontroly. Zobrazením mřížky přes stránku může kdokoliv zkontrolovat, jsou-li text, ovládací a grafické prvky správně posazeny a zarovnány. Dodržování sjednocené typografie zajistí horizontalní rytmus a dobrou čitelnost. Současně správné posazení elementů zajistí harmonii prvků a jejich vzdáleností a jejich vzdáleností.</p>
+					<h3 class="ttl section">Co to je</h3>
+					<p class="bd text">Seznam Design poskytuje principy, které by měly umožnit <strong>jednodušší spolupráci</strong> mezi Návrháři a Programátory UI, a současně dodává jednoduchý mechanizmus kontroly.</p>
+					<p class="bd text">Seznam Design byl navržen na základě dvou přístupů – <a href="https://gitlab.kancelar.seznam.cz/webmasters-common/seznam-design-system/wikis/basics#responsive-design">Responsive Design</a> a <a href="https://gitlab.kancelar.seznam.cz/webmasters-common/seznam-design-system/wikis/basics#mobile-first">Mobile First.</a></p>
+					<p class="bd text">Cílem <strong>Responsive Design</strong> je vytvářet stránky tak, aby uživatel měl jednoduchý a příjemný přístup k požadovanému obsahu na jakémkoliv zařízení.</p>
+					<p class="bd text">Základ <strong>Mobile First</strong> tkví v návrhu a tvorbě obsahu stránek nejdříve pro nejjednodušší zařízení a postupném doplňováním funkcionality pro složitější a složitější zařízení.</p>
 				</div>
 				<div class="unt s1of2">
-					<h3 class="ttl">Typografická škála</h3>
-					<p class="bd">Každý textový styl má jasně definované vlastnosti. Každý styl má svoje jméno a jeho případná změna se děje globálně. Každý řádek textu sedí svým účařím na základní mřížce (s výjimkou textového stylu Chleba).</p>
+					<h3 class="ttl section">Základní kameny</h3>
+					<p class="bd text">Základními stavební kameny Seznam Designu je vlastní <strong>Grid systém</strong> a <strong>Typografické škála</strong>. Dodržování sjednocené typografie zajistí horizontalní rytmus a dobrou čitelnost. Současně správné posazení elementů zajistí harmonii prvků a jejich vzdáleností.</p>
+					<p class="bd text">Postupem času se bude Seznam Design dále rozšiřovat.</p>
+					<p class="bd text">Aktuální seznam všech principů:</p>
+					<ul class="list">
+						<li class="item">
+							<a class="bd" href="https://gitlab.kancelar.seznam.cz/webmasters-common/seznam-design-system/wikis/grid">Grid systém</a>
+						</li>
+						<li class="item">
+							<a class="bd"href="https://gitlab.kancelar.seznam.cz/webmasters-common/seznam-design-system/wikis/typography">Typografická škála</a>
+						</li>
+					</ul>
 				</div>
 			</div>
 			<div class="ln">
-				<div class="unt s1of2">
-					<h3 class="ttl">Baseline</h3>
-					<p class="bd">Horizontální přímky ve vzdálenosti 8px, kdy číslo osm slouží jako virtuální jednotka určující velikosti prvků a vzdálenosti mezi nimi. Každý vědomý rozměr je jejím násobkem.</p>
+				<div class="unt s1of1">
+					<h3 class="ttl section">Grid systém</h3>
+					<p class="bd text">Pomocí Grid systému lze zajistit správné posazení elementů a zajistit tak harmonii prvků a jejich vzdáleností. Následně díky zobrazení pomocné mřížky přes stránku může kdokoliv zkontrolovat, jsou-li text, ovládací a grafické prvky správně posazeny a zarovnány.</p>
+					<p class="bd text">Grid systém se skládá ze dvou částí – <strong>Baseline</strong> a <strong>Layout</strong>.</p>
+					<p class="bd"><strong>Baseline</strong> – je horizontální část mřížky ve vzdálenosti 8px, kdy číslo osm slouží jako virtuální jednotka určující velikosti prvků a vzdálenosti mezi nimi. Každý vědomý rozměr je jejím násobkem.
+					</p>
+					<p class="bd"><strong>Layout</strong> – je vertikální část mřížky tvořící flexibilní sloupce s daným odsazením mezi sebou, slouží především ke stanovení šířky, poměrů a mezer vícesloupcových layoutů a svislému zarovnání dominantních prvků.
+					</p>
 				</div>
-				<div class="unt s1of2">
-					<h3 class="ttl">Layout</h3>
-					<p class="bd">Vertikální přímky tvořící flexibilní sloupce s daným odsazením mezi sebou, slouží především ke stanovení šířky, poměrů a mezer vícesloupcových layoutů a svislému zarovnání dominantních prvků.</p>
+				<div class="unt s1of1">
+					<h3 class="ttl section">Typografická škála</h3>
+					<p class="bd text">Každý textový styl z Typografické škály má jasně definované vlastnosti. Každý styl má svoje jméno a jeho případná změna se děje globálně. Každý řádek textu sedí svým účařím na Baseline (s výjimkou textového stylu Chleba).</p>
+					<p class="bd text">Seznam textových stylů:</p>
+					<ul class="list quatro">
+						<li class="item">
+							<span class="bd">Výloha,</span>
+						</li>
+						<li class="item">
+							<span class="bd">Plakát,</span>
+						</li>
+						<li class="item">
+							<span class="bd">Titulek,</span>
+						</li>
+						<li class="item">
+							<span class="bd">Nadpis,</span>
+						</li>
+						<li class="item">
+							<span class="bd">Podnadpis,</span>
+						</li>
+						<li class="item">
+							<span class="bd">Chleba,</span>
+						</li>
+						<li class="item">
+							<span class="bd">Popisek.</span>
+						</li>
+					</ul>
+				</div>
+				
+			</div>
+			<div class="ln">
+				<div class="unt s1of1">
+					<h3 class="ttl section">V čem to pomůže?</h3>
+					<p class="bd text">Programátoři UI nebudou nuceni dál detailně studovat návrhy, řešit každý pixel a velikost textu. V podstatě se nejmenší jednotkou stává čtverec o osmi pixelech a je snadno vidět, jestli daná mezera je velikosti dva, nebo čtyři čtverečky.</p>
+					<p class="bd text">Dodržování systému zajistí konzistentní vzhled všech částí/stránek služby, jednotné řádkování, mezery atd.</p>
 				</div>
 			</div>
 			<div class="wrp">
 				<div class="ln">
+					<div class="unt s1of1">
+						<h3 class="ttl section">Příklad tříd</h3>
+					</div>
 					<div class="test unt s1of24">
 						<div class="cnt">24</div>
 					</div>
@@ -222,7 +275,11 @@
 			</div>
 			<div class="ln">
 				<div class="unt s1of1">
+					<hr />
+				</div>
+				<div class="unt s1of1">
 					<p class="bd">Stav: Working Draft</p>
+					<p class="bd">Verze: 0.1.1</p>
 					<p class="bd">Kontakt: <a href="mailto:dominik.michna@firma.seznam.cz">Dominik Michna</a></p>
 				</div>
 			</div>
