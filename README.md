@@ -66,9 +66,44 @@ Při builděni se současně vždy vytvoří kopie souborů do vlastní složky 
 ```
 
 
-#### Další informace
+#### Layout & breakpointy
+
+Seznam Design pracuje se čtyřmi typy layoutů: mobile 1, mobile 2, tablet a desktop.
 
 Breakpointy jsou předdefinované, ale lze je upravit v odpovídajícím souboru v CSS a Javascriptu.  
+
+``` 
+/web/scripts/grid.js        // nastavení breakpointů pro JS widget
+/web/less/grid/grid.less    // nastavení breakpointů pro LESS
+```
+
+Výchozí nastavení breakpointů, gutteru a celkového paddingu gridu:
+
+``` css
+/* layout – mobil 1 */
+@m1-minWidth: 20em; 			/* 320px */
+@m1-maxWidth: 25.4375em;		/* 407px */
+@m1-padding: 0.5em;				/* 8px */
+@m1-gutter: 0.5em;				/* 8px */
+
+/* layout – mobil 2 */
+@m2-minWidth: 25.5em;			/* 408px */
+@m2-maxWidth: 37.4375em;		/* 599px */
+@m2-padding: 1em;				/* 16px */
+@m2-gutter: 0.5em;				/* 8px */
+
+/* layout – tablet */
+@tb-minWidth: 37.5em;			/* 600px */
+@tb-maxWidth: 62.9375em;		/* 1007px */
+@tb-padding: 1em;				/* 16px */
+@tb-gutter: 0.5em; 				/* 8px */
+
+/* layout – desktop */
+@dk-minWidth: 63em; 			/* 1008px */
+@dk-maxWidth: 63em;				/* 1008px */
+@dk-padding: 2em;				/* 32px */
+@dk-gutter: 1em; 				/* 16px */
+```
 
 ---  
 
