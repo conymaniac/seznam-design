@@ -16,6 +16,7 @@ var Core = function() {
 	// nastavení – defaultní možnosti
 	var _opt = {
 		content: '.content', 			// selector pro element reprezentující hlavní obsah 
+		directlyCfg: false, 			// přímo nakonfigurovat, nečekat na DOMContentLoaded
         directlyManager: true,      	// přímo zapnout ovládací prvky
         directlyGrid: false        		// přímo zapnout mřížku
 	};
@@ -39,7 +40,11 @@ var Core = function() {
 		for (var key in opt) { _opt[key] = opt[key]; }
 			
         // po načtení DOMu nakonfigurujeme vše
-        document.addEventListener('DOMContentLoaded', _init.bind(this));
+    	if (!_opt.directlyCfg) {
+        	document.addEventListener('DOMContentLoaded', _init.bind(this));
+	    } else {
+	    	_init();
+	    }
 	};
 
 	/**
