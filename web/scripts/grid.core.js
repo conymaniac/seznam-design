@@ -15,7 +15,7 @@ var Core = function() {
 
 	// nastavení – defaultní možnosti
 	var _opt = {
-		content: '.content', 			// selector pro element reprezentující hlavní obsah 
+		content: 'body', 				// selector pro element reprezentující hlavní obsah 
 		directlyCfg: false, 			// přímo nakonfigurovat, nečekat na DOMContentLoaded
         directlyManager: true,      	// přímo zapnout ovládací prvky
         directlyGrid: false        		// přímo zapnout mřížku
@@ -54,10 +54,9 @@ var Core = function() {
 	 * @private
 	 */
 	var _init = function() {
-
         // hlavní obsahový element
         _dom.content = document.querySelector(_opt.content);
-
+        
 		// default font-size
 		var style = window.getComputedStyle(_dom.content, null).getPropertyValue('font-size');
 

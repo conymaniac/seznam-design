@@ -19,7 +19,7 @@ var Builder = function() {
 
 	// nastavení – defaultní možnosti
 	var _opt = {
-        content: '.content',            // selector pro element reprezentující hlavní obsah 
+        content: 'body',                // selector pro element reprezentující hlavní obsah 
 		units: 24                       // počet unit v layout mřížce
 	};
 

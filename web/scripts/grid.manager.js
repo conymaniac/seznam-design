@@ -18,7 +18,7 @@ var Manager = function() {
 
     // nastavení – defaultní možnosti
     var _opt = {
-        content: '.content',            // selector pro element reprezentující hlavní obsah 
+        content: 'body',                // selector pro element reprezentující hlavní obsah 
         directlyShrink: true,           // přímo zmenšená verze
         directlyGrid: false             // přímo zapnout mřížku
     };
