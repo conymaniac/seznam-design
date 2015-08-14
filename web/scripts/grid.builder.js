@@ -19,11 +19,13 @@ var Builder = function() {
 
 	// nastavení – defaultní možnosti
 	var _opt = {
-		units: 24         // počet unit v layout mřížce
+        content: '.content',            // selector pro element reprezentující hlavní obsah 
+		units: 24                       // počet unit v layout mřížce
 	};
 
 	// DOM objekty
 	var _dom = {
+        content: null,
 		layout: null,
         baseline: null
 	};
@@ -42,6 +44,9 @@ var Builder = function() {
 	this.cfg = function (opt) {
 		// nastavení – možnosti z argumentu
 		for (var key in opt) { _opt[key] = opt[key]; }
+
+        // hlavní obsahový element
+        _dom.content = document.querySelector(_opt.content);
 
         // incializace
         _build();
@@ -95,17 +100,17 @@ var Builder = function() {
         // kontrola na existenci layout mřížky
         if (_dom.layout === null) {
             _buildLayout();
-        } else if (_dom.layout.parentNode !== document.body) {
+        } else if (_dom.layout.parentNode !== _dom.content) {
             // přidáme do body
-            document.body.appendChild(_dom.layout);
+            _dom.content.appendChild(_dom.layout);
         }
 
         // kontrola na existenci baseline mřížky
         if (_dom.baseline === null) {
             _buildBaseline();
-        } else if (_dom.baseline.parentNode !== document.body) {
+        } else if (_dom.baseline.parentNode !== _dom.content) {
             // přidáme do body
-            document.body.appendChild(_dom.baseline);
+            _dom.content.appendChild(_dom.baseline);
         }
     };
 
@@ -133,7 +138,7 @@ var Builder = function() {
         _buildMrgn(grid);
 
 		// přidáme do body
-		document.body.appendChild(_dom.layout);
+		_dom.content.appendChild(_dom.layout);
 	};
 
     /**
@@ -166,7 +171,7 @@ var Builder = function() {
         _buildMrgn(grid)
 
         // přidáme do body
-        document.body.appendChild(_dom.baseline);
+        _dom.content.appendChild(_dom.baseline);
     };
 
 	/**
@@ -234,8 +239,8 @@ var Builder = function() {
             var bGrid = _dom.baseline.querySelector('.gr');
 
             // kontrola na rozměry
-            var bHeight = document.body.offsetHeight;
-            var wHeight = Object.prototype.hasOwnProperty.call(window, 'innerHeight') ? window.innerHeight : document.body.clientHeight;
+            var bHeight = _dom.content.offsetHeight;
+            var wHeight = Object.prototype.hasOwnProperty.call(window, 'innerHeight') ? window.innerHeight : _dom.content.clientHeight;
 
             // porovnání výšky viewportu a body
             if (bHeight > wHeight) {

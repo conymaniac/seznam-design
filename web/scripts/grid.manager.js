@@ -1,6 +1,6 @@
 /**
  * @overview Ovládání mřížky
- * @version 0.1.2
+ * @version 0.1.1
  * @author Dominik Michna (dominik.michna@firma.seznam.cz)
  */
 
@@ -18,12 +18,14 @@ var Manager = function() {
 
     // nastavení – defaultní možnosti
     var _opt = {
-        directlyShrink: true,       // přímo zmenšená verze
-        directlyGrid: false         // přímo zapnout mřížku
+        content: '.content',            // selector pro element reprezentující hlavní obsah 
+        directlyShrink: true,           // přímo zmenšená verze
+        directlyGrid: false             // přímo zapnout mřížku
     };
 
     // DOM objekty
     var _dom = {
+        content: null,
         manager: null,
         group: null,
         layout: null,
@@ -51,6 +53,9 @@ var Manager = function() {
     this.cfg = function (opt) {
         // nastavení – možnosti z argumentu
         for (var key in opt) { _opt[key] = opt[key]; }
+
+        // hlavní obsahový element
+        _dom.content = document.querySelector(_opt.content);
 
         // build ovládacích prvků
         _build();
@@ -88,7 +93,7 @@ var Manager = function() {
             }
         } else {
             _dom.manager.style.display = 'none';
-            document.body.removeAttribute('style');
+            _dom.content.removeAttribute('style');
         }
 
         // nastavíme semafor
@@ -105,9 +110,9 @@ var Manager = function() {
         // kontrola na existenci ovládacích prvků
         if (_dom.manager === null) {
             _buildManager();
-        } else if (_dom.manager.parentNode !== document.body) {
+        } else if (_dom.manager.parentNode !== _dom.content) {
             // přidáme do body
-            document.body.appendChild(_dom.manager);
+            _dom.content.appendChild(_dom.manager);
         }
 
         // kontrola na touch zařízení
@@ -141,7 +146,7 @@ var Manager = function() {
         _buildManagerControls(grid);
 
         // přidáme do body
-        document.body.appendChild(_dom.manager);
+        _dom.content.appendChild(_dom.manager);
     };
 
     /**
@@ -386,14 +391,14 @@ var Manager = function() {
      */
     var _setBodyPadding = function() {
         // kontrola na rozměry
-        var bHeight = document.body.offsetHeight;
-        var wHeight = Object.prototype.hasOwnProperty.call(window, 'innerHeight') ? window.innerHeight : document.body.clientHeight;
+        var bHeight = _dom.content.offsetHeight;
+        var wHeight = Object.prototype.hasOwnProperty.call(window, 'innerHeight') ? window.innerHeight : _dom.content.clientHeight;
 
         // porovnání výšky viewportu a body
         if (bHeight > wHeight) {
-            document.body.style.paddingBottom = '3em';
+            _dom.content.style.paddingBottom = '3em';
         } else {
-            document.body.removeAttribute('style');
+            _dom.content.removeAttribute('style');
         }
     }
 };

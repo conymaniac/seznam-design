@@ -1,6 +1,6 @@
 /**
  * @overview Základní jádro mřížky
- * @version 0.1.2
+ * @version 0.1.1
  * @author Dominik Michna (dominik.michna@firma.seznam.cz)
  */
 
@@ -15,8 +15,14 @@ var Core = function() {
 
 	// nastavení – defaultní možnosti
 	var _opt = {
-        directlyManager: true,      // přímo zapnout ovládací prvky
-        directlyGrid: false        	// přímo zapnout mřížku
+		content: '.content', 			// selector pro element reprezentující hlavní obsah 
+        directlyManager: true,      	// přímo zapnout ovládací prvky
+        directlyGrid: false        		// přímo zapnout mřížku
+	};
+
+	// DOM objekty
+	var _dom = {
+        content: null
 	};
 
 	/**
@@ -44,11 +50,14 @@ var Core = function() {
 	 */
 	var _init = function() {
 
-		/* default font-size */
-		var style = window.getComputedStyle(document.body, null).getPropertyValue('font-size');
+        // hlavní obsahový element
+        _dom.content = document.querySelector(_opt.content);
 
-		/* počítáme s defaultem 16px */
-		/* TODO!! Dodělat on resize změnu */
+		// default font-size
+		var style = window.getComputedStyle(_dom.content, null).getPropertyValue('font-size');
+
+		// počítáme s defaultem 16px //
+		// TODO!! Dodělat listener na uživatelskou změnu fontu
 		Grid.RD.FS = parseFloat(style);  	
 
 		// ovládací panel
