@@ -17,28 +17,28 @@ module.exports = function ( grunt ) {
                     cleancss: true
                 },
                 src:'web/less/style.base.less',
-                dest:'build/base/css/style.css'
+                dest:'build/base/css/seznam-design.css'
             },
             extended: {
                 options: {
                     cleancss: true
                 },
                 src:'web/less/style.extended.less',
-                dest:'build/extended/css/style.css'
+                dest:'build/extended/css/seznam-design.css'
             },
             demoBase: {
                 options: {
                     cleancss: true
                 },
                 src:'web/less/style.demo.base.less',
-                dest:'build/demo/css/style.css'
+                dest:'build/demo/css/seznam-design.css'
             },
             demoExtended: {
                 options: {
                     cleancss: true
                 },
                 src:'web/less/style.demo.extended.less',
-                dest:'build/demo/css/style.css'
+                dest:'build/demo/css/seznam-design.css'
             }
         },
         browserify: {
@@ -87,17 +87,17 @@ module.exports = function ( grunt ) {
         uglify: {
             base: {
                 files: {
-                    'build/base/js/grid.min.js': ['build/base/js/grid.js']
+                    'build/base/js/seznam-design.min.js': ['build/base/js/grid.js']
                 }
             },
             extended: {
                 files: {
-                    'build/extended/js/grid.min.js': ['build/extended/js/grid.js']
+                    'build/extended/js/seznam-design.min.js': ['build/extended/js/grid.js']
                 }
             },
             demo: {
                 files: {
-                    'build/demo/js/grid.min.js': ['build/demo/js/grid.js']
+                    'build/demo/js/seznam-design.min.js': ['build/demo/js/grid.js']
                 }
             }
         },
@@ -170,9 +170,9 @@ module.exports = function ( grunt ) {
             }
         },
         clean: {
-            base: ['build/base/js/grid.js', 'build/base/css/style.css'],
-            extended: ['build/extended/js/grid.js', 'build/extended/css/style.css', 'build/extended/fonts/**/*'],
-            demo: ['build/demo/js/grid.js', 'build/demo/css/style.css']
+            base: ['build/base/js/grid.js', 'build/base/js/seznam-design.js', 'build/base/css/seznam-design.css'],
+            extended: ['build/extended/js/grid.js', 'build/extended/js/seznam-design.js', 'build/extended/css/seznam-design.css', 'build/extended/fonts/**/*'],
+            demo: ['build/demo/js/grid.js', 'build/demo/js/seznam-design.js', 'build/demo/css/seznam-design.css']
         },
         watch: {
             htmlBase: {

@@ -15,8 +15,8 @@ Součástí stylopisů jsou resety, třídy pro grid, textové styly a nastaven�
 CSS třídy předpokládájí, že složka s fonty je na stejné úrovni jako složka s CSS.  
 
 ```
-/build/base/css/style.min.css
-/build/base/js/grid.min.js
+/build/base/css/seznam-design.min.css
+/build/base/js/seznam-design.min.js
 /build/base/fonts/
 ```
 
@@ -28,8 +28,8 @@ Navíc jsou obsažený základní třídy a Seznamácký font TriviaSeznam.
 CSS třídy předpokládájí, že složka s fonty je na stejné úrovni jako složka s CSS.  
 
 ```
-/build/extended/css/style.min.css
-/build/extended/js/grid.min.js
+/build/extended/css/seznam-design.min.css
+/build/extended/js/seznam-design.min.js
 /build/extended/fonts/
 ```
 
@@ -38,8 +38,8 @@ CSS třídy předpokládájí, že složka s fonty je na stejné úrovni jako sl
 Jednotlivé soubory pak vložíme do HTML a inicializujeme Grid widget. 
 
 ```html
-<link type="text/css" rel="stylesheet" href="/static/css/style.min.css">
-<script type="text/javascript" src="/static/js/grid.min.js"></script>
+<link type="text/css" rel="stylesheet" href="/static/css/seznam-design.min.css">
+<script type="text/javascript" src="/static/js/seznam-design.min.js"></script>
 <script type="text/javascript">
 	Grid.cfg();
 </script>
