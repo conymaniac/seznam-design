@@ -50,12 +50,12 @@ Jednotlivé soubory pak vložíme do HTML a inicializujeme Grid widget.
 Javascriptový widget má několik konfigurovatelných možností s defaultními hodnotami.
 
 ```javascript
-content: 'body', 				// selector pro element reprezentující hlavní obsah 
-directlyCfg: false, 			// rovnou nakonfigurovat, nečekat na DOMContentLoaded event
-directlyShrink: true,           // přímo zmenšená verze widgetu
-directlyManager: true,      	// zapnout zobrazení widgetu – ovládacích prvků
-directlyGrid: false,        	// rovnout zapnout a zobrazit mřížku
-units: 24                       // počet sloupců v layoutu
+content: 'body', 		// selector, element reprezentující hlavní obsah 
+directlyCfg: false, 	// konfigurovat a nečekat na DOMContentLoaded
+directlyShrink: true,   // přímo zmenšená verze widgetu
+directlyManager: true,  // zapnout zobrazení widgetu – ovládacích prvků
+directlyGrid: false,    // rovnou zapnout a zobrazit mřížku
+units: 24               // počet sloupců v layoutu
 ```
 
 #### Demo
