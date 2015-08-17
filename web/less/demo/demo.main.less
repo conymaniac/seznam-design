@@ -8,6 +8,12 @@
 
 .main {
 
+	/* reset wrapu na float */
+	.wrp {
+		float: none;
+		// width: 100%;
+	}
+
 	/* hlavní informace */
 	.info {
 		padding-top: 1em;
@@ -58,11 +64,6 @@
 
 	/* kontaktní informace */
 	.contact {
-
-		/* reset wrapu na float */
-		.wrp {
-			float: none;
-		}
 	
 		/* zarovnání popisku a hodnoty */
 		.fl-lft,
@@ -187,11 +188,6 @@
 			@media screen and (max-width: @m2-maxWidth) {
 				width: 100%;
 			}
-		}
-
-		/* zobrazení více fotek */
-		.lnk {
-			margin-left: -.15em;
 		}
 	}
 
