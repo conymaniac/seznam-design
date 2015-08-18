@@ -96,16 +96,16 @@
 	/* pozice */
 	position: absolute;
 	top: 0;
-	left: 0;
+	right: 0;
 	bottom: 0;
 	z-index: 2;
 
 	/* vzhled */
 	background-color: @cl-mrgn;
 
-	&:last-child {
-		left: auto;
-		right: 0;
+	&:first-child {
+		left: 0;
+		right: auto;
 	}
 
 	/* rozměry */

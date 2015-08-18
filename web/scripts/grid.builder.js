@@ -52,8 +52,10 @@ var Builder = function() {
         _build();
 
         // výška gridu při resize okna
-        if (document.addEventListener) {
+        if (window.addEventListener) {
             window.addEventListener('resize', _setHeight.bind(this), false);
+        } else {
+            window.attachEvent('onresize', _setHeight.bind(this));
         }
 
 	};
@@ -164,6 +166,11 @@ var Builder = function() {
         var line = document.createElement('div');
         line.className = 'ln';
 
+        // pro IE8 přidáme na pozadí vlastní image
+        if (navigator.userAgent.match(/MSIE 8/) !== null) {
+            line.style.backgroundImage = 'url(data:image/png;base64,/9j/4AAQSkZJRgABAgAAAQABAAD/7QCEUGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAGccAigAYkZCTUQwMTAwMGE5ZDAzMDAwMGY5MDMwMDAwMWUwNDAwMDA3NjA0MDAwMGE1MDQwMDAwYzYwNDAwMDBkMTA0MDAwMDA0MDUwMDAwMzAwNTAwMDA1ZDA1MDAwMDZhMDUwMDAwAP/iAhxJQ0NfUFJPRklMRQABAQAAAgxsY21zAhAAAG1udHJSR0IgWFlaIAfcAAEAGQADACkAOWFjc3BBUFBMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD21gABAAAAANMtbGNtcwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACmRlc2MAAAD8AAAAXmNwcnQAAAFcAAAAC3d0cHQAAAFoAAAAFGJrcHQAAAF8AAAAFHJYWVoAAAGQAAAAFGdYWVoAAAGkAAAAFGJYWVoAAAG4AAAAFHJUUkMAAAHMAAAAQGdUUkMAAAHMAAAAQGJUUkMAAAHMAAAAQGRlc2MAAAAAAAAAA2MyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAARkIAAFhZWiAAAAAAAAD21gABAAAAANMtWFlaIAAAAAAAAAMWAAADMwAAAqRYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9jdXJ2AAAAAAAAABoAAADLAckDYwWSCGsL9hA/FVEbNCHxKZAyGDuSRgVRd13ta3B6BYmxmnysab9908PpMP///9sAQwAHBQUGBQQHBgUGCAcHCAoRCwoJCQoVDxAMERgVGhkYFRgXGx4nIRsdJR0XGCIuIiUoKSssKxogLzMvKjInKisq/9sAQwEHCAgKCQoUCwsUKhwYHCoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioq/8IAEQgAEAFAAwAiAAERAQIRAf/EABYAAQEBAAAAAAAAAAAAAAAAAAAHAv/EABYBAQEBAAAAAAAAAAAAAAAAAAADBf/EABYBAQEBAAAAAAAAAAAAAAAAAAADBf/aAAwDAAABEQIRAAAB0oyWzOVGE5UYTlRhOVGE5UYTlRhOVGE5UYTlRhOVGE5UYTlRhOVGE5UYTlRhOVGE5UYTlRhOVGH/xAAUEAEAAAAAAAAAAAAAAAAAAABg/9oACAEAAAEFAiH/xAAYEQACAwAAAAAAAAAAAAAAAAAAFWKh4f/aAAgBAhEBPwFpC8GkLwaQvBpC8GkLwaQvBpC8GkLwaQvBpC8GkLwaQvBpC8GkLwaQvBpC8GkLwaQvBpC8GkLw/8QAFREBAQAAAAAAAAAAAAAAAAAAABP/2gAIAQERAT8Bmmmmmmmmmmmmmmmmmmmm/8QAFBABAAAAAAAAAAAAAAAAAAAAYP/aAAgBAAAGPwIh/8QAFBABAAAAAAAAAAAAAAAAAAAAYP/aAAgBAAABPyEh/9oADAMAAAERAhEAABDzzzzzzzzzzzzzzzzzzzz/xAAUEQEAAAAAAAAAAAAAAAAAAABA/9oACAECEQE/ECAAAAAAAAAAAAAH/8QAFREBAQAAAAAAAAAAAAAAAAAAAHH/2gAIAQERAT8QpSlKUpSlKUpSlKUpT//EABQQAQAAAAAAAAAAAAAAAAAAAGD/2gAIAQAAAT8QIf/Z)';
+        }
+
         // přidáme řádek do rodiče
         grid.appendChild(line);
 
@@ -240,10 +247,10 @@ var Builder = function() {
 
             // kontrola na rozměry
             var bHeight = _dom.content.offsetHeight;
-            var wHeight = Object.prototype.hasOwnProperty.call(window, 'innerHeight') ? window.innerHeight : _dom.content.clientHeight;
+            var wHeight = Object.prototype.hasOwnProperty.call(window, 'innerHeight') ? window.innerHeight : document.body.clientHeight;
 
             // porovnání výšky viewportu a body
-            if (bHeight > wHeight) {
+            if (bHeight >= wHeight) {
                 lGrid.style.height = bHeight + 'px';
                 bGrid.style.height = bHeight + 'px';
                 lGrid.style.bottom = 'auto';

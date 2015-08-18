@@ -26,6 +26,9 @@ var Core = function() {
         content: null
 	};
 
+	// uložení pro onDOMReady
+	var _domReadyCallbacks = [];
+
 	/**
 	 * Konfigurace
 	 * 
@@ -41,7 +44,7 @@ var Core = function() {
 			
         // po načtení DOMu nakonfigurujeme vše
     	if (!_opt.directlyCfg) {
-        	document.addEventListener('DOMContentLoaded', _init.bind(this));
+    		_onDOMReady(this, _init.bind(this));
 	    } else {
 	    	_init();
 	    }
@@ -58,11 +61,17 @@ var Core = function() {
         _dom.content = document.querySelector(_opt.content);
         
 		// default font-size
-		var style = window.getComputedStyle(_dom.content, null).getPropertyValue('font-size');
+		var style = _getStyle(document.body, 'fontSize');
 
-		// počítáme s defaultem 16px //
+		// pokud se objeví se stylech "em" počítáme s defaultem 16px
 		// TODO!! Dodělat listener na uživatelskou změnu fontu
-		Grid.RD.FS = parseFloat(style);  	
+		if (!!style && style.indexOf('em') > -1) {
+			Grid.RD.FS = parseFloat(style) * 16;
+		} else if (!!style && style.indexOf('pt') > -1) {
+			Grid.RD.FS = Math.round(parseFloat(style) * 1.3333); 
+		} else {
+			Grid.RD.FS = parseFloat(style);
+		}
 
 		// ovládací panel
         if (Grid && Grid.Manager) {
@@ -84,6 +93,79 @@ var Core = function() {
             }
         }
 	}
+
+	/**
+	 * Metoda kterou použijeme, pokud chceme navěsit vlastní kód na událost, kdy je DOM strom připraven k použití.
+	 * Je možné navěsit libovolný počet volaných funkcí.   
+	 *
+     * @method _onDOMReady
+	 * @param {object} obj kontext, tj. "this" pro funkci
+	 * @param {function || string} func funkce, která se bude provádět jako posluchač  
+	 * @see jak.js
+	 * @private
+	 */ 
+	var _onDOMReady = function(obj, func) {
+		var f = (typeof(func) == "function" ? func : obj[func]);
+		if (obj) { f = f.bind(obj); }
+
+		if (document.readyState == "complete") { return setTimeout(f, 0); } /* uz bylo, jen asynchronne vykoname */
+
+		if (!_domReadyCallbacks.length) { /* prvni volani - navesit relevantni posluchac */
+			var process = function() {
+				while (_domReadyCallbacks.length) { _domReadyCallbacks.shift()(); }
+			}
+			process = process.bind(this);
+
+			if (window.addEventListener) {
+				window.addEventListener("DOMContentLoaded", process, false);
+			} else {
+				document.attachEvent("onreadystatechange", function() {
+					if (document.readyState == "complete") { process(); }
+				});
+			}
+		}
+
+		_domReadyCallbacks.push(f);
+	}
+
+	/**
+	 * Vraci současnou hodnotu nějaké css vlastnosti
+	 *
+     * @method _getStyle
+	 * @param {object} elm HTML elmenet, jehož vlasnost nás zajímá
+	 * @param {string} property řetězec s názvem vlastnosti ("border","backgroundColor",...)
+	 * @see jak.js
+	 * @private
+	 */
+	var _getStyle = function(elm, property) {
+		if (document.defaultView && document.defaultView.getComputedStyle) {
+			var cs = elm.ownerDocument.defaultView.getComputedStyle(elm,'');
+			if (!cs) { return false; }
+			return cs[property];
+		} else {
+			return elm.currentStyle[property];
+		}
+	}
+
+	/**
+	 * IE8 Fixes
+	 */
+	if (!Function.prototype.bind) {
+		/**
+		 * ES5 Function.prototype.bind
+		 * Vrací funkci zbindovanou do zadaného kontextu.
+		 * Zbylé volitelné parametry jsou předány volání vnitřní funkce.
+		 * @param {object} thisObj Nový kontext
+		 * @returns {function}
+		 */
+		Function.prototype.bind = function(thisObj) {
+			var fn = this;
+			var args = Array.prototype.slice.call(arguments, 1); 
+			return function() { 
+				return fn.apply(thisObj, args.concat(Array.prototype.slice.call(arguments))); 
+			}
+		}
+	};
 
 };
 

@@ -60,10 +60,11 @@ var Manager = function() {
         // build ovládacích prvků
         _build();
 
-        // kontrola na event listener
-        if (document.addEventListener) {
-            // výška gridu při resize okna
+        // výška gridu při resize okna
+        if (window.addEventListener) {
             window.addEventListener('resize', _setBodyPadding.bind(this), false);
+        } else {
+            window.attachEvent('onresize', _setBodyPadding.bind(this));
         }
 
     };
@@ -136,6 +137,7 @@ var Manager = function() {
         // obalující element
         var grid = document.createElement('div');
         grid.className = 'gr';
+        grid.style.boxSizing = 'border-box';
 
         // přidáme rodiče do layout
         _dom.manager.appendChild(grid);
@@ -177,7 +179,11 @@ var Manager = function() {
             if (document.addEventListener) {
                 _dom.logo.addEventListener('click', _setManagerActive.bind(this));
                 _dom.close.addEventListener('click', _setManagerActive.bind(this));
+            } else {
+                _dom.logo.attachEvent('onclick', _setManagerActive.bind(this));
+                _dom.close.attachEvent('onclick', _setManagerActive.bind(this));
             }
+
         }     
     };
 
@@ -212,8 +218,11 @@ var Manager = function() {
 
             // aktivace/deaktivace mřížky
             if (document.addEventListener) {
-                _dom.layout.addEventListener('click', _setGridActive.bind(this));
-                _dom.baseline.addEventListener('click', _setGridActive.bind(this));
+                _dom.layout.addEventListener('click', _setGridActive.bind(this, _dom.layout));
+                _dom.baseline.addEventListener('click', _setGridActive.bind(this, _dom.baseline));
+            } else {
+                _dom.layout.attachEvent('onclick', _setGridActive.bind(this, _dom.layout));
+                _dom.baseline.attachEvent('onclick', _setGridActive.bind(this, _dom.baseline));
             }
 
             // přidáme do managera
@@ -256,8 +265,10 @@ var Manager = function() {
 
             // zobrazíme rozměry
             _setSize()
-            if (document.addEventListener) {
+            if (window.addEventListener) {
                 window.addEventListener('resize', _setSize.bind(this), false);
+            } else {
+                window.attachEvent('onresize', _setSize.bind(this));
             }
         }     
     };
@@ -275,8 +286,8 @@ var Manager = function() {
 
         // kontrola na třídu stavu
         var shrink = true;
-        var classes = _dom.manager.className;
-        if (classes.indexOf('shrnk') > -1 && classes.indexOf('shrnking') === -1 && classes.indexOf('unshrnking') === -1) {
+        var classes = ' ' + _dom.manager.className + ' ';
+        if (_hasClass(_dom.manager, 'shrnk')) {
             _dom.manager.className = classes.replace(' shrnk', '');
             shrink = false;
         }
@@ -301,10 +312,10 @@ var Manager = function() {
         if (_dom.manager === null) { return; }
 
         // kontrola na třídu animace
-        var classes = _dom.manager.className;
-        if (classes.indexOf('shrnking') > -1 && classes.indexOf('unshrnking') === -1) {
+        var classes = ' ' + _dom.manager.className + ' ';
+        if (_hasClass(_dom.manager, 'shrnking')) {
             _dom.manager.className = classes.replace(' shrnking', '');
-        } else if (classes.indexOf('unshrnking') > -1) {
+        } else if (_hasClass(_dom.manager, 'unshrnking')) {
             _dom.manager.className = classes.replace(' unshrnking', '');
         }
 
@@ -323,29 +334,23 @@ var Manager = function() {
     /**
      * Aktivace/deaktivace mřížky
      * 
-     * @param {object} [e] - event objekt z posluchače
+     * @param {object} [button] - tlačítko
      * @method _setGridActive
      * @private
      */
-    var _setGridActive = function(e) {
-        // target element
-        var target = e.target;
-        if (target.className.indexOf('btn') === -1) {
-            target = target.parentNode;
-        }
-
+    var _setGridActive = function(button) {
         // kontrola na třídu
-        var classes = target.className;
-        if (classes.indexOf('actv') > -1) {
-            target.className = target.className.replace(' actv', '');
+        var classes = ' ' + button.className + ' ';
+        if (_hasClass(button, 'actv')) {
+            button.className = button.className.replace(' actv', '');
         } else {
-            target.className += ' actv';
+            button.className += ' actv';
         }
 
         // odpovídající aktivování mřížky
         if (Grid && Grid.Builder) {
-            var activateLayout = _dom.layout.className.indexOf('actv') > -1;
-            var activateBaseline = _dom.baseline.className.indexOf('actv') > -1;
+            var activateLayout = _hasClass(_dom.layout, 'actv');
+            var activateBaseline = _hasClass(_dom.baseline, 'actv');
             Grid.Builder.activate(activateLayout, activateBaseline);
         }
     };
@@ -379,7 +384,11 @@ var Manager = function() {
             };
 
             // zobrazíme info
-            _dom.layoutType.textContent = 'Layout ' + type;
+            if ('textContent' in _dom.layoutType) {
+                _dom.layoutType.textContent = 'Layout ' + type;
+            } else if ('innerText' in _dom.layoutType) {
+                _dom.layoutType.innerText = 'Layout ' + type;
+            }
         }
     };
 
@@ -400,6 +409,16 @@ var Manager = function() {
         } else {
             _dom.content.removeAttribute('style');
         }
+    }
+
+    /**
+     * Zjištění třídy
+     * 
+     * @method _hasClass
+     * @private
+     */
+    var _hasClass = function (elem, _class) {
+        return elem.className && (' ' + elem.className + ' ').indexOf(' ' + _class + ' ') > -1;
     }
 };
 

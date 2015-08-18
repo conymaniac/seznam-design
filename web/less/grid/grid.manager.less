@@ -20,6 +20,10 @@
 .gr-mg {
     position: absolute; /* přepozicování fixního gridu nad absolutně pozicovanými */
     z-index: 2002;      /* většinou se používá v css kolem 999, tohle by snad mělo zajistit převýšení */
+    
+    * {
+        box-sizing: border-box;
+    }
 
     /* spec. nastavení pro grid */
     .gr {
@@ -28,6 +32,7 @@
         .mx-opacity(0.9);
 
         /* vzhled */
+        box-sizing: border-box;
         width: 100%;
         max-width: 100%;
         height: 3em;
@@ -178,7 +183,7 @@
             display: none;
 
             @media screen and (min-width: @tb-minWidth) {
-                display: initial;
+                display: inline;
             }
         }
 
@@ -189,7 +194,6 @@
 
         /* mixiny */
         .mx-opacity(1);
-        display: inherit;
 
         /* vzhled */
         box-sizing: border-box;
@@ -237,7 +241,6 @@
     .inf {
         /* mixiny */
         .mx-opacity(1);
-        display: inherit;
 
         /* vzhled */
         box-sizing: border-box;
@@ -265,6 +268,22 @@
 
             @media screen and (min-width: @exp-2-minWidth) {
                 display: inline-block;
+            }
+
+            /* zmenšená forma – animace */
+            .shrnking& {
+                .mx-opacity(0);
+            }
+
+            /* zmenšená forma – animace */
+            .unshrnking& {
+                .mx-opacity(0);
+                display: none;
+            }
+
+            /* zmenšená forma */
+            .shrnk& {
+                display: none;
             }
         }
 
