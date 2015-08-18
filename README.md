@@ -1,7 +1,7 @@
 ### Seznam Design
 
 Základní třídy + widget pro jednodušší práci s návrhy a komunikaci s Návrháři.  
-Widget psán v čistém Javascriptu, zatím řešeno pouze pro moderní prohlížeče.  
+Widget psán v ES5 vanille, zatím řešeno hlavně pro moderní prohlížeče.  
 Budu rád, když se ozvete s připomínkami či případnými problémy – [Dominik Michna](mailto:dominik.michna@firma.seznam.cz).
 
 ### Použití
