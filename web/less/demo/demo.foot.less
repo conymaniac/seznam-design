@@ -6,24 +6,29 @@
 /*** ------------ PATIČKA ---------------- **/
 
 .foot {
-	position: absolute;
-	margin: auto;
-	left: 0;
-	right: 0;
-	padding-top: 1.5em;
-	padding-bottom: 1.5em;
-	text-align: center;
-	background-color: @cl-bground;
-	border-top: 1px solid @cl-border;
 
-	@media screen and (min-width: @tb-minWidth) {	
-		background: none;
-		border-top: none;
-	}
+	&.gr {
+		box-sizing: border-box;
+		position: absolute;
+		margin: auto;
+		left: 0;
+		right: 0;
+		padding-top: 1.5em;
+		padding-bottom: 1.5em;
+		text-align: center;
+		background-color: @cl-bground;
+		border-top: 1px solid @cl-border;
 
-	@media screen and (min-width: @dk-minWidth) {
-		padding-top: 2.5em;
-		padding-bottom: 2.5em;
+		@media screen and (min-width: @tb-minWidth) {	
+			background: none;
+			border-top: none;
+		}
+
+		@media screen and (min-width: @dk-minWidth) {
+			padding-top: 2.5em;
+			padding-bottom: 2.5em;
+		}
+
 	}
 	
 	/* odkazy */
