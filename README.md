@@ -33,6 +33,16 @@ CSS třídy předpokládájí, že složka s fonty je na stejné úrovni jako sl
 /build/extended/fonts/
 ```
 
+#### Mixiny
+
+Součástí CSS stylů jsou i základní mixiny.
+Některé mixiny jsou přejaty z LESS Hat, jiné vlastní.
+Mixiny jsou obaleny ve vlastním namespace #szd.  
+
+``` css
+	#szd.opacity(0.4); 			// příklad použití mixinu pro průhlednost
+```
+
 #### Inicializace
 
 Jednotlivé soubory pak vložíme do HTML a inicializujeme Grid widget. 

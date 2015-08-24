@@ -1,0 +1,196 @@
+/**
+ * @name: general.convert.less
+ * @desc: Převodní mixiny, převod z rem, em na pix a opačně
+ * @source: Inspirace z nové HP Seznamu
+ */
+
+/**
+ * Nastavi hodnotu zadane vlastnosti v em/rem.
+ * @property - nazev css vlastnosti
+ * @size-px-list - 1 az 4 rozmery v px, oddelene mezerou, ktere budou prepocitany na rem
+ *
+ * Example:
+ *
+ * elm {
+ *     .rem(margin; 0 20px);
+ *     .rem(padding; 12 0 16);
+ *     .rem(border-width; 10 10px 10em 10%); // jednotky jsou ignorovany ... 10 je proste 10 (pixelu)
+ *     .rem(top; 5);
+ *     .rem(font-size; 10);
+ * }
+
+ *  --->
+ *
+ * elm {
+ *     margin: 0rem 1.25rem;
+ *     padding: 0.75rem 0rem 1rem;
+ *     border-width: 0.625rem 0.625rem 0.625rem 0.625rem;
+ *     top: 0.3125rem;
+ *     font-size: 0.625rem;
+ * }
+ */
+
+@root-font-size-px: 16;
+
+.rem(@property; @size-px-list; @base-font-size-px: @root-font-size-px) {
+    ._remFallback(@property; @size-px-list);
+    ._pxToRelativeUnit(@property; @size-px-list; @base-font-size-px; rem);
+}
+
+.em(@property; @size-px-list; @base-font-size-px: @root-font-size-px) {
+    ._pxToRelativeUnit(@property; @size-px-list; @base-font-size-px; em);
+}
+
+// 4 rozmery
+._pxToRelativeUnit(@property; @size-px-list; @ratio; @unit) when (length(@size-px-list) = 4) {
+    @val1: extract(@size-px-list, 1);
+    @val2: extract(@size-px-list, 2);
+    @val3: extract(@size-px-list, 3);
+    @val4: extract(@size-px-list, 4);
+
+    @rel1: unit(@val1 / @ratio, @unit);
+    @rel2: unit(@val2 / @ratio, @unit);
+    @rel3: unit(@val3 / @ratio, @unit);
+    @rel4: unit(@val4 / @ratio, @unit);
+
+    @{property}: @rel1 @rel2 @rel3 @rel4;
+}
+// 3 rozmery
+._pxToRelativeUnit(@property; @size-px-list; @ratio; @unit) when (length(@size-px-list) = 3) {
+    @val1: extract(@size-px-list, 1);
+    @val2: extract(@size-px-list, 2);
+    @val3: extract(@size-px-list, 3);
+
+    @rel1: unit(@val1 / @ratio, @unit);
+    @rel2: unit(@val2 / @ratio, @unit);
+    @rel3: unit(@val3 / @ratio, @unit);
+
+    @{property}: @rel1 @rel2 @rel3;
+}
+// 2 rozmery
+._pxToRelativeUnit(@property; @size-px-list; @ratio; @unit) when (length(@size-px-list) = 2) {
+    @val1: extract(@size-px-list, 1);
+    @val2: extract(@size-px-list, 2);
+
+    @rel1: unit(@val1 / @ratio, @unit);
+    @rel2: unit(@val2 / @ratio, @unit);
+
+    @{property}: @rel1 @rel2;
+}
+// 1 rozmer
+._pxToRelativeUnit(@property; @size-px-list; @ratio; @unit) when (length(@size-px-list) = 1) {
+    @val1: extract(@size-px-list, 1);
+
+    @rel1: unit(@val1 / @ratio, @unit);
+
+    @{property}: @rel1;
+}
+
+._remFallback(@property; @size-px-list) when (length(@size-px-list) = 4) {
+    @val1: extract(@size-px-list, 1);
+    @val2: extract(@size-px-list, 2);
+    @val3: extract(@size-px-list, 3);
+    @val4: extract(@size-px-list, 4);
+
+    @{property}: unit(@val1, px) unit(@val2, px) unit(@val3, px) unit(@val4, px);
+}
+._remFallback(@property; @size-px-list) when (length(@size-px-list) = 3) {
+    @val1: extract(@size-px-list, 1);
+    @val2: extract(@size-px-list, 2);
+    @val3: extract(@size-px-list, 3);
+
+    @{property}: unit(@val1, px) unit(@val2, px) unit(@val3, px);
+}
+._remFallback(@property; @size-px-list) when (length(@size-px-list) = 2) {
+    @val1: extract(@size-px-list, 1);
+    @val2: extract(@size-px-list, 2);
+
+    @{property}: unit(@val1, px) unit(@val2, px);
+}
+._remFallback(@property; @size-px-list) when (length(@size-px-list) = 1) {
+    @val1: extract(@size-px-list, 1);
+
+    @{property}: unit(@val1, px);
+}
+/*-----------------konec .rem()-----------------*/
+
+
+/**
+ * Prepocita velikost zadanou v px na rem/em, vysledek ulozi do promenne @rem-size/@em-size.
+ * Lze pouzit pouze 1x v aktualnim scope!
+ *
+ * @size-px - nejaky rozmer v px
+ * @font-size-px - aktualni velikost font-size v px, defaultne zakladni velikost fontu na webu.
+ *
+ * Example:
+ *
+ * .neco {
+ *     .make-em-size(5px);
+ *     border: @em-size solid #000;
+ *
+ *     //umele vyrabime kontexty
+ *     & {
+ *         .make-em-size(460px);
+ *         @media screen and (max-width: @em-size) {...}
+ *     }
+ *     & {
+ *         .make-em-size(320px);
+ *         @media screen and (max-width: @em-size) {...}
+ *     }
+ * }
+ */
+
+.make-rem-size(@size-px; @base-font-size-px: @root-font-size-px) {
+    @rem-size: unit(@size-px / @base-font-size-px, rem);
+}
+
+.make-em-size(@size-px; @base-font-size-px: @root-font-size-px) {
+    @em-size: unit(@size-px / @base-font-size-px, em);
+}
+
+
+/**
+ * Prevede transform pravidla na rem hodnoty.
+ *
+ * Example:
+ *
+ * .rem-translate3D( 60px 100px 10px );
+ * .rem-translate3D( 60px 100px 10px; 12px );
+ * .rem-translate2D( 60px 100px );
+ * .rem-translate2D( 60px 100px; 12px );
+ * .rem-transform( translateX; 60px );
+ * .rem-transform( translateX; 60px; 12px );
+ */
+
+// translate3D
+.rem-translate3D(@size-px-list; @base-font-size-px: @root-font-size-px) {
+    @val1: extract(@size-px-list, 1);
+    @val2: extract(@size-px-list, 2);
+    @val3: extract(@size-px-list, 3);
+
+    @rem1: unit(@val1 / @base-font-size-px, rem);
+    @rem2: unit(@val2 / @base-font-size-px, rem);
+    @rem3: unit(@val3 / @base-font-size-px, rem);
+
+    .transform(~"translate3d(@{rem1}, @{rem2}, @{rem3})");
+}
+
+// translate2D
+.rem-translate2D(@size-px-list; @base-font-size-px: @root-font-size-px) {
+    @val1: extract(@size-px-list, 1);
+    @val2: extract(@size-px-list, 2);
+
+    @rem1: unit(@val1 / @base-font-size-px, rem);
+    @rem2: unit(@val2 / @base-font-size-px, rem);
+
+    .transform(~"translate(@{rem1}, @{rem2})");
+}
+
+// transform
+.rem-transform(@property; @size-px; @base-font-size-px: @root-font-size-px) {
+    @rem: unit(@size-px / @base-font-size-px, rem);
+
+    .transform(~"@{property}(@{rem})");
+}
+
+
