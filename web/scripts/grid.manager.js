@@ -1,6 +1,6 @@
 /**
  * @overview Ovládání mřížky
- * @version 0.1.1
+ * @version 0.1.2
  * @author Dominik Michna (dominik.michna@firma.seznam.cz)
  */
 
@@ -376,8 +376,8 @@ var Manager = function() {
             // typ layoutu
             var type = 'Too small';
             for (var layout in Grid.RD) {
-                if (layout !== 'Name' && layout !== 'FS') {
-                    if (wWidth >= Grid.RD[layout].MIN_WIDTH * Grid.RD.FS && wWidth <= Grid.RD[layout].MAX_WIDTH * Grid.RD.FS) {
+                if (layout !== 'Name') {
+                    if (wWidth >= Grid.RD[layout].MIN_WIDTH && wWidth <= Grid.RD[layout].MAX_WIDTH) {
                         type = Grid.RD[layout].TITLE;
                     }
                 }

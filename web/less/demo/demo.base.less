@@ -23,7 +23,7 @@
 
 	/* odsazení defaultních tříd */
 	.unt {
-		margin-bottom: 1em;
+		#szd.rem(margin-bottom; 16px);
 	}
 
 	.wrp {
@@ -32,14 +32,15 @@
 		}
 
 		.unt {
-			margin: .5em 0;
+			#szd.rem(margin; 8px 0);
 		}
 		
 		/* zobrazení responzivní třídy */
 		.cnt {
+			#szd.rem(height; 32px);
+			#szd.rem(padding; 8px 0);
+
 			box-sizing: border-box;
-			height: 2em;
-			padding: 0.5em 0;
 			text-align: center;
 			color: @cl-text;
 			background-color: @cl-bground;
@@ -53,11 +54,12 @@
 	}
 
 	.section {
+		#szd.rem(margin-bottom; 16px);
 		margin-bottom: .6666em;
 	}
 
 	.text {
-		margin-bottom: .5714285714em;
+		#szd.rem(margin-bottom; 8px);
 		text-align: justify;
 	}
 

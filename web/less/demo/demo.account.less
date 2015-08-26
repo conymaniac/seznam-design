@@ -6,17 +6,17 @@
 /*** ------------ ÚČET ---------------- **/
 
 .account {
+	#szd.rem(margin-bottom; 24px);
 	display: inherit;
-	margin-bottom: 1.5em;
 
 	@media screen and (min-width: @dk-minWidth) {
+		#szd.rem(margin-bottom; 40px);
 		display: none;
-		margin-bottom: 2.5em;
 	}
 
 	.unt {
-		padding-top: 1em;
-		padding-bottom: 1em;
+		#szd.rem(padding-top; 16px);
+		#szd.rem(padding-bottom; 16px);
 	}
 
 	.fav-down {
@@ -24,22 +24,23 @@
 		padding-bottom: 0;
 
 		.lnk {
+			#szd.rem(padding-top; 16px);
+			#szd.rem(padding-bottom; 16px);
+
 			width: 100%;
 			text-align: left;
-			padding-top: 1em;
-			padding-bottom: 1em;
 			border-top: 1px solid @cl-border;
 			border-bottom: 1px solid @cl-border;
 		}
 
 		/* zarovnání iconf–text */
 		.iconfont {
-			font-size: 1.2em;
+			#szd.rem(font-size; 19.2px);
 		}
 
 		.bd {
+			#szd.rem(top; -3.2px);
 			position: relative;
-			top: -0.20em;
 		}
 
 	}

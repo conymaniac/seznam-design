@@ -38,23 +38,26 @@
 	.ln {
 
 		/* layout - mobil 1 - gutter (vyrovnání) */
-		margin-left: -@m1-gutter;
+		#szd.rem(margin-left; -@m1-gutter);
 
-		/* layout – mobil 2 */
-		@media screen and (min-width: @m2-minWidth) {
-			margin-left: -@m2-gutter;
+		@media screen {
+
+			/* layout – mobil 2 */
+			@media (min-width: @m2-minWidth) {
+				#szd.rem(margin-left; -@m2-gutter);
+			}
+
+			/* layout – tablet */
+			@media (min-width: @tb-minWidth) {
+				#szd.rem(margin-left; -@tb-gutter);
+			}
+
+			/* layout – desktop */
+			@media (min-width: @dk-minWidth) {
+				#szd.rem(margin-left; -@dk-gutter);
+			}
+
 		}
-
-		/* layout – tablet */
-		@media screen and (min-width: @tb-minWidth) {
-			margin-left: -@tb-gutter;
-		}
-
-		/* layout – desktop */
-		@media screen and (min-width: @dk-minWidth) {
-			margin-left: -@dk-gutter;
-		}
-
 	}
 
 	/* unita */
@@ -63,21 +66,25 @@
 		float: left;
 
 		/* layout - mobil 1 - gutter */
-		padding-left: @m1-gutter;
+		#szd.rem(padding-left; @m1-gutter);
 
-		/* layout – mobil 2 */
-		@media screen and (min-width: @m2-minWidth) {
-			padding-left: @m2-gutter;
-		}
+		@media screen {
 
-		/* layout – tablet */
-		@media screen and (min-width: @tb-minWidth) {
-			padding-left: @tb-gutter;
-		}
+			/* layout – mobil 2 */
+			@media (min-width: @m2-minWidth) {
+				#szd.rem(padding-left; @m2-gutter);
+			}
 
-		/* layout – desktop */
-		@media screen and (min-width: @dk-minWidth) {
-			padding-left: @dk-gutter;
+			/* layout – tablet */
+			@media (min-width: @tb-minWidth) {
+				#szd.rem(padding-left; @tb-gutter);
+			}
+
+			/* layout – desktop */
+			@media (min-width: @dk-minWidth) {
+				#szd.rem(padding-left; @dk-gutter);
+			}
+
 		}
 	}
 
@@ -108,22 +115,26 @@
 		right: auto;
 	}
 
-	/* rozměry */
-	width: @m1-padding;
+	/* layout – mobil 1 */
+	#szd.rem(width; @m1-padding);
 
-	/* layout – mobil 2 */
-	@media screen and (min-width: @m2-minWidth) {
-		width: @m2-padding;
-	}
+	@media screen {
 
-	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		width: @tb-padding;
-	}
+		/* layout – mobil 2 */
+		@media (min-width: @m2-minWidth) {
+			#szd.rem(width; @m2-padding);
+		}
 
-	/* layout – desktop */
-	@media screen and (min-width: @dk-minWidth) {
-		width: @dk-padding;
+		/* layout – tablet */
+		@media (min-width: @tb-minWidth) {
+			#szd.rem(width; @tb-padding);
+		}
+
+		/* layout – desktop */
+		@media (min-width: @dk-minWidth) {
+			#szd.rem(width; @dk-padding);
+		}
+
 	}
 
 }

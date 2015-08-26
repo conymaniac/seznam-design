@@ -6,27 +6,27 @@
 /*** ------------ HODNOCENÍ ---------------- **/
 
 .rating {
-	margin-top: 2.5em;
+	#szd.rem(margin-top; 40px);
 
 	@media screen and (min-width: @dk-minWidth) {
-		margin-top: 4em;
+		#szd.rem(margin-top; 64px);
 	}
 
 	/* titulek */
 	.ttl {
-		margin-bottom: 1em;
+		#szd.rem(margin-bottom; 24px);
 
 		@media screen and (min-width: @dk-minWidth) {
-			margin-bottom: 1.6666666667em;
+			#szd.rem(margin-bottom; 40px);
 		}
 	}
 
 	/* odsazení recenzí */
 	.wrp {
-		margin-bottom: 1.5em;
+		#szd.rem(margin-bottom; 24px);
 
 		@media screen and (min-width: @dk-minWidth) {
-			margin-bottom: 2.5em;
+			#szd.rem(margin-bottom; 40px);
 		}
 	}
 	
@@ -38,22 +38,22 @@
 	/* hodnocení */
 	.stars {
 		[class^="icof"], [class*=" icof"] {
-			font-size: 1.4em;
+			#szd.rem(font-size; 22.4px);
+			#szd.rem(top; 4px);
 			position: relative;
-			top: 4px;
 		}
 	}
 
 	/* poznámky */
 	.cptn {
 		#szd.opacity(0.4);
+		#szd.rem(top; -1px);
 		position: relative;
-		top: -1px;
 	}
 
 	/* text */
 	.text {
-		margin-top: .5714285714em;
+		#szd.rem(margin-top; 8px);
 	}
 
 	/* ukázat více */
@@ -63,12 +63,12 @@
 
 	/* přidat hodnocení */
 	.add {
+		#szd.rem(margin-right; -4px);
 		font-weight: bold;
-		margin-right: -.25em;
 
 		.iconfont {
+			#szd.rem(top; 1px);
 			position: relative;
-			top: 1px;
 		}
 	}
 

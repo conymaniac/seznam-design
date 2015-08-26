@@ -56,6 +56,12 @@ module.exports = function ( grunt ) {
             }
         },
         cssmin: {
+            options: {
+                keepSpecialComments: 0,
+                roundingPrecision: -1,
+                shorthandCompacting: false,
+                advanced: true,
+            },
             base: {
                 files: [{
                     expand: true,

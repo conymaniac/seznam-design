@@ -1,6 +1,6 @@
 /**
  * @overview Základní jádro mřížky
- * @version 0.1.1
+ * @version 0.1.2
  * @author Dominik Michna (dominik.michna@firma.seznam.cz)
  */
 
@@ -59,19 +59,6 @@ var Core = function() {
 	var _init = function() {
         // hlavní obsahový element
         _dom.content = document.querySelector(_opt.content);
-        
-		// default font-size
-		var style = _getStyle(document.body, 'fontSize');
-
-		// pokud se objeví se stylech "em" počítáme s defaultem 16px
-		// TODO!! Dodělat listener na uživatelskou změnu fontu
-		if (!!style && style.indexOf('em') > -1) {
-			Grid.RD.FS = parseFloat(style) * 16;
-		} else if (!!style && style.indexOf('pt') > -1) {
-			Grid.RD.FS = Math.round(parseFloat(style) * 1.3333); 
-		} else {
-			Grid.RD.FS = parseFloat(style);
-		}
 
 		// ovládací panel
         if (Grid && Grid.Manager) {
@@ -126,25 +113,6 @@ var Core = function() {
 		}
 
 		_domReadyCallbacks.push(f);
-	}
-
-	/**
-	 * Vraci současnou hodnotu nějaké css vlastnosti
-	 *
-     * @method _getStyle
-	 * @param {object} elm HTML elmenet, jehož vlasnost nás zajímá
-	 * @param {string} property řetězec s názvem vlastnosti ("border","backgroundColor",...)
-	 * @see jak.js
-	 * @private
-	 */
-	var _getStyle = function(elm, property) {
-		if (document.defaultView && document.defaultView.getComputedStyle) {
-			var cs = elm.ownerDocument.defaultView.getComputedStyle(elm,'');
-			if (!cs) { return false; }
-			return cs[property];
-		} else {
-			return elm.currentStyle[property];
-		}
 	}
 
 	/**

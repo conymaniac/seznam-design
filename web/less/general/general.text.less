@@ -15,109 +15,98 @@
 	font-family: 'TriviaSeznam', 'Arial', sans-serif;
 	font-weight: normal;
 	box-sizing: border-box;
+	
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* výloha – display */
 .dspl {
 	/* layout - mobil 1, mobil-2, tablet, desktop */
-	// #szd.discrepancy(1.1666666667);
-	font-size: 3em; 				/* 48px : 16px */
-	line-height: 1.1666666667em; 	/* 56px : 48px */
+	#szd.rem(font-size; 48px);
+	#szd.rem(line-height; 56px);
 }
 
 /* plakát – poster */
 .pstr {
 	/* layout - mobil 1, mobil-2 */
-	// #szd.discrepancy(1.2916666667);
-	font-size: 1.5em; 				/* 24x : 16px */
-	line-height: 1.2916666667em; 	/* 31px : 24px */
+	#szd.rem(font-size; 24px);
+	#szd.rem(line-height; 31px);
 
-	/* layout – tablet, desktop */
-	@media screen and (min-width: @tb-minWidth) {
-		// #szd.discrepancy(1.1764705882);
-		font-size: 2.1253em; 			/* 34px : 16px */
-		line-height: 1.1764705882em; 	/* 40px : 34px */
+	@media (min-width: @tb-minWidth) {
+		#szd.rem(font-size; 34px);
+		#szd.rem(line-height; 40px);
 	}
 }
 
 /* titulek – title */
 .ttl {
 	/* layout - mobil 1, mobil-2, tablet, desktop */
-	// #szd.discrepancy(1.2916666667);
-	font-size: 1.5em; 				/* 24x : 16px */
-	line-height: 1.2916666667em; 	/* 31px : 24px */
+	#szd.rem(font-size; 24px);
+	#szd.rem(line-height; 31px);
 }
 
 /* nadpis – headline */
 .hl {
 	/* layout - mobil 1, mobil-2 */
-	// #szd.discrepancy(1.6);
-	font-size: 1.25em; 				/* 20px : 16px */
-	line-height: 1.6em; 			/* 32px : 20px */
+	#szd.rem(font-size; 20px);
+	#szd.rem(line-height; 32px);
 }
 
 /* podnadpis – sbhl */
 .sbhl {
 	/* layout - mobil 1, mobil 2 */
-	// #szd.discrepancy(1.5);
-	font-size: 1em; 				/* 16px : 16px */
-	line-height: 1.5em; 			/* 24px : 16px */
+	#szd.rem(font-size; 16px);
+	#szd.rem(line-height; 24px);
 
 	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		// #szd.discrepancy(1.3333333333);
-		font-size: 1.125em; 			/* 18px : 16px */
-		line-height: 1.3333333333em; 	/* 24px : 18px */
+	@media (min-width: @tb-minWidth) {
+		#szd.rem(font-size; 18px);
+		#szd.rem(line-height; 24px);
 	}
 
 	/* layout – desktop */
-	@media screen and (min-width: @dk-minWidth) {
-		// #szd.discrepancy(1.5);
-		font-size: 1em; 				/* 16px : 16px */
-		line-height: 1.5em; 			/* 24px : 16px */
+	@media (min-width: @dk-minWidth) {
+		#szd.rem(font-size; 16px);
+		#szd.rem(line-height; 24px);
 	}
 }
 
 /* chleba – body */
 .bd {
 	/* layout - mobil 1, mobil 2 */
-	// #szd.discrepancy(1.4285714286);
-	font-size: .875em; 				/* 14px : 16px */
-	line-height: 1.4285714286em; 	/* 20px : 14px */
+	#szd.rem(font-size; 14px);
+	#szd.rem(line-height; 20px);
 
 	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		// #szd.discrepancy(1.5);
-		font-size: 1em; 				/* 16px : 16px */
-		line-height: 1.5em; 			/* 24px : 16px */
+	@media (min-width: @tb-minWidth) {
+		#szd.rem(font-size; 16px);
+		#szd.rem(line-height; 24px);
 	}
 
 	/* layout – desktop */
-	@media screen and (min-width: @dk-minWidth) {
-		// #szd.discrepancy(1.4285714286);
-		font-size: .875em; 				/* 14px : 16px */
-		line-height: 1.4285714286em; 	/* 20px : 14px */
+	@media (min-width: @dk-minWidth) {
+		#szd.rem(font-size; 14px);
+		#szd.rem(line-height; 20px);
 	}
 }
 
 /* popisek – caption */
 .cptn {
 	/* layout - mobil 1, mobil 2 */
-	// #szd.discrepancy(.75);
-	font-size: .75em; 				/* 12px : 16px */
-	line-height: 1.3333333333em; 	/* 16px : 12px */
+	#szd.rem(font-size; 12px);
+	#szd.rem(line-height; 16px);
 
 	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		// #szd.discrepancy(.875);
-		font-size: .875em; 				/* 14px : 16px */
-		line-height: 1.4285714286em; 	/* 20px : 14px */
+	@media (min-width: @tb-minWidth) {
+		#szd.rem(font-size; 14px);
+		#szd.rem(line-height; 20px);
 	}
-
+	
 	/* layout – desktop */
-	@media screen and (min-width: @dk-minWidth) {
-		// #szd.discrepancy(.75);
-		font-size: .75em; 				/* 12px : 16px */
-		line-height: 1.3333333333em; 	/* 16px : 12px */
+	@media (min-width: @dk-minWidth) {
+		#szd.rem(font-size; 12px);
+		#szd.rem(line-height; 16px);
 	}
 }

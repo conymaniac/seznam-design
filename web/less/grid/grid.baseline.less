@@ -19,7 +19,6 @@
     .gr {
 
         /* vzhled */
-        // .mx-opacity(0.12);
         min-height: 100%;
         overflow: hidden;
 
@@ -34,10 +33,13 @@
 
     /* řádky */
     .ln {
-        /* mřížka na backgroundu */
-        #szd.background-image(linear-gradient(to bottom, @cl-unt-1, @cl-unt-1 50%, @cl-unt-2 50%, @cl-unt-2));
-        #szd.background-size(100% 16px);
-        #szd.opacity(0.12);
+        & {
+            /* mřížka na backgroundu */
+            #szd.make-rem-size(16px);
+            #szd.background-image(linear-gradient(to bottom, @cl-unt-1, @cl-unt-1 50%, @cl-unt-2 50%, @cl-unt-2));
+            #szd.background-size(100% @rem-size);
+            #szd.opacity(0.12);
+        }
     }
 
 }

@@ -1,6 +1,6 @@
 {
   "name": "seznam-design",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Seznam Design – Working Draft",
   "devDependencies": {
     "express": "^4.6.1",

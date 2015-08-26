@@ -6,13 +6,14 @@
 /*** ------------ PROMĚNNÉ A NASTAVENÍ ---------------- **/
 
 /* výjimka ve velikostech */
-@exp-1-minWidth: 32em;        /* 512px */
-@exp-2-minWidth: 49em;        /* 768px */
+@exp-1-minWidth: 32em;   // 512px
+@exp-2-minWidth: 48em;   // 768px
 
 /* barvy */
-@cl-btn-1: #DC1F28;
-@cl-btn-2: #AF0E16;
+@cl-btn-1: #152D54;
+@cl-btn-2: #051938;
 @cl-btn-3: #FFF;
+@cl-bckgrnd: #D5DCE8;
 
 /*** ------------ GRID – MANAGER ---------------- **/
 
@@ -30,14 +31,14 @@
 
         /* mixiny */
         #szd.opacity(0.9);
+        #szd.rem(height; 48px);
+        #szd.rem(padding; 8px 0);
 
         /* vzhled */
         box-sizing: border-box;
         width: 100%;
         max-width: 100%;
-        height: 3em;
-        padding: .5em 0;
-        background-color: #000;
+        background-color: @cl-bckgrnd;
         text-align: left;
 
         /* pozice */
@@ -46,7 +47,7 @@
         left: 0;
         margin: auto;
 
-        @media screen and (min-width: @tb-minWidth) {
+       @media screen and (min-width: @tb-minWidth) {
             text-align: center;
         }
 
@@ -58,13 +59,14 @@
 
         /* zmenšená forma */
         .shrnk& {
+            #szd.rem(width; 56px);
+            #szd.rem(border-top-right-radius; 8px);
+
             min-width: 0;
-            width: 3.5em;
-            border-top-right-radius: .5em;
             overflow: hidden;
 
             @media screen and (min-width: @tb-minWidth) {
-                width: 7.5em;
+                #szd.rem(width; 120px);
             }
         }
 
@@ -86,22 +88,24 @@
         #szd.clear-element();
         #szd.transition(500ms opacity ease-in-out, 500ms display ease-in-out);
         #szd.opacity(1);
+
+        /* vlastnosti přes mixiny, covert */
+        #szd.rem(width; 40px);
+        #szd.rem(height; 32px);
+        #szd.rem(padding; 4px 8px);
+        #szd.rem(margin; 0 8px);
+        #szd.rem(border-radius; 4px);
         
         /* vzhled */
         box-sizing: border-box;
         display: inline-block;
-        width: 2.5em;
-        height: 2em;
-        padding: .25em .5em;
-        margin: 0 .5em;
         color: @cl-btn-1;
         border: 1px solid @cl-btn-2;
-        border-radius: 0.25em;
         background: transparent;
         cursor: pointer;
 
         @media screen and (min-width: @tb-minWidth) {
-            margin: 0 1em;
+            #szd.rem(margin; 0 16px);
             width: auto;
             height: auto;
         }
@@ -142,7 +146,7 @@
 
         /* první tlačítko */
         &.btnCls {
-            margin-right: 1em;
+            #szd.rem(margin-right; 16px);
         }
 
         /* aktivní tlačítko */
@@ -172,7 +176,7 @@
             margin-right: 0;
 
             @media screen and (min-width: @tb-minWidth) {
-                margin-right: .5em;
+                #szd.rem(margin-right; 8px);
             }
         }
         
@@ -181,7 +185,7 @@
             position: relative;
             top: -1px;
             display: none;
-
+            
             @media screen and (min-width: @tb-minWidth) {
                 display: inline;
             }
@@ -194,13 +198,13 @@
 
         /* mixiny */
         #szd.opacity(1);
+        #szd.rem(margin-left; 16px);
 
         /* vzhled */
         box-sizing: border-box;
         display: inline-block;
         width: auto;
         height: 100%;
-        margin-left: 1em;
         text-align: center;
 
         /* zmenšená forma – animace */
@@ -234,7 +238,6 @@
         @media screen and (min-width: @tb-minWidth) {
             margin: auto;
         }
-
     }
 
     /* pomocné informace */
@@ -242,15 +245,18 @@
         /* mixiny */
         #szd.opacity(1);
 
+        /* vlastnosti přes mixiny, covert */
+        #szd.rem(height; 32px);
+        #szd.rem(line-height; 32px);
+        #szd.rem(margin; 0 16px);
+
         /* vzhled */
         box-sizing: border-box;
         display: inline-block;
-        height: 2em;
-        line-height: 2em;
-        margin: 0 1em;
         color: @cl-btn-1;
 
         .prt {
+            #szd.rem(margin-right; 8px);
             margin-right: .5em;
         }
 
@@ -258,16 +264,18 @@
         &.sz {
             display: none;
 
-            @media screen and (min-width: @exp-1-minWidth) {
-                display: inline-block;
-            }
-
-            @media screen and (min-width: @tb-minWidth) {
-                display: none;
-            }
-
-            @media screen and (min-width: @exp-2-minWidth) {
-                display: inline-block;
+            @media screen {
+                @media (min-width: @exp-1-minWidth) {
+                    display: inline-block;
+                }
+    
+                @media (min-width: @tb-minWidth) {
+                    display: none;
+                }
+                
+                @media (min-width: @exp-2-minWidth) {
+                    display: inline-block;
+                }
             }
 
             /* zmenšená forma – animace */

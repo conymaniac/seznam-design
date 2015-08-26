@@ -6,13 +6,14 @@
 /*** ------------ PODOBNÉ FIRMY ---------------- **/
 
 .similar {
-	margin-bottom: 2.5em;
+	#szd.rem(margin-bottom; 40px);
+
 	border-top: 1px solid @cl-border;
 	border-bottom: 1px solid @cl-border;
 	background-color: @cl-bground;
 
 	@media screen and (min-width: @dk-minWidth) {
-		margin-bottom: 4em;
+		#szd.rem(margin-bottom; 64px);
 	}
 
 	/* nadpis, rozbalovátko */
@@ -23,14 +24,16 @@
 
 	/* řádek */
 	.ln {
+		#szd.rem(padding; 24px 0);
+
 		position: relative;
-		padding: 1.5em 0;
 
 		.iconfont {
+			#szd.rem(font-size; 14px);
+			#szd.rem(top; 8px);
+
 			position: absolute;
 			right: 0;
-			top: .5em;
-			font-size: .875em;
 
 			@media screen and (min-width: @dk-minWidth) {
 				display: none;
@@ -40,8 +43,9 @@
 	
 	/* seznam firem */
 	.premises {
+		#szd.rem(padding-top; 4px);
+
 		display: none;
-		padding-top: .25em;
 
 		@media screen and (min-width: @dk-minWidth) {
 			display: inherit;
@@ -54,25 +58,24 @@
 
 		/* klient */
 		.client {
+			#szd.rem(margin; 4px 0);
 			color: @cl-client;
-			margin: 0.25em 0;
 		}
 
 		/* adresa */
 		.address {
 			#szd.opacity(.4);
-			margin: 0.25em 0 0.5em;
+			#szd.rem(margin; 4px 0 8px);
 		}
 
 		/* zobrazit více*/
 		.show-more {
-			margin-top: 2.5em;
-			margin-bottom: 1.5em;
-			// margin-left: -.25em;
+			#szd.rem(margin-top; 40px);
+			#szd.rem(margin-bottom; 24px);
 
 			@media screen and (min-width: @dk-minWidth) {
-				margin-top: 4em;
-				margin-bottom: 2.5em;
+				#szd.rem(margin-top; 64px);
+				#szd.rem(margin-bottom; 40px);
 			}
 		}
 	}

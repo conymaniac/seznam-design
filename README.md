@@ -39,7 +39,7 @@ Součástí CSS stylů jsou i základní mixiny.
 Některé mixiny jsou přejaty z LESS Hat, jiné vlastní.
 Mixiny jsou obaleny ve vlastním namespace #szd.  
 
-``` css
+``` less
 	#szd.opacity(0.4); 			// příklad použití mixinu pro průhlednost
 ```
 
@@ -102,7 +102,7 @@ Breakpointy jsou předdefinované, ale lze je upravit v odpovídajícím souboru
 
 Výchozí nastavení breakpointů, gutteru a celkového paddingu gridu:
 
-``` css
+``` less
 /* layout – mobil 1 */
 @m1-minWidth: 20em; 			/* 320px */
 @m1-maxWidth: 25.4375em;		/* 407px */
@@ -131,6 +131,6 @@ Výchozí nastavení breakpointů, gutteru a celkového paddingu gridu:
 ---  
 
 Stav: Working Draft  
-Verze: 0.1.1  
+Verze: 0.1.2  
 Využívá:  npm, grunt, less, browserify  
 Kontakt: [Dominik Michna](mailto:dominik.michna@firma.seznam.cz)

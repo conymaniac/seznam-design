@@ -8,13 +8,13 @@
 .head {
 
 	/* vzhled */
-	padding-top: 1em;
-	height: 3em;
+	#szd.rem(height; 48px);
+	#szd.rem(padding-top; 16px);
 	background-color: @cl-bground;
 	border-bottom: 1px solid @cl-border;
-
+	
 	@media screen and (min-width: @tb-minWidth) and (max-width: @tb-maxWidth) {
-		height: 4em;
+		#szd.rem(height; 64px);
 	}
 
 	/* logo Firmy.cz */
@@ -41,7 +41,6 @@
 		/* odsazení */
 		@media screen and (min-width: @tb-minWidth) and (max-width: @tb-maxWidth) {
 			#szd.background-size(110px 24px);
-			
 			width: 110px;
 			height: 24px;
 		}
@@ -52,20 +51,22 @@
 
 		/* odsazení */
 		@media screen and (min-width: @tb-minWidth) {
-
 			.lnk {		
-				margin-left: 1.5em;
+				#szd.rem(margin-left; 24px);
 
 				&.hp {
-					padding-left: 1.5em;
+					#szd.rem(padding-left; 24px);
 				}
 			}
 
-			@media screen and (max-width: @tb-maxWidth) {
-				padding-top: 0.25em;
+			@media (max-width: @tb-maxWidth) {
+				#szd.rem(padding-top; 6px);
+				.hp {
+					#szd.rem(margin-top; 1px);
+				}
 			}
+			
 		}
-
 	}
 
 	/* oblibené */
@@ -79,20 +80,20 @@
 
 		/* zarovnání iconf–text */
 		.iconfont {
-			font-size: 1.2em;
+			#szd.rem(font-size; 19.2px);
 		}
 
 		.bd {
+			#szd.rem(top; -3.2px);
 			position: relative;
-			top: -0.20em;
 		}
 
 		/* odsazení */
 		@media screen and (min-width: @tb-minWidth) and (max-width: @tb-maxWidth) {
 
 			.iconfont {
+				#szd.rem(top; 3px);
 				position: relative;
-				top: 3px;
 			}
 
 			.bd {
