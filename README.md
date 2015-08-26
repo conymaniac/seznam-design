@@ -39,8 +39,8 @@ Součástí CSS stylů jsou i základní mixiny.
 Některé mixiny jsou přejaty z LESS Hat, jiné vlastní.
 Mixiny jsou obaleny ve vlastním namespace #szd.  
 
-``` less
-	#szd.opacity(0.4); 			// příklad použití mixinu pro průhlednost
+``` javascript
+#szd.opacity(0.4); 			// příklad použití mixinu pro průhlednost
 ```
 
 #### Inicializace
@@ -96,13 +96,13 @@ Seznam Design pracuje se čtyřmi typy layoutů: mobile 1, mobile 2, tablet a de
 Breakpointy jsou předdefinované, ale lze je upravit v odpovídajícím souboru v CSS a Javascriptu.  
 
 ``` 
-/web/scripts/grid.js        // nastavení breakpointů pro JS widget
-/web/less/grid/grid.less    // nastavení breakpointů pro LESS
+/web/scripts/grid.js                 // nastavení breakpointů pro JS widget
+/web/less/grid/grid.settings.less    // nastavení breakpointů pro LESS
 ```
 
 Výchozí nastavení breakpointů, gutteru a celkového paddingu gridu:
 
-``` less
+``` css
 /* layout – mobil 1 */
 @m1-minWidth: 20em; 			/* 320px */
 @m1-maxWidth: 25.4375em;		/* 407px */
