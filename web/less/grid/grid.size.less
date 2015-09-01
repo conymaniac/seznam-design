@@ -1,592 +1,336 @@
 /**
  * @name: grid.size.less
- * @desc: Vzhled stránky - rozměry elementů
- * @see: http://ux.mailchimp.com/patterns
+ * @desc: Vzhled stránky - responzivní rozměry elementů
  */
 
 /*** ------------ GRID – VELIKOSTI - RESPONSIVE ---------------- **/
 
-/* 1 část z 24 */
-.s1of24 {
-	/* layout - mobil 1 */
-	width: 100%;
-
-	/* layout – mobil 2 */
-	@media screen and (min-width: @m2-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – desktop – 100/24% */
-	@media screen and (min-width: @dk-minWidth) {
-		width: 4.1666666666%;
-	}
-}
+.ln .unt,
+.ln .wrp {
 
 /* 1 část z 24 */
-.s1of24 {
-	/* nemění se při breakpointech - 100/24% */
-	.no-change &, .no-change& {
-		width: 4.1666666666%;
-	}
-}
-
-/* 1 část z 12ti, 2 části z 24 */
-.s1of12,
-.s2of24 {
-	/* layout - mobil 1 */
-	width: 100%;
-
-	/* layout – mobil 2 */
-	@media screen and (min-width: @m2-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – desktop – 100/12% */
-	@media screen and (min-width: @dk-minWidth) {
-		width: 8.33333333333333%;
-	}
+/* layout – mobile 1 */
+&.s1of24 {
+	width: 4.1666666666%;
 }
 
 /* 1 část z 12ti */
-.s1of12 {
-	/* nemění se při breakpointech - 100/12% */
-	.no-change &, .no-change& {
+/* layout – mobile 1 */
+&.s1of12 {
+	width: 8.33333333333333%;
+}
+
+/* 2 část z 12ti */
+/* layout – mobile 1 */
+&.s2of12 {
+	width: 16.6666666666666%;
+}
+
+/* 1 část ze 4, 3 části z 12ti */
+/* layout – mobile 1 */
+&.s1of4,
+&.s3of12 {
+	width: 25%;
+}
+
+/* 1 část ze 3, 4 části z 12ti */
+/* layout – mobile 1 */
+&.s1of3,
+&.s4of12  {
+	width: 33.333333333%;
+}
+
+/* 5 části z 12ti */
+/* layout – mobile 1 */
+&.s5of12 {
+	width: 41.6666666666666%;
+}
+
+/* 1 část ze 2, 2 části ze 4, 6 části z 12ti */
+/* layout – mobile 1 */
+&.s1of2,
+&.s2of4,
+&.s6of12 {
+	width: 50%;
+}
+
+/* 7 částí z 12ti */
+/* layout – mobile 1 */
+&.s7of12 {
+	width: 58.3333333333333%;
+}
+
+/* 2 části z 3, 8 částí z 12ti */
+/* layout – mobile 1 */
+&.s2of3,
+&.s8of12 {
+	width: 66.666666666%;
+}
+
+/* 3 části ze 4, 9 částí z 12ti */
+/* layout – mobile 1 */
+&.s3of4, 
+&.s9of12 {
+	width: 75%;
+}
+
+/* 10 částí z 12ti */
+/* layout – mobile 1 */
+&.s10of12 {
+	width: 83.3333333333333%;
+}
+
+/* 11 části z 12ti */
+/* layout – mobile 1 */
+&.s11of12 {
+	width: 91.6666666666666%;
+}
+
+/* 1 část 1, 2 části 2, 3 části 3, 4 části 4, 12 části z 12ti */
+/* layout – mobile 1 */
+&.s1of1,
+&.s2of2,
+&.s3of3,
+&.s4of4,
+&.s12of12 {
+	width: 100%;
+}
+
+/* layout – mobile 2 */
+@media screen and (min-width: @m2-minWidth) {
+
+	/* 1 část z 24 */
+	&.m2-s1of24 {
+		width: 4.1666666666%;
+	}
+
+	/* 1 část z 12ti */
+	&.m2-s1of12 {
 		width: 8.33333333333333%;
 	}
-}
 
-/* 1 část z 8mi, 3 části z 24 */
-.s1of8,
-.s3of24 {
-	/* layout - mobil 1 */
-	width: 100%;
-
-	/* layout – mobil 2 */
-	@media screen and (min-width: @m2-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – desktop – 100/8% */
-	@media screen and (min-width: @dk-minWidth) {
-		width: 12.5%;
-	}
-}
-
-/* 1 část z 8mi */
-.s1of8 {
-	/* nemění se při breakpointech - 100/8% */
-	.no-change &, .no-change& {
-		width: 12.5%;
-	}
-}
-
-/* 2 část z 12ti, 4 části z 24 */
-.s2of12,
-.s4of24 {
-	/* layout - mobil 1 */
-	width: 100%;
-
-	/* layout – mobil 2 */
-	@media screen and (min-width: @m2-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – desktop – 100/12*2% */
-	@media screen and (min-width: @dk-minWidth) {
+	/* 2 část z 12ti */
+	&.m2-s2of12 {
 		width: 16.6666666666666%;
 	}
-}
 
-/* 5 z 24 */
-.s5of24 {
-	/* layout - mobil 1 */
-	width: 100%;
-
-	/* layout – mobil 2 */
-	@media screen and (min-width: @m2-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – desktop – 100/24*5% */
-	@media screen and (min-width: @dk-minWidth) {
-		width: 20.8333333333333%;
-	}
-}
-
-/* 1 část ze 4, 2 částí z 8mi, 3 části z 12ti, 6 částí z 24 */
-.s1of4,
-.s2of8,
-.s3of12,
-.s6of24 {
-	/* layout - mobil 1 */
-	width: 100%;
-
-	/* layout – mobil 2 */
-	@media screen and (min-width: @m2-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		width: 50%;
-	}
-
-	/* layout – desktop – 100/4%*/
-	@media screen and (min-width: @dk-minWidth) {
+	/* 1 část ze 4, 3 části z 12ti */
+	&.m2-s1of4,
+	&.m2-s3of12 {
 		width: 25%;
 	}
-}
 
-/* 1 část z 4 */
-.s1of4 {
-	/* nemění se při breakpointech - 100/4% */
-	.no-change &, .no-change& {
-		width: 25%;
-	}
-}
-
-/* 7 z 24 */
-.s7of24 {
-	/* layout - mobil 1 */
-	width: 100%;
-
-	/* layout – mobil 2 */
-	@media screen and (min-width: @m2-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – desktop – 100/24*7% */
-	@media screen and (min-width: @dk-minWidth) {
-		width: 29.1666666666666%;
-	}
-}
-
-/* 1 část ze 3, 4 části z 12ti, 8 části z 24 */
-.s1of3,
-.s4of12,
-.s8of24  {
-	/* layout - mobil 1 */
-	width: 100%;
-
-	/* layout – mobil 2 */
-	@media screen and (min-width: @m2-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – desktop – 100/3%*/
-	@media screen and (min-width: @dk-minWidth) {
+	/* 1 část ze 3, 4 části z 12ti */
+	&.m2-s1of3,
+	&.m2-s4of12 {
 		width: 33.333333333%;
 	}
-}
-
-/* 1 část z 3 */
-.s1of3 {
-	/* nemění se při breakpointech - 100/3% */
-	.no-change &, .no-change& {
-		width: 33.333333333%;
-	}
-}
-
-/* 3 části z 8mi, 9 částí z 24 */
-.s3of8,
-.s9of24 {
-	/* layout - mobil 1 */
-	width: 100%;
-
-	/* layout – mobil 2 */
-	@media screen and (min-width: @m2-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – desktop – 100/8*3% */
-	@media screen and (min-width: @dk-minWidth) {
-		width: 37.5%;
-	}
-}
-
-/* 5 části z 12ti, 10 částí z 24 */
-.s5of12,
-.s10of24 {
-	/* layout - mobil 1 */
-	width: 100%;
-
-	/* layout – mobil 2 */
-	@media screen and (min-width: @m2-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – desktop – 100/12*5% */
-	@media screen and (min-width: @dk-minWidth) {
+	
+	/* 5 části z 12ti */
+	&.m2-s5of12 {
 		width: 41.6666666666666%;
 	}
-}
 
-/* 11 částí z 24 */
-.s5of8 {
-	/* layout - mobil 1 */
-	width: 100%;
-
-	/* layout – mobil 2 */
-	@media screen and (min-width: @m2-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – desktop – 100/24*11% */
-	@media screen and (min-width: @dk-minWidth) {
-		width: 45.8333333333333%;
-	}
-}
-
-/* 1 část ze 2, 2 části ze 4, 4 části z 8mi */
-.s1of2,
-.s2of4,
-.s4of8,
-.s6of12,
-.s12of24 {
-	/* layout - mobil 1 */
-	width: 100%;
-
-	/* layout – mobil 2 */
-	@media screen and (min-width: @m2-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
+	/* 1 část ze 2, 2 části ze 4, 6 části z 12ti */
+	&.m2-s1of2,
+	&.m2-s2of4,
+	&.m2-s6of12 {
 		width: 50%;
 	}
 
-	/* layout – desktop – 100/2% */
-	@media screen and (min-width: @dk-minWidth) {
-		width: 50%;
-	}
-}
-
-/* 1 část z 2 */
-.s1of2 {
-	/* nemění se při breakpointech - 100/2% */
-	.no-change &, .no-change& {
-		width: 50%;
-	}
-}
-
-/* 5 částí z 8mi */
-.s5of8 {
-	/* layout - mobil 1 */
-	width: 100%;
-
-	/* layout – mobil 2 */
-	@media screen and (min-width: @m2-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – desktop – 100/8*5% */
-	@media screen and (min-width: @dk-minWidth) {
-		width: 62.5%;
-	}
-}
-
-/* 13 částí z 24 */
-.s13of24 {
-	/* layout - mobil 1 */
-	width: 100%;
-
-	/* layout – mobil 2 */
-	@media screen and (min-width: @m2-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – desktop – 100/24*13% */
-	@media screen and (min-width: @dk-minWidth) {
-		width: 54.1666666666666%;
-	}
-}
-
-/* 7 částí z 12ti, 14 částí z 24 */
-.s7of12,
-.s14of24 {
-	/* layout - mobil 1 */
-	width: 100%;
-
-	/* layout – mobil 2 */
-	@media screen and (min-width: @m2-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – desktop – 100/12*7% */
-	@media screen and (min-width: @dk-minWidth) {
+	/* 7 částí z 12ti */
+	&.m2-s7of12 {
 		width: 58.3333333333333%;
 	}
-}
-
-/* 15 částí z 24 */
-.s15of24 {
-	/* layout - mobil 1 */
-	width: 100%;
-
-	/* layout – mobil 2 */
-	@media screen and (min-width: @m2-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – desktop – 100/24*15% */
-	@media screen and (min-width: @dk-minWidth) {
-		width: 62.5%;
-	}
-}
-
-/* 2 části z 3, 8 částí z 12ti, 16 částí z 24 */
-.s2of3,
-.s8of12,
-.s16of24 {
-	/* layout - mobil 1 */
-	width: 100%;
-
-	/* layout – mobil 2 */
-	@media screen and (min-width: @m2-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – desktop – 100/3*2% */
-	@media screen and (min-width: @dk-minWidth) {
+	
+	/* 2 části z 3, 8 částí z 12ti */
+	&.m2-s2of3,
+	&.m2-s8of12 {
 		width: 66.666666666%;
 	}
-}
 
-/* 17 částí z 24 */
-.s17of24 {
-	/* layout - mobil 1 */
-	width: 100%;
-
-	/* layout – mobil 2 */
-	@media screen and (min-width: @m2-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – desktop – 100/24*17% */
-	@media screen and (min-width: @dk-minWidth) {
-		width: 70.8333333333333%;
-	}
-}
-
-/* 3 části ze 4, 6 částí z 8mi, 9 částí z 12ti, 18 částí z 24 */
-.s3of4, 
-.s6of8,
-.s9of12,
-.s18of24 {
-	/* layout - mobil 1 */
-	width: 100%;
-
-	/* layout – mobil 2 */
-	@media screen and (min-width: @m2-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – desktop – 100/4*3% */
-	@media screen and (min-width: @dk-minWidth) {
+	/* 3 části ze 4, 9 částí z 12ti */
+	&.m2-s3of4, 
+	&.m2-s9of12 {
 		width: 75%;
 	}
-}
 
-/* 19 částí z 24 */
-.s19of24 {
-	/* layout - mobil 1 */
-	width: 100%;
-
-	/* layout – mobil 2 */
-	@media screen and (min-width: @m2-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – desktop – 100/24*19%*/
-	@media screen and (min-width: @dk-minWidth) {
-		width: 79.1666666666666%;
-	}
-}
-
-/* 10 částí z 12ti, 20 částí z 24 */
-.s10of12,
-.s20of24 {
-	/* layout - mobil 1 */
-	width: 100%;
-
-	/* layout – mobil 2 */
-	@media screen and (min-width: @m2-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – desktop – 100/12*10%*/
-	@media screen and (min-width: @dk-minWidth) {
+	/* 10 částí z 12ti */
+	&.m2-s10of12 {
 		width: 83.3333333333333%;
 	}
-}
 
-/* 7 části z 8mi, 21 částí z 24 */
-.s7of8,
-.s21of24 {
-	/* layout - mobil 1 */
-	width: 100%;
-
-	/* layout – mobil 2 */
-	@media screen and (min-width: @m2-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – desktop – 100/8*7%*/
-	@media screen and (min-width: @dk-minWidth) {
-		width: 87.5%;
-	}
-}
-
-/* 11 části z 12ti, 22 částí z 24 */
-.s11of12,
-.s22of24 {
-	/* layout - mobil 1 */
-	width: 100%;
-
-	/* layout – mobil 2 */
-	@media screen and (min-width: @m2-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – desktop – 100/8*7%*/
-	@media screen and (min-width: @dk-minWidth) {
+	/* 11 části z 12ti */
+	&.m2-s11of12 {
 		width: 91.6666666666666%;
 	}
-}
 
-/* 23 částí z 24 */
-.s23of24 {
-	/* layout - mobil 1 */
-	width: 100%;
-
-	/* layout – mobil 2 */
-	@media screen and (min-width: @m2-minWidth) {
+	/* 1 část 1, 2 části 2, 3 části 3, 4 části 4, 12 části z 12ti */
+	&.m2-s1of1,
+	&.m2-s2of2,
+	&.m2-s3of3,
+	&.m2-s4of4,
+	&.m2-s12of12 {
 		width: 100%;
-	}
-
-	/* layout – tablet */
-	@media screen and (min-width: @tb-minWidth) {
-		width: 100%;
-	}
-
-	/* layout – desktop – 100/8*7%*/
-	@media screen and (min-width: @dk-minWidth) {
-		width: 95.8333333333333%;
 	}
 }
 
-/* 1 část 1, 2 části 2, 3 části 3, 4 části 4, 8 částí 8mi */
-.s1of1,
-.s2of2,
-.s3of3,
-.s4of4,
-.s12of12,
-.s24of24 {
-	width: 100%;
+/* layout – mobile 2 */
+@media screen and (min-width: @tb-minWidth) {
+
+	/* 1 část z 24 */
+	&.tb-s1of24 {
+		width: 4.1666666666%;
+	}
+
+	/* 1 část z 12ti */
+	&.tb-s1of12 {
+		width: 8.33333333333333%;
+	}
+
+	/* 2 část z 12ti */
+	&.tb-s2of12 {
+		width: 16.6666666666666%;
+	}
+
+	/* 1 část ze 4, 3 části z 12ti */
+	&.tb-s1of4,
+	&.tb-s3of12 {
+		width: 25%;
+	}
+
+	/* 1 část ze 3, 4 části z 12ti */
+	&.tb-s1of3,
+	&.tb-s4of12 {
+		width: 33.333333333%;
+	}
+	
+	/* 5 části z 12ti */
+	&.tb-s5of12 {
+		width: 41.6666666666666%;
+	}
+
+	/* 1 část ze 2, 2 části ze 4, 6 části z 12ti */
+	&.tb-s1of2,
+	&.tb-s2of4,
+	&.tb-s6of12 {
+		width: 50%;
+	}
+
+	/* 7 částí z 12ti */
+	&.tb-s7of12 {
+		width: 58.3333333333333%;
+	}
+	
+	/* 2 části z 3, 8 částí z 12ti */
+	&.tb-s2of3,
+	&.tb-s8of12 {
+		width: 66.666666666%;
+	}
+
+	/* 3 části ze 4, 9 částí z 12ti */
+	&.tb-s3of4, 
+	&.tb-s9of12 {
+		width: 75%;
+	}
+
+	/* 10 částí z 12ti */
+	&.tb-s10of12 {
+		width: 83.3333333333333%;
+	}
+
+	/* 11 části z 12ti */
+	&.tb-s11of12 {
+		width: 91.6666666666666%;
+	}
+
+	/* 1 část 1, 2 části 2, 3 části 3, 4 části 4, 12 části z 12ti */
+	&.tb-s1of1,
+	&.tb-s2of2,
+	&.tb-s3of3,
+	&.tb-s4of4,
+	&.tb-s12of12 {
+		width: 100%;
+	}
+}
+
+/* layout – mobile 2 */
+@media screen and (min-width: @dk-minWidth) {
+
+	/* 1 část z 24 */
+	&.dk-s1of24 {
+		width: 4.1666666666%;
+	}
+
+	/* 1 část z 12ti */
+	&.dk-s1of12 {
+		width: 8.33333333333333%;
+	}
+
+	/* 2 část z 12ti */
+	&.dk-s2of12 {
+		width: 16.6666666666666%;
+	}
+
+	/* 1 část ze 4, 3 části z 12ti */
+	&.dk-s1of4,
+	&.dk-s3of12 {
+		width: 25%;
+	}
+
+	/* 1 část ze 3, 4 části z 12ti */
+	&.dk-s1of3,
+	&.dk-s4of12 {
+		width: 33.333333333%;
+	}
+	
+	/* 5 části z 12ti */
+	&.dk-s5of12 {
+		width: 41.6666666666666%;
+	}
+
+	/* 1 část ze 2, 2 části ze 4, 6 části z 12ti */
+	&.dk-s1of2,
+	&.dk-s2of4,
+	&.dk-s6of12 {
+		width: 50%;
+	}
+
+	/* 7 částí z 12ti */
+	&.dk-s7of12 {
+		width: 58.3333333333333%;
+	}
+	
+	/* 2 části z 3, 8 částí z 12ti */
+	&.dk-s2of3,
+	&.dk-s8of12 {
+		width: 66.666666666%;
+	}
+
+	/* 3 části ze 4, 9 částí z 12ti */
+	&.dk-s3of4, 
+	&.dk-s9of12 {
+		width: 75%;
+	}
+
+	/* 10 částí z 12ti */
+	&.dk-s10of12 {
+		width: 83.3333333333333%;
+	}
+
+	/* 11 části z 12ti */
+	&.dk-s11of12 {
+		width: 91.6666666666666%;
+	}
+
+	/* 1 část 1, 2 části 2, 3 části 3, 4 části 4, 12 části z 12ti */
+	&.dk-s1of1,
+	&.dk-s2of2,
+	&.dk-s3of3,
+	&.dk-s4of4,
+	&.dk-s12of12 {
+		width: 100%;
+	}
+}
+
 }

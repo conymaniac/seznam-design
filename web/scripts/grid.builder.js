@@ -1,6 +1,6 @@
 /**
  * @overview Vytvoření mřížky
- * @version 0.1.2
+ * @version 0.1.3
  * @author Dominik Michna (dominik.michna@firma.seznam.cz)
  */
 
@@ -125,7 +125,7 @@ var Builder = function() {
 	var _buildLayout = function() {
 		// layout element
 		_dom.layout = document.createElement('div');
-		_dom.layout.className = 'gr-lt no-change';
+		_dom.layout.className = 'gr-lt';
 		_dom.layout.style.display = 'none';
 
 		// obalující element

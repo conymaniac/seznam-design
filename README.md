@@ -131,6 +131,6 @@ Výchozí nastavení breakpointů, gutteru a celkového paddingu gridu:
 ---  
 
 Stav: Working Draft  
-Verze: 0.1.2  
+Verze: 0.1.3  
 Využívá:  npm, grunt, less, browserify  
 Kontakt: [Dominik Michna](mailto:dominik.michna@firma.seznam.cz)
