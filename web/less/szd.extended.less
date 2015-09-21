@@ -1,0 +1,31 @@
+/**
+ * @name: szd.base.less
+ * @desc: Základní styly
+ */
+
+/*** ------------ PROMĚNNÉ A NASTAVENÍ ---------------- **/
+@root-font-size-px: 16;
+
+#szd {
+
+/* styly bez fontu Trivia */
+@import "feature/feature.convert.less";
+@import "feature/feature.mixins.less";
+
+}
+
+/* obecné, rozšířené styly */
+@import "general/general.reset.less";		/* reset */
+@import "general/general.icon.less";		/* iconfont */
+@import "general/general.font.less";		/* customizovaný font – Trivia */
+@import "general/general.text.less";		/* textové styly */
+@import "general/general.class.less";		/* rozšířující třídy */
+
+/* gridy */
+@import "grid/grid.settings.less"; 			/* nastavení gridu */
+@import "grid/grid.core.less"; 				/* hlavní část mřížky */
+@import "grid/grid.elements.less"; 			/* jednotlivé elementy mřížky */
+@import "grid/grid.baseline.less"; 			/* zobrazení vertikální části mřížky */
+@import "grid/grid.layout.less"; 			/* zobrazení horizontální části mřížky */
+@import "grid/grid.size.less"; 				/* responzivní třídy pro mřížku */
+@import "grid/grid.manager.less"; 			/* ovládací prvky pro ovládání mřížky přes widget */

@@ -1,6 +1,6 @@
 /**
  * @overview Základní jádro mřížky
- * @version 0.1.3
+ * @version 0.1.4
  * @author Dominik Michna (dominik.michna@firma.seznam.cz)
  */
 

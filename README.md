@@ -15,8 +15,8 @@ Součástí stylopisů jsou resety, třídy pro grid, textové styly a nastaven�
 CSS třídy předpokládájí, že složka s fonty je na stejné úrovni jako složka s CSS.  
 
 ```
-/build/base/css/seznam-design.min.css
-/build/base/js/seznam-design.min.js
+/build/base/css/szd.min.css
+/build/base/js/szd.min.js
 /build/base/fonts/
 ```
 
@@ -28,8 +28,8 @@ Navíc jsou obsažený základní třídy a Seznamácký font TriviaSeznam.
 CSS třídy předpokládájí, že složka s fonty je na stejné úrovni jako složka s CSS.  
 
 ```
-/build/extended/css/seznam-design.min.css
-/build/extended/js/seznam-design.min.js
+/build/extended/css/szd.min.css
+/build/extended/js/szd.min.js
 /build/extended/fonts/
 ```
 
@@ -48,8 +48,8 @@ Mixiny jsou obaleny ve vlastním namespace #szd.
 Jednotlivé soubory pak vložíme do HTML a inicializujeme Grid widget. 
 
 ```html
-<link type="text/css" rel="stylesheet" href="/static/css/seznam-design.min.css">
-<script type="text/javascript" src="/static/js/seznam-design.min.js"></script>
+<link type="text/css" rel="stylesheet" href="/static/css/szd.min.css">
+<script type="text/javascript" src="/static/js/szd.min.js"></script>
 <script type="text/javascript">
 	Grid.cfg();
 </script>
@@ -131,6 +131,6 @@ Výchozí nastavení breakpointů, gutteru a celkového paddingu gridu:
 ---  
 
 Stav: Working Draft  
-Verze: 0.1.3  
+Verze: 0.1.4  
 Využívá:  npm, grunt, less, browserify  
 Kontakt: [Dominik Michna](mailto:dominik.michna@firma.seznam.cz)

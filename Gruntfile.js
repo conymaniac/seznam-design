@@ -16,43 +16,43 @@ module.exports = function ( grunt ) {
                 options: {
                     cleancss: true
                 },
-                src:'web/less/style.base.less',
-                dest:'build/base/css/seznam-design.css'
+                src:'web/less/szd.base.less',
+                dest:'build/base/css/szd.css'
             },
             extended: {
                 options: {
                     cleancss: true
                 },
-                src:'web/less/style.extended.less',
-                dest:'build/extended/css/seznam-design.css'
+                src:'web/less/szd.extended.less',
+                dest:'build/extended/css/szd.css'
             },
             demoBase: {
                 options: {
                     cleancss: true
                 },
-                src:'web/less/style.demo.base.less',
-                dest:'build/demo/css/seznam-design.css'
+                src:'demo/less/demo.base.less',
+                dest:'build/demo/css/demo.css'
             },
             demoExtended: {
                 options: {
                     cleancss: true
                 },
-                src:'web/less/style.demo.extended.less',
-                dest:'build/demo/css/seznam-design.css'
+                src:'demo/less/demo.extended.less',
+                dest:'build/demo/css/demo.css'
             }
         },
         browserify: {
             base: {
                 src: 'web/scripts/grid.js',
-                dest: 'build/base/js/grid.js'
+                dest: 'build/base/js/szd.js'
             },
             extended: {
                 src: 'web/scripts/grid.js',
-                dest: 'build/extended/js/grid.js'
+                dest: 'build/extended/js/szd.js'
             },
             demo: {
                 src: 'web/scripts/grid.js',
-                dest: 'build/demo/js/grid.js'
+                dest: 'build/demo/js/szd.js'
             }
         },
         cssmin: {
@@ -93,17 +93,17 @@ module.exports = function ( grunt ) {
         uglify: {
             base: {
                 files: {
-                    'build/base/js/seznam-design.min.js': ['build/base/js/grid.js']
+                    'build/base/js/szd.min.js': ['build/base/js/szd.js']
                 }
             },
             extended: {
                 files: {
-                    'build/extended/js/seznam-design.min.js': ['build/extended/js/grid.js']
+                    'build/extended/js/szd.min.js': ['build/extended/js/szd.js']
                 }
             },
             demo: {
                 files: {
-                    'build/demo/js/seznam-design.min.js': ['build/demo/js/grid.js']
+                    'build/demo/js/szd.min.js': ['build/demo/js/szd.js']
                 }
             }
         },
@@ -123,7 +123,7 @@ module.exports = function ( grunt ) {
                     {
                         expand: true,
                         cwd: 'web/fonts/',
-                        src: ['*.*', '**/*.*', '!demo/*.*'],
+                        src: ['*.*', '**/*.*'],
                         dest: 'build/extended/fonts/'
                     }
                 ]
@@ -131,7 +131,7 @@ module.exports = function ( grunt ) {
             demoBase: {
                 files:[
                     {
-                        src: 'web/index-base.html',
+                        src: 'demo/index-base.html',
                         dest: 'build/demo/index.html',
                     },
                     {
@@ -142,23 +142,35 @@ module.exports = function ( grunt ) {
                     },
                     {
                         expand: true,
-                        cwd: 'build/demo/',
+                        cwd: 'demo/fonts',
                         src: ['*.*', '**/*.*'],
-                        dest: 'build/demo-base/'
+                        dest: 'build/demo/fonts/demo'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'build/demo',
+                        src: ['*.*', '**/*.*'],
+                        dest: 'build/demo-base'
                     }
                 ]
             },
             demoExtended: {
                 files:[
                     {
-                        src: 'web/index-extended.html',
+                        src: 'demo/index-extended.html',
                         dest: 'build/demo/index.html',
                     },
                     {
                         expand: true,
                         cwd: 'web/img',
                         src: ['*.*', '**/*.*'],
-                        dest: 'build/demo/img'
+                        dest: 'build/demo-extended/img'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'demo/img',
+                        src: ['*.*', '**/*.*'],
+                        dest: 'build/demo/img/demo'
                     },
                     {
                         expand: true,
@@ -168,25 +180,31 @@ module.exports = function ( grunt ) {
                     },
                     {
                         expand: true,
-                        cwd: 'build/demo/',
+                        cwd: 'demo/fonts',
                         src: ['*.*', '**/*.*'],
-                        dest: 'build/demo-extended/'
+                        dest: 'build/demo/fonts/demo'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'build/demo',
+                        src: ['*.*', '**/*.*'],
+                        dest: 'build/demo-extended'
                     }
                 ]
             }
         },
         clean: {
-            base: ['build/base/js/grid.js', 'build/base/js/seznam-design.js', 'build/base/css/seznam-design.css'],
-            extended: ['build/extended/js/grid.js', 'build/extended/js/seznam-design.js', 'build/extended/css/seznam-design.css', 'build/extended/fonts/**/*'],
-            demo: ['build/demo/js/grid.js', 'build/demo/js/seznam-design.js', 'build/demo/css/seznam-design.css']
+            base: ['build/base/js/szd.js', 'build/base/css/szd.css'],
+            extended: ['build/extended/js/szd.js', 'build/extended/css/szd.css'],
+            demo: ['build/demo/js/szd.js', 'build/demo/css/demo.css']
         },
         watch: {
             htmlBase: {
-                files: ['web/index-base.html'],
+                files: ['demo/index-base.html'],
                 tasks: ['demo-base']
             },
             htmlExtended: {
-                files: ['web/index-extended.html'],
+                files: ['demo/index-extended.html'],
                 tasks: ['demo-extended']
             },
             jsBase: {
@@ -246,16 +264,16 @@ module.exports = function ( grunt ) {
     grunt.registerTask('default', ['base', 'extended', 'demo']);
 
     // build se základními styly
-    grunt.registerTask('base', ['less:base', 'cssmin:base', 'browserify:base',  'uglify:base', 'clean:base', 'copy:base']);
+    grunt.registerTask('base', ['less:base', 'cssmin:base', 'browserify:base',  'uglify:base', 'copy:base', 'clean:base']);
 
     // build se rozšiřujícími styly
-    grunt.registerTask('extended', ['less:extended', 'cssmin:extended', 'browserify:extended',  'uglify:extended', 'clean:extended', 'copy:extended']);
+    grunt.registerTask('extended', ['less:extended', 'cssmin:extended', 'browserify:extended',  'uglify:extended', 'copy:extended', 'clean:extended']);
 
     // build pro demo
-    grunt.registerTask('demo-base', ['less:demoBase', 'cssmin:demo', 'browserify:demo', 'uglify:demo', 'clean:demo', 'copy:demoBase']);
+    grunt.registerTask('demo-base', ['less:demoBase', 'cssmin:demo', 'browserify:demo', 'uglify:demo', 'copy:demoBase', 'clean:demo']);
 
     // build pro remote
-    grunt.registerTask('demo-extended', ['less:demoExtended', 'cssmin:demo', 'browserify:demo',  'uglify:demo', 'clean:demo', 'copy:demoExtended']);
+    grunt.registerTask('demo-extended', ['less:demoExtended', 'cssmin:demo', 'browserify:demo',  'uglify:demo', 'copy:demoExtended', 'clean:demo']);
 
     // speciální task pro sledování
     grunt.registerTask('watch-base', ['concurrent:base']);
