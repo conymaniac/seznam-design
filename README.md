@@ -15,9 +15,9 @@ Součástí stylopisů jsou resety, třídy pro grid, textové styly a nastaven�
 CSS třídy předpokládájí, že složka s fonty je na stejné úrovni jako složka s CSS.  
 
 ```
-/build/base/css/szd.min.css
-/build/base/js/szd.min.js
-/build/base/fonts/
+/dist/css/szd.base.min.css
+/dist/js/szd.min.js
+/dist/fonts/
 ```
 
 #### Rozšířená verze
@@ -28,7 +28,7 @@ Navíc jsou obsažený základní třídy a Seznamácký font TriviaSeznam.
 CSS třídy předpokládájí, že složka s fonty je na stejné úrovni jako složka s CSS.  
 
 ```
-/build/extended/css/szd.min.css
+/build/extended/css/szd.extended.min.css
 /build/extended/js/szd.min.js
 /build/extended/fonts/
 ```
@@ -38,6 +38,12 @@ CSS třídy předpokládájí, že složka s fonty je na stejné úrovni jako sl
 Součástí CSS stylů jsou i základní mixiny.
 Některé mixiny jsou přejaty z LESS Hat, jiné vlastní.
 Mixiny jsou obaleny ve vlastním namespace #szd.  
+Pro použití je ale třeba importovat původní LESS soubor.
+
+```
+/src/less/szd.base.less
+/src/less/szd.extended.less
+```
 
 ``` javascript
 #szd.opacity(0.4); 			// příklad použití mixinu pro průhlednost
@@ -48,7 +54,7 @@ Mixiny jsou obaleny ve vlastním namespace #szd.
 Jednotlivé soubory pak vložíme do HTML a inicializujeme Grid widget. 
 
 ```html
-<link type="text/css" rel="stylesheet" href="/static/css/szd.min.css">
+<link type="text/css" rel="stylesheet" href="/static/css/szd.base.min.css">
 <script type="text/javascript" src="/static/js/szd.min.js"></script>
 <script type="text/javascript">
 	Grid.cfg();
@@ -96,8 +102,8 @@ Seznam Design pracuje se čtyřmi typy layoutů: mobile 1, mobile 2, tablet a de
 Breakpointy jsou předdefinované, ale lze je upravit v odpovídajícím souboru v CSS a Javascriptu.  
 
 ``` 
-/web/scripts/grid.js                 // nastavení breakpointů pro JS widget
-/web/less/grid/grid.settings.less    // nastavení breakpointů pro LESS
+/src/scripts/grid.js                 // nastavení breakpointů pro JS widget
+/src/less/grid/grid.settings.less    // nastavení breakpointů pro LESS
 ```
 
 Výchozí nastavení breakpointů, gutteru a celkového paddingu gridu:
@@ -131,6 +137,6 @@ Výchozí nastavení breakpointů, gutteru a celkového paddingu gridu:
 ---  
 
 Stav: Working Draft  
-Verze: 0.1.4  
+Verze: 0.2.0  
 Využívá:  npm, grunt, less, browserify  
 Kontakt: [Dominik Michna](mailto:dominik.michna@firma.seznam.cz)
