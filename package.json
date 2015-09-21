@@ -27,12 +27,12 @@
     "grunt-scp": "^0.1.8"
   },
   "scripts": {
-    "test": "grunt release:test",
-    "start": "node web-server.js"
+    "test": "grunt base",
+    "start": "npm start"
   },
   "repository": {
     "type": "git",
-    "url": "git@gitlab.kancelar.seznam.cz:Dominik.michna/seznam-design-system.git"
+    "url": "git@gitlab.kancelar.seznam.cz:webmasters-common/seznam-design.git"
   },
   "keywords": [
     "seznam",
