@@ -6,7 +6,7 @@ Budu rád, když se ozvete s připomínkami či případnými problémy – [Dom
 
 ### Použití
 
-Na dané službě si nainstalujeme Seznam Design z pomocí Boweru
+Na dané službě si nainstalujeme Seznam Design pomocí Boweru
 
 ```
 bower install --save seznam-design
