@@ -1,6 +1,6 @@
 {
   "name": "seznam-design",
-  "version": "0.1.4x",
+  "version": "0.2.0",
   "description": "Seznam Design – Working Draft",
   "authors": [
     "Dominik Michna <dominik.michna@firma.seznam.cz>"
@@ -12,7 +12,7 @@
     "working draft"
   ],
   "license": "MIT",
-  "private": true,
+  "private": false,
   "repository": {
     "type": "git",
     "url": "git@github.com:conymaniac/seznam-design.git"
