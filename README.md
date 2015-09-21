@@ -6,31 +6,23 @@ Budu rád, když se ozvete s připomínkami či případnými problémy – [Dom
 
 ### Použití
 
-Na dané službě si nahrajeme potřebné soubory z odpovídající složky.
+Na dané službě si nainstalujeme Seznam Design z pomocí Boweru
 
-#### Základní verze
+```
+bower install --save seznam-design
+```
 
-Složka obsahuje základní CSS soubor, JS soubor pro widget a iconfont.  
-Součástí stylopisů jsou resety, třídy pro grid, textové styly a nastavení iconfontu pro widget.    
-CSS třídy předpokládájí, že složka s fonty je na stejné úrovni jako složka s CSS.  
+#### Distribuční verze
+
+Složka obsahuje základní i rozšíření CSS soubor, JS soubor pro widget, včetně minifikovaných verzí.  
+Součástí stylopisů jsou resety, třídy pro grid, textové styly a nastavení iconfontu pro widget.
+V rozšířené verzi obsauje i základní třídy a Seznamácký font TriviaSeznam.  
+CSS třídy defaultně předpokládájí, že složka s fonty je na stejné úrovni jako složka s CSS.  
 
 ```
 /dist/css/szd.base.min.css
+/dist/css/szd.extended.min.css
 /dist/js/szd.min.js
-/dist/fonts/
-```
-
-#### Rozšířená verze
-
-Složka obsahuje rozšířený CSS soubor, JS soubor pro widget a iconfont.  
-Součástí stylopisů jsou resety, třídy pro grid, textové styly a nastavení iconfontu pro widget.  
-Navíc jsou obsažený základní třídy a Seznamácký font TriviaSeznam.  
-CSS třídy předpokládájí, že složka s fonty je na stejné úrovni jako složka s CSS.  
-
-```
-/build/extended/css/szd.extended.min.css
-/build/extended/js/szd.min.js
-/build/extended/fonts/
 ```
 
 #### Mixiny
@@ -38,11 +30,14 @@ CSS třídy předpokládájí, že složka s fonty je na stejné úrovni jako sl
 Součástí CSS stylů jsou i základní mixiny.
 Některé mixiny jsou přejaty z LESS Hat, jiné vlastní.
 Mixiny jsou obaleny ve vlastním namespace #szd.  
-Pro použití je ale třeba importovat původní LESS soubor.
+Pro použití je ale třeba importovat původní LESS soubor  
+a také změnit cestu v odpovídajících souborech pomocí proměnné @lib-path.  
 
 ```
 /src/less/szd.base.less
 /src/less/szd.extended.less
+/src/less/general/general.font.less
+/src/less/general/general.icon.less
 ```
 
 ``` javascript
@@ -54,8 +49,8 @@ Pro použití je ale třeba importovat původní LESS soubor.
 Jednotlivé soubory pak vložíme do HTML a inicializujeme Grid widget. 
 
 ```html
-<link type="text/css" rel="stylesheet" href="/static/css/szd.base.min.css">
-<script type="text/javascript" src="/static/js/szd.min.js"></script>
+<link type="text/css" rel="stylesheet" href="/static/bower/seznam-design/dist/css/szd.base.min.css">
+<script type="text/javascript" src="/static/bower/seznam-design/dist/js/szd.min.js"></script>
 <script type="text/javascript">
 	Grid.cfg();
 </script>
@@ -72,26 +67,6 @@ directlyShrink: true,   // přímo zmenšená verze widgetu
 directlyManager: true,  // zapnout zobrazení widgetu – ovládacích prvků
 directlyGrid: false,    // rovnou zapnout a zobrazit mřížku
 units: 24               // počet sloupců v layoutu
-```
-
-#### Demo
-
-Defaultní složka obsahuje vždy aktuálně vybuilděné demo.    
-Lze možné spusit pomocí jednoduché express serveru.  
-Pomocí Gruntu lze vybuildit jednoduché nebo pokročilé demo.
-
-```
-grunt demo-base         // jednoduché demo
-grunt demo-extended     // pokročilé demo
-npm start               // start express serveru
-```
-
-Při builděni se současně vždy vytvoří kopie souborů do vlastní složky pro rychlý přístup.  
-
-```
-/build/demo/            // defaultní složka, nastavena pro express server
-/build/demo-base        // kopie jednoduchého dema
-/build/demo-extended    // kopie pokročilejšího dema
 ```
 
 
