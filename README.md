@@ -4,7 +4,7 @@ Základní třídy + widget pro jednodušší práci s návrhy a komunikaci s N�
 Widget psán v ES5 vanille, zatím řešeno hlavně pro moderní prohlížeče.  
 Budu rád, když se ozvete s připomínkami či případnými problémy – [Dominik Michna](mailto:dominik.michna@firma.seznam.cz).
 
-### Použití
+### Použití a instalace
 
 Na dané službě si nainstalujeme Seznam Design pomocí Boweru
 
@@ -20,8 +20,7 @@ V rozšířené verzi obsauje i základní třídy a Seznamácký font TriviaSez
 CSS třídy defaultně předpokládájí, že složka s fonty je na stejné úrovni jako složka s CSS.  
 
 ```
-/dist/css/szd.base.min.css
-/dist/css/szd.extended.min.css
+/dist/css/szd.min.css
 /dist/js/szd.min.js
 ```
 
@@ -31,13 +30,13 @@ Součástí CSS stylů jsou i základní mixiny.
 Některé mixiny jsou přejaty z LESS Hat, jiné vlastní.
 Mixiny jsou obaleny ve vlastním namespace #szd.  
 Pro použití je ale třeba importovat původní LESS soubor  
-a také změnit cestu v odpovídajících souborech pomocí proměnné @lib-path.  
+a také změnit cestu v odpovídajících souborech v nastavení.  
 
 ```
-/src/less/szd.base.less
-/src/less/szd.extended.less
-/src/less/general/general.font.less
-/src/less/general/general.icon.less
+/src/less/szd.settings.less
+
+@lib-path-import: ''; 			/* cesta pro LESS soubory */
+@lib-path-static: '../'; 		/* cesta ke statickým souborům */
 ```
 
 ``` javascript
@@ -76,9 +75,12 @@ Seznam Design pracuje se čtyřmi typy layoutů: mobile 1, mobile 2, tablet a de
 
 Breakpointy jsou předdefinované, ale lze je upravit v odpovídajícím souboru v CSS a Javascriptu.  
 
+Při práci s LESS soubory lze nastavení přetížit vlastním nastavením, 
+ale prozatím není možné jednoduché přetížení pro JS widget.
+
 ``` 
 /src/scripts/grid.js                 // nastavení breakpointů pro JS widget
-/src/less/grid/grid.settings.less    // nastavení breakpointů pro LESS
+/src/less/grid/szd.settings.less     // nastavení breakpointů pro LESS
 ```
 
 Výchozí nastavení breakpointů, gutteru a celkového paddingu gridu:

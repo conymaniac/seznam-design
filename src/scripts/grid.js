@@ -1,6 +1,6 @@
 /**
  * @overview Pack všech skriptů pro Grid
- * @version 0.1.4
+ * @version 0.2.0
  * @author Dominik Michna (dominik.michna@firma.seznam.cz)
  *
  * @notes Zatím pouze pro moderní browsery
@@ -15,7 +15,7 @@
 	 *
 	 * @group Grid
 	 */
-	var Grid = Grid || { 'Name': 'Grid' }
+	var Grid = Grid || { 'Name': 'Grid' };
 
 	/**
 	 * Namespace pro Responsive Design

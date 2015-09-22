@@ -1,32 +1,28 @@
 /**
- * @name: szd.base.less
- * @desc: Základní styly
+ * @name: szd.extended.less
+ * @desc: Rozšířené styly
  */
 
-/*** ------------ PROMĚNNÉ A NASTAVENÍ ---------------- **/
-@lib-path: '';
-@root-font-size-px: 16;
-
+/*** –––––––––––– STYLY ------------------------------- **/
 #szd {
 
 /* styly bez fontu Trivia */
-@import "@{lib-path}feature/feature.convert.less";
-@import "@{lib-path}feature/feature.mixins.less";
+@import (multiple) "@{lib-path-import}feature/feature.convert.less";
+@import (multiple) "@{lib-path-import}feature/feature.mixins.less";
 
 }
 
-/* obecné, rozšířené styly */
-@import "@{lib-path}general/general.reset.less";		/* reset */
-@import "@{lib-path}general/general.icon.less";			/* iconfont */
-@import "@{lib-path}general/general.font.less";			/* customizovaný font – Trivia */
-@import "@{lib-path}general/general.text.less";			/* textové styly */
-@import "@{lib-path}general/general.class.less";		/* rozšířující třídy */
+/* obecné styly */
+@import (multiple) "@{lib-path-import}general/general.reset.less";			/* reset */
+@import (multiple) "@{lib-path-import}general/general.icon.less";			/* iconfont */
+@import (multiple) "@{lib-path-import}general/general.text.less";			/* textové styly */
+@import (multiple) "@{lib-path-import}general/general.font.less";			/* customizovaný font – Trivia */
+@import (multiple) "@{lib-path-import}general/general.class.less";			/* rozšířující třídy */
 
 /* gridy */
-@import "@{lib-path}grid/grid.settings.less"; 			/* nastavení gridu */
-@import "@{lib-path}grid/grid.core.less"; 				/* hlavní část mřížky */
-@import "@{lib-path}grid/grid.elements.less"; 			/* jednotlivé elementy mřížky */
-@import "@{lib-path}grid/grid.baseline.less"; 			/* zobrazení vertikální části mřížky */
-@import "@{lib-path}grid/grid.layout.less"; 			/* zobrazení horizontální části mřížky */
-@import "@{lib-path}grid/grid.size.less"; 				/* responzivní třídy pro mřížku */
-@import "@{lib-path}grid/grid.manager.less"; 			/* ovládací prvky pro ovládání mřížky přes widget */
+@import (multiple) "@{lib-path-import}grid/grid.core.less"; 				/* hlavní část mřížky */
+@import (multiple) "@{lib-path-import}grid/grid.elements.less"; 			/* jednotlivé elementy mřížky */
+@import (multiple) "@{lib-path-import}grid/grid.baseline.less"; 			/* zobrazení vertikální části mřížky */
+@import (multiple) "@{lib-path-import}grid/grid.layout.less"; 				/* zobrazení horizontální části mřížky */
+@import (multiple) "@{lib-path-import}grid/grid.size.less"; 				/* responzivní třídy pro mřížku */
+@import (multiple) "@{lib-path-import}grid/grid.manager.less"; 			/* ovládací prvky pro ovládání mřížky přes widget */

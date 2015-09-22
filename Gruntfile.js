@@ -15,12 +15,9 @@ module.exports = function ( grunt ) {
                     cleancss: true
                 },
                 files:[{
-                        src:'src/less/szd.base.less',
-                        dest:'dist/css/szd.base.css'
-                    }, {
-                        src:'src/less/szd.extended.less',
-                        dest:'dist/css/szd.extended.css'
-                }]
+                        src:'src/less/szd.settings.less',
+                        dest:'dist/css/szd.css'
+                    }]
             }
         },
         browserify: {
@@ -38,8 +35,7 @@ module.exports = function ( grunt ) {
                     advanced: true,
                 },
                 files: {
-                    'dist/css/szd.base.min.css': ['dist/css/szd.base.css'],
-                    'dist/css/szd.extended.min.css': ['dist/css/szd.extended.css']
+                    'dist/css/szd.min.css': ['dist/css/szd.css']
                 }
             }
         },
@@ -63,7 +59,7 @@ module.exports = function ( grunt ) {
             }
         },
         clean: {
-            dist: ['dist/js/szd.js', 'dist/css/szd.base.css', 'dist/css/szd.extended.css']
+            dist: ['dist/js/szd.js', 'dist/css/szd.css']
         }
     });
 

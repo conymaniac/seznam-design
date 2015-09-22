@@ -1,8 +1,31 @@
 /**
- * @name: szd.base.less
+ * @name: szd.extended.less
  * @desc: Základní styly
  */
-/*** ------------ PROMĚNNÉ A NASTAVENÍ ---------------- **/
+/**
+ * @name: szd.settings.less
+ * @desc: Základní, výchozí nastavení
+ */
+/*** ------------ ROZŠÍŘENÝ SEZNAM DESIGN ---------------- **/
+/*** ------------ CESTA K SOUBORŮM ---------------- **/
+/* cesta pro LESS soubory */
+/* cesta ke statickým souborům */
+/*** ------------ TYPOGRAFIE ---------------------- **/
+/*** ------------ NASTAVENÍ GRIDU ----------------- **/
+/* layout – mobil 1 */
+/* 320px */
+/* 407px */
+/* layout – mobil 2 */
+/* 408px */
+/* 599px */
+/* layout – tablet */
+/* 600px */
+/* 1007px */
+/* layout – desktop */
+/* 1008px */
+/* 1008px */
+/*** –––––––––––– IMPORT STYLŮ ––––––––––––––––––– **/
+/*** –––––––––––– STYLY ------------------------------- **/
 #szd {
   /* styly bez fontu Trivia */
   /**
@@ -105,7 +128,7 @@
  * }
  */
 }
-/* obecné styly */
+/* obecné, rozšířené styly */
 /**
  * @name: general.reset.less
  * @desc: Normalizace CSS stylů napříč browsery
@@ -262,6 +285,44 @@ legend {
 }
 /* iconfont */
 /**
+ * @name: general.font.less
+ * @desc: Customizovaný textový font
+ */
+/* Webfont: TriviaSeznam */
+@font-face {
+  font-family: 'TriviaSeznam';
+  src: url('../fonts/trivia-seznam/TriviaSeznam.eot');
+  /* IE9 Compat Modes */
+  src: url('../fonts/trivia-seznam/TriviaSeznam.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/trivia-seznam/TriviaSeznam.woff') format('woff'), /* Modern Browsers */ url('../fonts/trivia-seznam/TriviaSeznam.ttf') format('truetype'), /* Safari, Android, iOS */ url('../fonts/trivia-seznam/TriviaSeznam.svg#TriviaSeznam') format('svg');
+  /* Legacy iOS */
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+/* Webfont: TriviaSeznam-Bold */
+@font-face {
+  font-family: 'TriviaSeznam';
+  src: url('../fonts/trivia-seznam/TriviaSeznam-Bold.eot');
+  /* IE9 Compat Modes */
+  src: url('../fonts/trivia-seznam/TriviaSeznam-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/trivia-seznam/TriviaSeznam-Bold.woff') format('woff'), /* Modern Browsers */ url('../fonts/trivia-seznam/TriviaSeznam-Bold.ttf') format('truetype'), /* Safari, Android, iOS */ url('../fonts/trivia-seznam/TriviaSeznam-Bold.svg#TriviaSeznam-Bold') format('svg');
+  /* Legacy iOS */
+  font-style: normal;
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+}
+/* Webfont: TriviaSeznam-Italic */
+@font-face {
+  font-family: 'TriviaSeznam';
+  src: url('../fonts/trivia-seznam/TriviaSeznam-Italic.eot');
+  /* IE9 Compat Modes */
+  src: url('../fonts/trivia-seznam/TriviaSeznam-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/trivia-seznam/TriviaSeznam-Italic.woff') format('woff'), /* Modern Browsers */ url('../fonts/trivia-seznam/TriviaSeznam-Italic.ttf') format('truetype'), /* Safari, Android, iOS */ url('../fonts/trivia-seznam/TriviaSeznam-Italic.svg#TriviaSeznam-Italic') format('svg');
+  /* Legacy iOS */
+  font-style: italic;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+/* customizovaný font – Trivia */
+/**
  * @name: general.text.less
  * @desc: Textové styly
  */
@@ -403,25 +464,125 @@ legend {
   }
 }
 /* textové styly */
-/* gridy */
 /**
- * @name: grid.settings.less
- * @desc: Nastavení pro Grid systém
+ * @name: general.class.less
+ * @desc: Rozšiřující třídy
  */
-/*** ------------ PROMĚNNÉ A NASTAVENÍ ---------------- **/
-/* layout – mobil 1 */
-/* 320px */
-/* 407px */
-/* layout – mobil 2 */
-/* 408px */
-/* 599px */
-/* layout – tablet */
-/* 600px */
-/* 1007px */
-/* layout – desktop */
-/* 1008px */
-/* 1008px */
-/* nastavení gridu */
+/*** ------------ DEFAULT ----------------- **/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*** ------------ FLOW -------------------- **/
+/* float left */
+.fl-lft {
+  float: left;
+}
+/* float right */
+.fl-rght {
+  float: right;
+}
+/* reset floatování */
+.fl-clr {
+  float: none;
+}
+.fl-clr:before,
+.fl-clr:after {
+  content: ' ';
+  display: table;
+}
+.fl-clr:after {
+  clear: both;
+}
+/*** ------------ SKRYVÁNÍ ----------------- **/
+/* nezobrazovat na mobilu 1 */
+.nt-m1 {
+  /* layout – mobil 1 */
+}
+@media screen and (max-width: 25.4375em) {
+  .nt-m1 {
+    display: none !important;
+  }
+}
+/* nezobrazovat na mobilu 2 */
+.nt-m2 {
+  /* layout – mobil 2 */
+}
+@media screen and (max-width: 37.4375em) {
+  .nt-m2 {
+    display: none !important;
+  }
+}
+/* nezobrazovat na tablet */
+.nt-tb {
+  /* layout – tablet  */
+}
+@media screen and (max-width: 62.9375em) {
+  .nt-tb {
+    display: none !important;
+  }
+}
+/* nezobrazovat na desktopu */
+.nt-dk {
+  /* layout – desktop */
+}
+@media screen and (max-width: 63em) {
+  .nt-dk {
+    display: none !important;
+  }
+}
+/*** ------------ PRVKY -------------------- **/
+/*reset nastavení tlačítek*/
+a,
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: 0;
+  background: none;
+  font-size: 1em;
+  text-decoration: none;
+}
+a:hover,
+button:hover,
+a:visited,
+button:visited,
+a:focus,
+button:focus {
+  outline: none;
+  text-decoration: none;
+}
+/* odkazy */
+.lnk {
+  /* základní vzhled */
+  cursor: pointer;
+  /* podtržení */
+}
+.lnk:hover.undrln,
+.lnk:hover .undrln {
+  text-decoration: underline;
+}
+.lnk:focus.undrln,
+.lnk:focus .undrln {
+  text-decoration: none;
+}
+/* tlačítka */
+.btn {
+  /* základní vzhled */
+  cursor: pointer;
+  /* podtržení */
+}
+.btn:hover.undrln,
+.btn:hover .undrln {
+  text-decoration: underline;
+}
+.btn:focus.undrln,
+.btn:focus .undrln {
+  text-decoration: none;
+}
+/* rozšířující třídy */
+/* gridy */
 /**
  * @name: grid.core.less
  * @desc: Základ vzhledu stránky
