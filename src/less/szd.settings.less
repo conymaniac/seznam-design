@@ -57,11 +57,11 @@
 .import(@extended) {
 
 	& when (@extended = false) {
-		@import "@{szd-base-style}";
+		@import "@{lib-path-import}@{szd-base-style}";
 	}
 
 	& when (@extended = true) {
-		@import "@{szd-extended-style}";
+		@import "@{lib-path-import}@{szd-extended-style}";
 	}
 	
 }

@@ -418,8 +418,6 @@ Grid.Core = new Core();
  * @overview Pack všech skriptů pro Grid
  * @version 0.2.0
  * @author Dominik Michna (dominik.michna@firma.seznam.cz)
- *
- * @notes Zatím pouze pro moderní browsery
  */
 
 (function() {
@@ -434,18 +432,47 @@ Grid.Core = new Core();
 	var Grid = Grid || { 'Name': 'Grid' };
 
 	/**
-	 * Namespace pro Responsive Design
+	 * Namespace pro responzivní třídy Gridu
+	 * @type {object}
+	 *
+	 * @group Grid.RD
 	 */
 	Grid.RD = Grid.RD || { 'Name': 'Grid.RD' };
-	Grid.RD.M1 = Grid.RD.M1 || { 'Name': 'Grid.RD.M1' }; 		// layout – mobile 1
-	Grid.RD.M2 = Grid.RD.M2 || { 'Name': 'Grid.RD.M2' };		// layout - mobile 2
-	Grid.RD.TB = Grid.RD.TB || { 'Name': 'Grid.RD.TB' };		// layout – tablet
-	Grid.RD.DK = Grid.RD.DK || { 'Name': 'Grid.RD.DK' };		// layout – desktop
 
 	/**
-	 * Breakpointy pro Responsive Design
+	 * Namespace pro layout – mobile 1
+	 * @type {object}
 	 *
-	 * @notes V "em" stejně jako v CSS
+	 * @group Grid.RD.M1
+	 */
+	Grid.RD.M1 = Grid.RD.M1 || { 'Name': 'Grid.RD.M1' }; 
+
+	/**
+	 * Namespace pro layout – mobile 2
+	 * @type {object}
+	 *
+	 * @group Grid.RD.M2
+	 */
+	Grid.RD.M2 = Grid.RD.M2 || { 'Name': 'Grid.RD.M2' };		// layout - mobile 2
+
+	/**
+	 * Namespace pro layout – tablet
+	 * @type {object}
+	 *
+	 * @group Grid.RD.TB
+	 */
+	Grid.RD.TB = Grid.RD.TB || { 'Name': 'Grid.RD.TB' };		// layout – tablet
+
+	/**
+	 * Namespace pro layout – desktop
+	 * @type {object}
+	 *
+	 * @group Grid.RD.DK
+	 */
+	Grid.RD.DK = Grid.RD.DK || { 'Name': 'Grid.RD.DK' };		// layout – desktop
+
+	/*
+		Breakpointy pro Responsive Design
 	 */
 
     /* layout – mobil 1 */
