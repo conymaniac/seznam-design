@@ -24,14 +24,14 @@
 		@media (min-width: @m2-minWidth) {
 			#szd.rem(min-width; @m2-minWidth-px);
 			#szd.rem(padding; 0 @m2-padding);
-			#szd.rem(padding-left; 8px);
+			#szd.rem(padding-left; unit(@m2-padding - @m2-gutter, 'px'));
 		}
 
 		/* layout – tablet */
 		@media (min-width: @tb-minWidth) {
 			#szd.rem(min-width; @tb-minWidth-px);
 			#szd.rem(padding; 0 @tb-padding);
-			#szd.rem(padding-left; 8px);
+			#szd.rem(padding-left; unit(@tb-padding - @tb-gutter, 'px'));
 		}
 
 		/* layout – desktop */
@@ -39,7 +39,7 @@
 			#szd.rem(min-width; @dk-minWidth-px);
 			#szd.rem(max-width; @dk-maxWidth-px);
 			#szd.rem(padding; 0 @dk-padding);
-			#szd.rem(padding-left; 16px);
+			#szd.rem(padding-left; unit(@dk-padding - @dk-gutter, 'px'));
 		}
 
 	}
