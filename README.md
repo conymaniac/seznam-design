@@ -12,6 +12,10 @@ Na dané službě si nainstalujeme Seznam Design pomocí Boweru
 bower install --save seznam-design
 ```
 
+Podrobnější nastavení Seznam Designu v aplikaci založené na IMA.js pak dále ve wiki.
+
+[Nastavení Seznam Design v IMA.js](https://gitlab.kancelar.seznam.cz/webmasters-common/seznam-design/wikis/imajs).
+
 #### Distribuční verze
 
 Složka obsahuje základní i rozšíření CSS soubor, JS soubor pro widget, včetně minifikovaných verzí.  
