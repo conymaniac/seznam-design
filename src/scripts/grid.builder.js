@@ -137,7 +137,7 @@ var Builder = function() {
 
 		// vybuildíme unity
 		_buildUnits(grid);
-        _buildedge(grid);
+        _buildEdges(grid);
 
 		// přidáme do body
 		_dom.content.appendChild(_dom.layout);
