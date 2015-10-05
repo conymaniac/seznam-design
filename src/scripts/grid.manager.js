@@ -166,13 +166,13 @@ var Manager = function() {
             _dom.logo = document.createElement('button');
             _dom.logo.setAttribute('type', 'button');
             _dom.logo.className = 'szd-button szd-button-open';
-            _dom.logo.innerHTML = '<span class="szd-icon-control szd-icon-open"></span><span class="szd-icon-label">Otevřít</span>';
+            _dom.logo.innerHTML = '<span class="szd-icon szd-icon-open"></span><span class="szd-icon-label szd-subheadline">Otevřít</span>';
             _dom.right.appendChild(_dom.logo);
 
             // ikonka – zavřít
             _dom.close = _dom.logo.cloneNode();
             _dom.close.className = 'szd-button szd-button-close';
-            _dom.close.innerHTML = '<span class="szd-icon-control szd-icon-close"></span><span class="szd-icon-label">Zavřít</span>';
+            _dom.close.innerHTML = '<span class="szd-icon szd-icon-close"></span><span class="szd-icon-label szd-subheadline">Zavřít</span>';
             _dom.right.appendChild(_dom.close);
 
             // aktivace/deaktivace mřížky
@@ -207,14 +207,14 @@ var Manager = function() {
             _dom.layout.setAttribute('type', 'button');
             _dom.layout.className = 'szd-button szd-button-layout' + (_opt.directlyGrid ? ' szd-button-active' : '');
             _dom.layout.id = 'szd-button-layout';
-            _dom.layout.innerHTML = '<span class="szd-icon szd-icon-layout"></span><span class="szd-icon-label">Zobrazit layout</span>';
+            _dom.layout.innerHTML = '<span class="szd-icon szd-icon-layout"></span><span class="szd-icon-label szd-subheadline">Zobrazit layout</span>';
 
             // zobrazení baseline
             _dom.baseline = document.createElement('button');
             _dom.baseline.setAttribute('type', 'button');
             _dom.baseline.className = 'szd-button szd-button-baseline' + (_opt.directlyGrid ? ' szd-button-active' : '');
             _dom.baseline.id = 'szd-button-baseline';
-            _dom.baseline.innerHTML = '<span class="szd-icon szd-icon-baseline"></span><span class="szd-icon-label">Zobrazit baseline</span>';
+            _dom.baseline.innerHTML = '<span class="szd-icon szd-icon-baseline"></span><span class="szd-icon-label szd-subheadline">Zobrazit baseline</span>';
 
             // aktivace/deaktivace mřížky
             if (document.addEventListener) {
