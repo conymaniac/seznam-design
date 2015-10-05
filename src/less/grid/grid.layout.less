@@ -12,12 +12,12 @@
 /*** ------------ GRID – HORIZONTAL/LAYOUT ---------------- **/
 
 /* zobrazení základního horizontálního gridu – layout */
-.gr-lt {
+.szd-grid-layout {
 	z-index: 2000; 		/* většinou se používá v css kolem 999, tohle by snad mělo zajistit převýšení */
 	pointer-events: none;
 
 	/* spec. nastavení pro grid */
-	.gr {
+	.szd-grid {
 
 		/* vzhled */
 		min-height: 100%;
@@ -33,14 +33,14 @@
 	}
 
 	/* unity */
-	.unt {
+	.szd-unit {
 		#szd.opacity(0.12);
 		background-color: @cl-unt-2;
 		z-index: 1;
 	}
 	
 	/* obsah buněk */
-	.cnt {
+	.szd-inside {
 		box-sizing: border-box;
 		background-color: @cl-unt-1;
 		display: block;

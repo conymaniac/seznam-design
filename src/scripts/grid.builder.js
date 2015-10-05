@@ -1,6 +1,6 @@
 /**
  * @overview Vytvoření mřížky
- * @version 0.2.0
+ * @version 0.2.1
  * @author Dominik Michna (dominik.michna@firma.seznam.cz)
  */
 
@@ -125,19 +125,19 @@ var Builder = function() {
 	var _buildLayout = function() {
 		// layout element
 		_dom.layout = document.createElement('div');
-		_dom.layout.className = 'gr-lt';
+		_dom.layout.className = 'szd-grid-layout';
 		_dom.layout.style.display = 'none';
 
 		// obalující element
 		var grid = document.createElement('div');
-		grid.className = 'gr';
+		grid.className = 'szd-grid';
 
 		// přidáme rodiče do layout
 		_dom.layout.appendChild(grid);
 
 		// vybuildíme unity
 		_buildUnits(grid);
-        _buildMrgn(grid);
+        _buildedge(grid);
 
 		// přidáme do body
 		_dom.content.appendChild(_dom.layout);
@@ -152,19 +152,19 @@ var Builder = function() {
     var _buildBaseline = function() {
         // baseline element
         _dom.baseline = document.createElement('div');
-        _dom.baseline.className = 'gr-bl';
+        _dom.baseline.className = 'szd-grid-baseline';
         _dom.baseline.style.display = 'none';
 
         // obalující element
         var grid = document.createElement('div');
-        grid.className = 'gr';
+        grid.className = 'szd-grid';
 
         // přidáme rodiče do baseline
         _dom.baseline.appendChild(grid);
 
         // vytvoříme elementy – řádek
         var line = document.createElement('div');
-        line.className = 'ln';
+        line.className = 'szd-line';
 
         // pro IE8 přidáme na pozadí vlastní image
         if (navigator.userAgent.match(/MSIE 8/) !== null) {
@@ -175,7 +175,7 @@ var Builder = function() {
         grid.appendChild(line);
 
         // vytvoříme fake element pro zobrazení marginu
-        _buildMrgn(grid)
+        _buildEdges(grid)
 
         // přidáme do body
         _dom.content.appendChild(_dom.baseline);
@@ -194,15 +194,15 @@ var Builder = function() {
 
 			// vytvoříme elementy – řádek
 			var line = document.createElement('div');
-			line.className = 'ln';
+			line.className = 'szd-line';
 
 			// vytvoříme odpovídající počet unit
 			var unit;
 			for (var i = 0; i < _opt.units; i++) {
 				// vytvoříme unitu
 				unit = document.createElement('div');
-				unit.className = 'unt s1of' + _opt.units;
-				unit.innerHTML = '<span class="cnt">&nbsp;</span>';
+				unit.className = 'szd-unit szd-size-1of' + _opt.units;
+				unit.innerHTML = '<span class="szd-inside">&nbsp;</span>';
 
 				// přidáme do řádku
 				line.appendChild(unit);
@@ -217,17 +217,17 @@ var Builder = function() {
      * Vytvoření "falešných" prvků pro horizontální mřížku – odsazení
      * 
      * @param {object} [grid] - obalující element
-     * @method _buildMrgn
+     * @method _buildedge
      * @private
      */
-    var _buildMrgn = function(grid) {
+    var _buildEdges = function(grid) {
         // pokud existuje rodič a máme počet sloupečků
         if (grid !== null) {
             // vytvoříme fake element pro zobrazení marginu
-            var mrgn = document.createElement('div');
-            mrgn.className = 'mrgn';
-            grid.insertBefore(mrgn, grid.firstChild);
-            grid.appendChild(mrgn.cloneNode(), grid.firstChild);
+            var edge = document.createElement('div');
+            edge.className = 'szd-edge';
+            grid.insertBefore(edge, grid.firstChild);
+            grid.appendChild(edge.cloneNode(), grid.firstChild);
         }
     };
 
@@ -242,8 +242,8 @@ var Builder = function() {
         if (_dom.layout !== null && _dom.baseline !== null) {
 
             // jednotlivé gridy
-            var lGrid = _dom.layout.querySelector('.gr');
-            var bGrid = _dom.baseline.querySelector('.gr');
+            var lGrid = _dom.layout.querySelector('.szd-grid');
+            var bGrid = _dom.baseline.querySelector('.szd-grid');
 
             // kontrola na rozměry
             var bHeight = _dom.content.offsetHeight;

@@ -1,6 +1,6 @@
 /**
  * @overview Ovládání mřížky
- * @version 0.2.0
+ * @version 0.2.1
  * @author Dominik Michna (dominik.michna@firma.seznam.cz)
  */
 
@@ -118,7 +118,7 @@ var Manager = function() {
 
         // kontrola na touch zařízení
         if ('ontouchstart' in document) {
-            _dom.manager.className += ' no-touch';
+            _dom.manager.className += ' szd-no-touch';
         }
      };
 
@@ -131,12 +131,12 @@ var Manager = function() {
     var _buildManager = function () {
         // manager element
         _dom.manager = document.createElement('div');
-        _dom.manager.className = 'gr-mg' + (_opt.directlyShrink ? ' shrnk' : '');
+        _dom.manager.className = 'szd-grid-manager' + (_opt.directlyShrink ? ' szd-shrinked' : '');
         _dom.manager.style.display = 'block';
 
         // obalující element
         var grid = document.createElement('div');
-        grid.className = 'gr';
+        grid.className = 'szd-grid';
         grid.style.boxSizing = 'border-box';
 
         // přidáme rodiče do layout
@@ -165,14 +165,14 @@ var Manager = function() {
             // ikonka – logo
             _dom.logo = document.createElement('button');
             _dom.logo.setAttribute('type', 'button');
-            _dom.logo.className = 'btn btnLg';
-            _dom.logo.innerHTML = '<span class="icn-ctrl icn-ctrl-lg"></span><span class="lbl">Otevřít</span>';
+            _dom.logo.className = 'szd-button szd-button-open';
+            _dom.logo.innerHTML = '<span class="szd-icon-control szd-icon-open"></span><span class="szd-icon-label">Otevřít</span>';
             _dom.right.appendChild(_dom.logo);
 
             // ikonka – zavřít
             _dom.close = _dom.logo.cloneNode();
-            _dom.close.className = 'btn btnCls';
-            _dom.close.innerHTML = '<span class="icn-ctrl icn-ctrl-cls"></span><span class="lbl">Zavřít</span>';
+            _dom.close.className = 'szd-button szd-button-close';
+            _dom.close.innerHTML = '<span class="szd-icon-control szd-icon-close"></span><span class="szd-icon-label">Zavřít</span>';
             _dom.right.appendChild(_dom.close);
 
             // aktivace/deaktivace mřížky
@@ -200,21 +200,21 @@ var Manager = function() {
 
             // skupinka ovládacích prvků
             _dom.group = document.createElement('div');
-            _dom.group.className = 'btnGrp';
+            _dom.group.className = 'szd-button-group';
 
             // zobrazení layoutu
             _dom.layout = document.createElement('button');
             _dom.layout.setAttribute('type', 'button');
-            _dom.layout.className = 'btn btnLt' + (_opt.directlyGrid ? ' actv' : '');
-            _dom.layout.id = 'btnLt';
-            _dom.layout.innerHTML = '<span class="icn-ctrl icn-ctrl-lt"></span><span class="lbl">Zobrazit layout</span>';
+            _dom.layout.className = 'szd-button szd-button-layout' + (_opt.directlyGrid ? ' szd-button-active' : '');
+            _dom.layout.id = 'szd-button-layout';
+            _dom.layout.innerHTML = '<span class="szd-icon szd-icon-layout"></span><span class="szd-icon-label">Zobrazit layout</span>';
 
             // zobrazení baseline
             _dom.baseline = document.createElement('button');
             _dom.baseline.setAttribute('type', 'button');
-            _dom.baseline.className = 'btn btnBl' + (_opt.directlyGrid ? ' actv' : '');
-            _dom.baseline.id = 'btnBl';
-            _dom.baseline.innerHTML = '<span class="icn-ctrl icn-ctrl-bl"></span><span class="lbl">Zobrazit baseline</span>';
+            _dom.baseline.className = 'szd-button szd-button-baseline' + (_opt.directlyGrid ? ' szd-button-active' : '');
+            _dom.baseline.id = 'szd-button-baseline';
+            _dom.baseline.innerHTML = '<span class="szd-icon szd-icon-baseline"></span><span class="szd-icon-label">Zobrazit baseline</span>';
 
             // aktivace/deaktivace mřížky
             if (document.addEventListener) {
@@ -245,22 +245,22 @@ var Manager = function() {
 
             // zarovnání vlevo
             _dom.left = document.createElement('div');
-            _dom.left.className = 'fl-lft';
+            _dom.left.className = 'szd-left';
             grid.insertBefore(_dom.left, grid.firstChild);
 
             // skupinka ovládacích prvků
             _dom.layoutType = document.createElement('div');
-            _dom.layoutType.className = 'inf tp';
+            _dom.layoutType.className = 'szd-info szd-info-type';
             _dom.left.appendChild(_dom.layoutType);
 
             // zarovnání vpravo
             _dom.right = document.createElement('div');
-            _dom.right.className = 'fl-rght';
+            _dom.right.className = 'szd-right';
             grid.appendChild(_dom.right);
 
             // skupinka ovládacích prvků
             _dom.viewPort = document.createElement('div');
-            _dom.viewPort.className = 'inf sz';
+            _dom.viewPort.className = 'szd-info szd-info-size';
             _dom.right.appendChild(_dom.viewPort);
 
             // zobrazíme rozměry
@@ -287,13 +287,13 @@ var Manager = function() {
         // kontrola na třídu stavu
         var shrink = true;
         var classes = ' ' + _dom.manager.className + ' ';
-        if (_hasClass(_dom.manager, 'shrnk')) {
-            _dom.manager.className = classes.replace(' shrnk', '');
+        if (_hasClass(_dom.manager, 'szd-shrinked')) {
+            _dom.manager.className = classes.replace(' szd-shrinked', '');
             shrink = false;
         }
 
         // kontrola na třídu
-        _dom.manager.className +=  shrink ? ' shrnking' : ' unshrnking';
+        _dom.manager.className +=  shrink ? ' szd-shrinking' : ' szd-unshrinking';
 
         // "animace"
         _timeOut = _timeOut && clearTimeout(_timeOut);
@@ -313,15 +313,15 @@ var Manager = function() {
 
         // kontrola na třídu animace
         var classes = ' ' + _dom.manager.className + ' ';
-        if (_hasClass(_dom.manager, 'shrnking')) {
-            _dom.manager.className = classes.replace(' shrnking', '');
-        } else if (_hasClass(_dom.manager, 'unshrnking')) {
-            _dom.manager.className = classes.replace(' unshrnking', '');
+        if (_hasClass(_dom.manager, 'szd-shrinking')) {
+            _dom.manager.className = classes.replace(' szd-shrinking', '');
+        } else if (_hasClass(_dom.manager, 'szd-unshrinking')) {
+            _dom.manager.className = classes.replace(' szd-unshrinking', '');
         }
 
         // kontrola na třídu stavu
         if (shrink) {
-            _dom.manager.className += ' shrnk';
+            _dom.manager.className += ' szd-shrinked';
 
             // pokud je zkrácený, zrušíme padding na body
             document.body.removeAttribute('style');
@@ -341,16 +341,16 @@ var Manager = function() {
     var _setGridActive = function(button) {
         // kontrola na třídu
         var classes = ' ' + button.className + ' ';
-        if (_hasClass(button, 'actv')) {
-            button.className = button.className.replace(' actv', '');
+        if (_hasClass(button, 'szd-button-active')) {
+            button.className = button.className.replace(' szd-button-active', '');
         } else {
-            button.className += ' actv';
+            button.className += ' szd-button-active';
         }
 
         // odpovídající aktivování mřížky
         if (Grid && Grid.Builder) {
-            var activateLayout = _hasClass(_dom.layout, 'actv');
-            var activateBaseline = _hasClass(_dom.baseline, 'actv');
+            var activateLayout = _hasClass(_dom.layout, 'szd-button-active');
+            var activateBaseline = _hasClass(_dom.baseline, 'szd-button-active');
             Grid.Builder.activate(activateLayout, activateBaseline);
         }
     };
@@ -370,8 +370,8 @@ var Manager = function() {
             var wHeight = Object.prototype.hasOwnProperty.call(window, 'innerHeight') ? window.innerHeight : document.body.clientHeight;
 
             // zobrazíme info
-            _dom.viewPort.innerHTML = '<span class="prt">w: ' + wWidth + 'px</span>';
-            _dom.viewPort.innerHTML += '<span class="prt">h: ' + wHeight + 'px</span>';
+            _dom.viewPort.innerHTML = '<span class="szd-info-port">w: ' + wWidth + 'px</span>';
+            _dom.viewPort.innerHTML += '<span class="szd-info-port">h: ' + wHeight + 'px</span>';
 
             // typ layoutu
             var type = 'Too small';

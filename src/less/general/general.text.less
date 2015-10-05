@@ -4,13 +4,13 @@
  */
 
 /*** ------------ TEXTOVÉ STYLY ---------------- **/
-.dspl,
-.pstr,
-.ttl,
-.hl,
-.sbhl,
-.bd,
-.cptn {
+.szd-display,
+.szd-poster,
+.szd-title,
+.szd-headline,
+.szd-subheadline,
+.szd-bread,
+.szd-label {
 	#szd.transition(200ms font-size linear);
 	font-family: 'TriviaSeznam', 'Arial', sans-serif;
 	font-weight: normal;
@@ -22,90 +22,90 @@
 }
 
 /* výloha – display */
-.dspl {
+.szd-display {
 	/* layout - mobil 1, mobil-2, tablet, desktop */
 	#szd.rem(font-size; 48px);
 	#szd.rem(line-height; 56px);
 }
 
 /* plakát – poster */
-.pstr {
+.szd-poster {
 	/* layout - mobil 1, mobil-2 */
 	#szd.rem(font-size; 24px);
 	#szd.rem(line-height; 31px);
 
-	@media (min-width: @tb-minWidth) {
+	@media (min-width: @szd-tablet-minWidth) {
 		#szd.rem(font-size; 34px);
 		#szd.rem(line-height; 40px);
 	}
 }
 
 /* titulek – title */
-.ttl {
+.szd-title {
 	/* layout - mobil 1, mobil-2, tablet, desktop */
 	#szd.rem(font-size; 24px);
 	#szd.rem(line-height; 31px);
 }
 
 /* nadpis – headline */
-.hl {
+.szd-headline {
 	/* layout - mobil 1, mobil-2 */
 	#szd.rem(font-size; 20px);
 	#szd.rem(line-height; 32px);
 }
 
-/* podnadpis – sbhl */
-.sbhl {
+/* podnadpis – subheadline */
+.szd-subheadline {
 	/* layout - mobil 1, mobil 2 */
 	#szd.rem(font-size; 16px);
 	#szd.rem(line-height; 24px);
 
 	/* layout – tablet */
-	@media (min-width: @tb-minWidth) {
+	@media (min-width: @szd-tablet-minWidth) {
 		#szd.rem(font-size; 18px);
 		#szd.rem(line-height; 24px);
 	}
 
 	/* layout – desktop */
-	@media (min-width: @dk-minWidth) {
+	@media (min-width: @szd-desktop-minWidth) {
 		#szd.rem(font-size; 16px);
 		#szd.rem(line-height; 24px);
 	}
 }
 
-/* chleba – body */
-.bd {
+/* chleba – bread */
+.szd-bread {
 	/* layout - mobil 1, mobil 2 */
 	#szd.rem(font-size; 14px);
 	#szd.rem(line-height; 20px);
 
 	/* layout – tablet */
-	@media (min-width: @tb-minWidth) {
+	@media (min-width: @szd-tablet-minWidth) {
 		#szd.rem(font-size; 16px);
 		#szd.rem(line-height; 24px);
 	}
 
 	/* layout – desktop */
-	@media (min-width: @dk-minWidth) {
+	@media (min-width: @szd-desktop-minWidth) {
 		#szd.rem(font-size; 14px);
 		#szd.rem(line-height; 20px);
 	}
 }
 
-/* popisek – caption */
-.cptn {
+/* popisek – label */
+.szd-caption {
 	/* layout - mobil 1, mobil 2 */
 	#szd.rem(font-size; 12px);
 	#szd.rem(line-height; 16px);
 
 	/* layout – tablet */
-	@media (min-width: @tb-minWidth) {
+	@media (min-width: @szd-tablet-minWidth) {
 		#szd.rem(font-size; 14px);
 		#szd.rem(line-height; 20px);
 	}
 	
 	/* layout – desktop */
-	@media (min-width: @dk-minWidth) {
+	@media (min-width: @szd-desktop-minWidth) {
 		#szd.rem(font-size; 12px);
 		#szd.rem(line-height; 16px);
 	}

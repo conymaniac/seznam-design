@@ -12,17 +12,17 @@
 /*** ------------ FLOW -------------------- **/
 
 /* float left */
-.fl-lft {
+.szd-left {
     float: left;
 }
 
 /* float right */
-.fl-rght {
+.szd-right {
     float: right;
 }
 
 /* reset floatování */
-.fl-clr {
+.szd-clear{
 	float: none;
 	
 	&:before,
@@ -39,33 +39,33 @@
 /*** ------------ SKRYVÁNÍ ----------------- **/
 
 /* nezobrazovat na mobilu 1 */
-.nt-m1 {
+.szd-not-mobile1 {
 	/* layout – mobil 1 */
-	@media screen and (max-width: @m1-maxWidth) {
+	@media screen and (max-width: @szd-mobile1-maxWidth) {
 		display: none !important;
 	}
 }
 
 /* nezobrazovat na mobilu 2 */
-.nt-m2 {
+.szd-not-mobile2 {
 	/* layout – mobil 2 */
-	@media screen and (max-width: @m2-maxWidth) {
+	@media screen and (max-width: @szd-mobile2-maxWidth) {
 		display: none !important;
 	}
 }
 
 /* nezobrazovat na tablet */
-.nt-tb {
+.szd-not-tablet {
 	/* layout – tablet  */
-	@media screen and (max-width: @tb-maxWidth) {
+	@media screen and (max-width: @szd-tablet-maxWidth) {
 		display: none !important;
 	}
 }
 
 /* nezobrazovat na desktopu */
-.nt-dk {
+.szd-not-desktop {
 	/* layout – desktop */
-	@media screen and (max-width: @dk-maxWidth) {
+	@media screen and (max-width: @szd-desktop-maxWidth) {
 		display: none !important;
 	}
 }
@@ -80,21 +80,21 @@ button {
 }
 
 /* odkazy */
-.lnk {
+.szd-link {
 
 	/* základní vzhled */
 	cursor: pointer;
 
 	/* podtržení */
 	&:hover {
-		&.undrln,
-		.undrln {
+		&.szd-link-underline,
+		.szd-link-underline {
 			text-decoration: underline;
 		}
 	}
 	&:focus {
-		&.undrln,
-		.undrln {
+		&.szd-link-underline,
+		.szd-link-underline {
 			text-decoration: none;
 		}
 	}
@@ -102,21 +102,21 @@ button {
 }
 
 /* tlačítka */
-.btn {
+.szd-button {
 
 	/* základní vzhled */
 	cursor: pointer;
 	
 	/* podtržení */
 	&:hover {
-		&.undrln,
-		.undrln {
+		&.szd-button-underline,
+		.szd-button-underline {
 			text-decoration: underline;
 		}
 	}
 	&:focus {
-		&.undrln,
-		.undrln {
+		&.szd-button-underline,
+		.szd-button-underline {
 			text-decoration: none;
 		}
 	}

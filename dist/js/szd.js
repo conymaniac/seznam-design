@@ -1,7 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /**
  * @overview Vytvoření mřížky
- * @version 0.2.0
+ * @version 0.2.1
  * @author Dominik Michna (dominik.michna@firma.seznam.cz)
  */
 
@@ -126,19 +126,19 @@ var Builder = function() {
 	var _buildLayout = function() {
 		// layout element
 		_dom.layout = document.createElement('div');
-		_dom.layout.className = 'gr-lt';
+		_dom.layout.className = 'szd-grid-layout';
 		_dom.layout.style.display = 'none';
 
 		// obalující element
 		var grid = document.createElement('div');
-		grid.className = 'gr';
+		grid.className = 'szd-grid';
 
 		// přidáme rodiče do layout
 		_dom.layout.appendChild(grid);
 
 		// vybuildíme unity
 		_buildUnits(grid);
-        _buildMrgn(grid);
+        _buildedge(grid);
 
 		// přidáme do body
 		_dom.content.appendChild(_dom.layout);
@@ -153,19 +153,19 @@ var Builder = function() {
     var _buildBaseline = function() {
         // baseline element
         _dom.baseline = document.createElement('div');
-        _dom.baseline.className = 'gr-bl';
+        _dom.baseline.className = 'szd-grid-baseline';
         _dom.baseline.style.display = 'none';
 
         // obalující element
         var grid = document.createElement('div');
-        grid.className = 'gr';
+        grid.className = 'szd-grid';
 
         // přidáme rodiče do baseline
         _dom.baseline.appendChild(grid);
 
         // vytvoříme elementy – řádek
         var line = document.createElement('div');
-        line.className = 'ln';
+        line.className = 'szd-line';
 
         // pro IE8 přidáme na pozadí vlastní image
         if (navigator.userAgent.match(/MSIE 8/) !== null) {
@@ -176,7 +176,7 @@ var Builder = function() {
         grid.appendChild(line);
 
         // vytvoříme fake element pro zobrazení marginu
-        _buildMrgn(grid)
+        _buildEdges(grid)
 
         // přidáme do body
         _dom.content.appendChild(_dom.baseline);
@@ -195,15 +195,15 @@ var Builder = function() {
 
 			// vytvoříme elementy – řádek
 			var line = document.createElement('div');
-			line.className = 'ln';
+			line.className = 'szd-line';
 
 			// vytvoříme odpovídající počet unit
 			var unit;
 			for (var i = 0; i < _opt.units; i++) {
 				// vytvoříme unitu
 				unit = document.createElement('div');
-				unit.className = 'unt s1of' + _opt.units;
-				unit.innerHTML = '<span class="cnt">&nbsp;</span>';
+				unit.className = 'szd-unit szd-size-1of' + _opt.units;
+				unit.innerHTML = '<span class="szd-inside">&nbsp;</span>';
 
 				// přidáme do řádku
 				line.appendChild(unit);
@@ -218,17 +218,17 @@ var Builder = function() {
      * Vytvoření "falešných" prvků pro horizontální mřížku – odsazení
      * 
      * @param {object} [grid] - obalující element
-     * @method _buildMrgn
+     * @method _buildedge
      * @private
      */
-    var _buildMrgn = function(grid) {
+    var _buildEdges = function(grid) {
         // pokud existuje rodič a máme počet sloupečků
         if (grid !== null) {
             // vytvoříme fake element pro zobrazení marginu
-            var mrgn = document.createElement('div');
-            mrgn.className = 'mrgn';
-            grid.insertBefore(mrgn, grid.firstChild);
-            grid.appendChild(mrgn.cloneNode(), grid.firstChild);
+            var edge = document.createElement('div');
+            edge.className = 'szd-edge';
+            grid.insertBefore(edge, grid.firstChild);
+            grid.appendChild(edge.cloneNode(), grid.firstChild);
         }
     };
 
@@ -243,8 +243,8 @@ var Builder = function() {
         if (_dom.layout !== null && _dom.baseline !== null) {
 
             // jednotlivé gridy
-            var lGrid = _dom.layout.querySelector('.gr');
-            var bGrid = _dom.baseline.querySelector('.gr');
+            var lGrid = _dom.layout.querySelector('.szd-grid');
+            var bGrid = _dom.baseline.querySelector('.szd-grid');
 
             // kontrola na rozměry
             var bHeight = _dom.content.offsetHeight;
@@ -272,7 +272,7 @@ Grid.Builder = new Builder();
 },{}],2:[function(require,module,exports){
 /**
  * @overview Základní jádro mřížky
- * @version 0.2.0
+ * @version 0.2.1
  * @author Dominik Michna (dominik.michna@firma.seznam.cz)
  */
 
@@ -416,7 +416,7 @@ Grid.Core = new Core();
 },{}],3:[function(require,module,exports){
 /**
  * @overview Pack všech skriptů pro Grid
- * @version 0.2.0
+ * @version 0.2.1
  * @author Dominik Michna (dominik.michna@firma.seznam.cz)
  */
 
@@ -507,7 +507,7 @@ Grid.Core = new Core();
 },{"./grid.builder":1,"./grid.core":2,"./grid.manager":4}],4:[function(require,module,exports){
 /**
  * @overview Ovládání mřížky
- * @version 0.2.0
+ * @version 0.2.1
  * @author Dominik Michna (dominik.michna@firma.seznam.cz)
  */
 
@@ -625,7 +625,7 @@ var Manager = function() {
 
         // kontrola na touch zařízení
         if ('ontouchstart' in document) {
-            _dom.manager.className += ' no-touch';
+            _dom.manager.className += ' szd-no-touch';
         }
      };
 
@@ -638,12 +638,12 @@ var Manager = function() {
     var _buildManager = function () {
         // manager element
         _dom.manager = document.createElement('div');
-        _dom.manager.className = 'gr-mg' + (_opt.directlyShrink ? ' shrnk' : '');
+        _dom.manager.className = 'szd-grid-manager' + (_opt.directlyShrink ? ' szd-shrinked' : '');
         _dom.manager.style.display = 'block';
 
         // obalující element
         var grid = document.createElement('div');
-        grid.className = 'gr';
+        grid.className = 'szd-grid';
         grid.style.boxSizing = 'border-box';
 
         // přidáme rodiče do layout
@@ -672,14 +672,14 @@ var Manager = function() {
             // ikonka – logo
             _dom.logo = document.createElement('button');
             _dom.logo.setAttribute('type', 'button');
-            _dom.logo.className = 'btn btnLg';
-            _dom.logo.innerHTML = '<span class="icn-ctrl icn-ctrl-lg"></span><span class="lbl">Otevřít</span>';
+            _dom.logo.className = 'szd-button szd-button-open';
+            _dom.logo.innerHTML = '<span class="szd-icon-control szd-icon-open"></span><span class="szd-icon-label">Otevřít</span>';
             _dom.right.appendChild(_dom.logo);
 
             // ikonka – zavřít
             _dom.close = _dom.logo.cloneNode();
-            _dom.close.className = 'btn btnCls';
-            _dom.close.innerHTML = '<span class="icn-ctrl icn-ctrl-cls"></span><span class="lbl">Zavřít</span>';
+            _dom.close.className = 'szd-button szd-button-close';
+            _dom.close.innerHTML = '<span class="szd-icon-control szd-icon-close"></span><span class="szd-icon-label">Zavřít</span>';
             _dom.right.appendChild(_dom.close);
 
             // aktivace/deaktivace mřížky
@@ -707,21 +707,21 @@ var Manager = function() {
 
             // skupinka ovládacích prvků
             _dom.group = document.createElement('div');
-            _dom.group.className = 'btnGrp';
+            _dom.group.className = 'szd-button-group';
 
             // zobrazení layoutu
             _dom.layout = document.createElement('button');
             _dom.layout.setAttribute('type', 'button');
-            _dom.layout.className = 'btn btnLt' + (_opt.directlyGrid ? ' actv' : '');
-            _dom.layout.id = 'btnLt';
-            _dom.layout.innerHTML = '<span class="icn-ctrl icn-ctrl-lt"></span><span class="lbl">Zobrazit layout</span>';
+            _dom.layout.className = 'szd-button szd-button-layout' + (_opt.directlyGrid ? ' szd-button-active' : '');
+            _dom.layout.id = 'szd-button-layout';
+            _dom.layout.innerHTML = '<span class="szd-icon szd-icon-layout"></span><span class="szd-icon-label">Zobrazit layout</span>';
 
             // zobrazení baseline
             _dom.baseline = document.createElement('button');
             _dom.baseline.setAttribute('type', 'button');
-            _dom.baseline.className = 'btn btnBl' + (_opt.directlyGrid ? ' actv' : '');
-            _dom.baseline.id = 'btnBl';
-            _dom.baseline.innerHTML = '<span class="icn-ctrl icn-ctrl-bl"></span><span class="lbl">Zobrazit baseline</span>';
+            _dom.baseline.className = 'szd-button szd-button-baseline' + (_opt.directlyGrid ? ' szd-button-active' : '');
+            _dom.baseline.id = 'szd-button-baseline';
+            _dom.baseline.innerHTML = '<span class="szd-icon szd-icon-baseline"></span><span class="szd-icon-label">Zobrazit baseline</span>';
 
             // aktivace/deaktivace mřížky
             if (document.addEventListener) {
@@ -752,22 +752,22 @@ var Manager = function() {
 
             // zarovnání vlevo
             _dom.left = document.createElement('div');
-            _dom.left.className = 'fl-lft';
+            _dom.left.className = 'szd-left';
             grid.insertBefore(_dom.left, grid.firstChild);
 
             // skupinka ovládacích prvků
             _dom.layoutType = document.createElement('div');
-            _dom.layoutType.className = 'inf tp';
+            _dom.layoutType.className = 'szd-info szd-info-type';
             _dom.left.appendChild(_dom.layoutType);
 
             // zarovnání vpravo
             _dom.right = document.createElement('div');
-            _dom.right.className = 'fl-rght';
+            _dom.right.className = 'szd-right';
             grid.appendChild(_dom.right);
 
             // skupinka ovládacích prvků
             _dom.viewPort = document.createElement('div');
-            _dom.viewPort.className = 'inf sz';
+            _dom.viewPort.className = 'szd-info szd-info-size';
             _dom.right.appendChild(_dom.viewPort);
 
             // zobrazíme rozměry
@@ -794,13 +794,13 @@ var Manager = function() {
         // kontrola na třídu stavu
         var shrink = true;
         var classes = ' ' + _dom.manager.className + ' ';
-        if (_hasClass(_dom.manager, 'shrnk')) {
-            _dom.manager.className = classes.replace(' shrnk', '');
+        if (_hasClass(_dom.manager, 'szd-shrinked')) {
+            _dom.manager.className = classes.replace(' szd-shrinked', '');
             shrink = false;
         }
 
         // kontrola na třídu
-        _dom.manager.className +=  shrink ? ' shrnking' : ' unshrnking';
+        _dom.manager.className +=  shrink ? ' szd-shrinking' : ' szd-unshrinking';
 
         // "animace"
         _timeOut = _timeOut && clearTimeout(_timeOut);
@@ -820,15 +820,15 @@ var Manager = function() {
 
         // kontrola na třídu animace
         var classes = ' ' + _dom.manager.className + ' ';
-        if (_hasClass(_dom.manager, 'shrnking')) {
-            _dom.manager.className = classes.replace(' shrnking', '');
-        } else if (_hasClass(_dom.manager, 'unshrnking')) {
-            _dom.manager.className = classes.replace(' unshrnking', '');
+        if (_hasClass(_dom.manager, 'szd-shrinking')) {
+            _dom.manager.className = classes.replace(' szd-shrinking', '');
+        } else if (_hasClass(_dom.manager, 'szd-unshrinking')) {
+            _dom.manager.className = classes.replace(' szd-unshrinking', '');
         }
 
         // kontrola na třídu stavu
         if (shrink) {
-            _dom.manager.className += ' shrnk';
+            _dom.manager.className += ' szd-shrinked';
 
             // pokud je zkrácený, zrušíme padding na body
             document.body.removeAttribute('style');
@@ -848,16 +848,16 @@ var Manager = function() {
     var _setGridActive = function(button) {
         // kontrola na třídu
         var classes = ' ' + button.className + ' ';
-        if (_hasClass(button, 'actv')) {
-            button.className = button.className.replace(' actv', '');
+        if (_hasClass(button, 'szd-button-active')) {
+            button.className = button.className.replace(' szd-button-active', '');
         } else {
-            button.className += ' actv';
+            button.className += ' szd-button-active';
         }
 
         // odpovídající aktivování mřížky
         if (Grid && Grid.Builder) {
-            var activateLayout = _hasClass(_dom.layout, 'actv');
-            var activateBaseline = _hasClass(_dom.baseline, 'actv');
+            var activateLayout = _hasClass(_dom.layout, 'szd-button-active');
+            var activateBaseline = _hasClass(_dom.baseline, 'szd-button-active');
             Grid.Builder.activate(activateLayout, activateBaseline);
         }
     };
@@ -877,8 +877,8 @@ var Manager = function() {
             var wHeight = Object.prototype.hasOwnProperty.call(window, 'innerHeight') ? window.innerHeight : document.body.clientHeight;
 
             // zobrazíme info
-            _dom.viewPort.innerHTML = '<span class="prt">w: ' + wWidth + 'px</span>';
-            _dom.viewPort.innerHTML += '<span class="prt">h: ' + wHeight + 'px</span>';
+            _dom.viewPort.innerHTML = '<span class="szd-info-port">w: ' + wWidth + 'px</span>';
+            _dom.viewPort.innerHTML += '<span class="szd-info-port">h: ' + wHeight + 'px</span>';
 
             // typ layoutu
             var type = 'Too small';

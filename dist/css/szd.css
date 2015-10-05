@@ -252,15 +252,15 @@ legend {
  * @desc: Customizovaný icon font
  */
 @font-face {
-  font-family: 'icn-ctrl';
-  src: url('../fonts/icn-ctrl/icn-ctrl.eot?-wq6tqk');
-  src: url('../fonts/icn-ctrl/icn-ctrl.eot?#iefix-wq6tqk') format('embedded-opentype'), url('../fonts/icn-ctrl/icn-ctrl.ttf?-wq6tqk') format('truetype'), url('../fonts/icn-ctrl/icn-ctrl.woff?-wq6tqk') format('woff'), url('../fonts/icn-ctrl/icn-ctrl.svg?-wq6tqk#icn-ctrl') format('svg');
+  font-family: 'szd-icon';
+  src: url('../fonts/szd-icon/szd-icon.eot?-wq6tqk');
+  src: url('../fonts/szd-icon/szd-icon.eot?#iefix-wq6tqk') format('embedded-opentype'), url('../fonts/szd-icon/szd-icon.ttf?-wq6tqk') format('truetype'), url('../fonts/szd-icon/szd-icon.woff?-wq6tqk') format('woff'), url('../fonts/szd-icon/szd-icon.svg?-wq6tqk#szd-icon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
-[class^="icn-ctrl-"],
-[class*=" icn-ctrl-"] {
-  font-family: 'icn-ctrl';
+[class^="szd-icon-"],
+[class*=" szd-icon-"] {
+  font-family: 'szd-icon';
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -271,16 +271,16 @@ legend {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.icn-ctrl-lg:before {
+.szd-icon-open:before {
   content: "\67";
 }
-.icn-ctrl-bl:before {
+.szd-icon-baseline:before {
   content: "\6c";
 }
-.icn-ctrl-lt:before {
+.szd-icon-layout:before {
   content: "\62";
 }
-.icn-ctrl-cls:before {
+.szd-icon-close:before {
   content: "\63";
 }
 /* iconfont */
@@ -289,13 +289,13 @@ legend {
  * @desc: Textové styly
  */
 /*** ------------ TEXTOVÉ STYLY ---------------- **/
-.dspl,
-.pstr,
-.ttl,
-.hl,
-.sbhl,
-.bd,
-.cptn {
+.szd-display,
+.szd-poster,
+.szd-title,
+.szd-headline,
+.szd-subheadline,
+.szd-bread,
+.szd-label {
   -webkit-transition: 200ms font-size linear;
   -moz-transition: 200ms font-size linear;
   -o-transition: 200ms font-size linear;
@@ -308,7 +308,7 @@ legend {
   -moz-osx-font-smoothing: grayscale;
 }
 /* výloha – display */
-.dspl {
+.szd-display {
   /* layout - mobil 1, mobil-2, tablet, desktop */
   font-size: 48px;
   font-size: 3rem;
@@ -316,7 +316,7 @@ legend {
   line-height: 3.5rem;
 }
 /* plakát – poster */
-.pstr {
+.szd-poster {
   /* layout - mobil 1, mobil-2 */
   font-size: 24px;
   font-size: 1.5rem;
@@ -324,7 +324,7 @@ legend {
   line-height: 1.9375rem;
 }
 @media (min-width: 37.5em) {
-  .pstr {
+  .szd-poster {
     font-size: 34px;
     font-size: 2.125rem;
     line-height: 40px;
@@ -332,7 +332,7 @@ legend {
   }
 }
 /* titulek – title */
-.ttl {
+.szd-title {
   /* layout - mobil 1, mobil-2, tablet, desktop */
   font-size: 24px;
   font-size: 1.5rem;
@@ -340,15 +340,15 @@ legend {
   line-height: 1.9375rem;
 }
 /* nadpis – headline */
-.hl {
+.szd-headline {
   /* layout - mobil 1, mobil-2 */
   font-size: 20px;
   font-size: 1.25rem;
   line-height: 32px;
   line-height: 2rem;
 }
-/* podnadpis – sbhl */
-.sbhl {
+/* podnadpis – subheadline */
+.szd-subheadline {
   /* layout - mobil 1, mobil 2 */
   font-size: 16px;
   font-size: 1rem;
@@ -358,7 +358,7 @@ legend {
   /* layout – desktop */
 }
 @media (min-width: 37.5em) {
-  .sbhl {
+  .szd-subheadline {
     font-size: 18px;
     font-size: 1.125rem;
     line-height: 24px;
@@ -366,15 +366,15 @@ legend {
   }
 }
 @media (min-width: 63em) {
-  .sbhl {
+  .szd-subheadline {
     font-size: 16px;
     font-size: 1rem;
     line-height: 24px;
     line-height: 1.5rem;
   }
 }
-/* chleba – body */
-.bd {
+/* chleba – bread */
+.szd-bread {
   /* layout - mobil 1, mobil 2 */
   font-size: 14px;
   font-size: 0.875rem;
@@ -384,7 +384,7 @@ legend {
   /* layout – desktop */
 }
 @media (min-width: 37.5em) {
-  .bd {
+  .szd-bread {
     font-size: 16px;
     font-size: 1rem;
     line-height: 24px;
@@ -392,15 +392,15 @@ legend {
   }
 }
 @media (min-width: 63em) {
-  .bd {
+  .szd-bread {
     font-size: 14px;
     font-size: 0.875rem;
     line-height: 20px;
     line-height: 1.25rem;
   }
 }
-/* popisek – caption */
-.cptn {
+/* popisek – label */
+.szd-caption {
   /* layout - mobil 1, mobil 2 */
   font-size: 12px;
   font-size: 0.75rem;
@@ -410,7 +410,7 @@ legend {
   /* layout – desktop */
 }
 @media (min-width: 37.5em) {
-  .cptn {
+  .szd-caption {
     font-size: 14px;
     font-size: 0.875rem;
     line-height: 20px;
@@ -418,7 +418,7 @@ legend {
   }
 }
 @media (min-width: 63em) {
-  .cptn {
+  .szd-caption {
     font-size: 12px;
     font-size: 0.75rem;
     line-height: 16px;
@@ -433,7 +433,7 @@ legend {
  */
 /*** ------------ GRID – OBAL ---------------- **/
 /* grid – základní obal */
-.gr {
+.szd-grid {
   /* default */
   -webkit-transition: 500ms width ease-in-out;
   -moz-transition: 500ms width ease-in-out;
@@ -449,14 +449,14 @@ legend {
   padding-left: 0;
 }
 @media screen {
-  .gr {
+  .szd-grid {
     /* layout – mobil 2 */
     /* layout – tablet */
     /* layout – desktop */
   }
 }
 @media screen and (min-width: 25.5em) {
-  .gr {
+  .szd-grid {
     min-width: 408px;
     min-width: 25.5rem;
     padding: 0px 16px;
@@ -466,7 +466,7 @@ legend {
   }
 }
 @media screen and (min-width: 37.5em) {
-  .gr {
+  .szd-grid {
     min-width: 600px;
     min-width: 37.5rem;
     padding: 0px 16px;
@@ -476,7 +476,7 @@ legend {
   }
 }
 @media screen and (min-width: 63em) {
-  .gr {
+  .szd-grid {
     min-width: 1008px;
     min-width: 63rem;
     max-width: 1008px;
@@ -497,59 +497,59 @@ legend {
 /* barva marginu pro horizontální grid */
 /*** ------------ GRID – ELEMENTY ---------------- **/
 /* default – společné nastavení */
-.ln,
-.unt {
+.szd-line,
+.szd-unit {
   box-sizing: border-box;
   width: 100%;
   height: 100%;
 }
 /* řádek */
-.ln {
+.szd-line {
   z-index: 1;
   /* reset floatování */
   /* pouze při zanoření srovnáme gutter */
   /* unita */
   /* grupa více unit */
 }
-.ln:before,
-.ln:after {
+.szd-line:before,
+.szd-line:after {
   content: ' ';
   display: table;
 }
-.ln:after {
+.szd-line:after {
   clear: both;
 }
-.ln .ln {
+.szd-line .szd-line {
   /* layout - mobil 1 - gutter (vyrovnání) */
   margin-left: -8px;
   margin-left: -0.5rem;
 }
 @media screen {
-  .ln .ln {
+  .szd-line .szd-line {
     /* layout – mobil 2 */
     /* layout – tablet */
     /* layout – desktop */
   }
 }
 @media screen and (min-width: 25.5em) {
-  .ln .ln {
+  .szd-line .szd-line {
     margin-left: -8px;
     margin-left: -0.5rem;
   }
 }
 @media screen and (min-width: 37.5em) {
-  .ln .ln {
+  .szd-line .szd-line {
     margin-left: -8px;
     margin-left: -0.5rem;
   }
 }
 @media screen and (min-width: 63em) {
-  .ln .ln {
+  .szd-line .szd-line {
     margin-left: -16px;
     margin-left: -1rem;
   }
 }
-.ln .unt {
+.szd-line .szd-unit {
   position: relative;
   float: left;
   width: 100%;
@@ -558,31 +558,31 @@ legend {
   padding-left: 0.5rem;
 }
 @media screen {
-  .ln .unt {
+  .szd-line .szd-unit {
     /* layout – mobil 2 */
     /* layout – tablet */
     /* layout – desktop */
   }
 }
 @media screen and (min-width: 25.5em) {
-  .ln .unt {
+  .szd-line .szd-unit {
     padding-left: 8px;
     padding-left: 0.5rem;
   }
 }
 @media screen and (min-width: 37.5em) {
-  .ln .unt {
+  .szd-line .szd-unit {
     padding-left: 8px;
     padding-left: 0.5rem;
   }
 }
 @media screen and (min-width: 63em) {
-  .ln .unt {
+  .szd-line .szd-unit {
     padding-left: 16px;
     padding-left: 1rem;
   }
 }
-.ln .wrp {
+.szd-line .szd-wrap {
   display: block;
   position: relative;
   float: left;
@@ -590,7 +590,7 @@ legend {
   overflow: hidden;
 }
 /* zvýraznění marginu */
-.mrgn {
+.szd-edge {
   /* pozice */
   position: absolute;
   top: 0;
@@ -603,31 +603,31 @@ legend {
   width: 8px;
   width: 0.5rem;
 }
-.mrgn:first-child {
+.szd-edge:first-child {
   left: 0;
   right: auto;
 }
 @media screen {
-  .mrgn {
+  .szd-edge {
     /* layout – mobil 2 */
     /* layout – tablet */
     /* layout – desktop */
   }
 }
 @media screen and (min-width: 25.5em) {
-  .mrgn {
+  .szd-edge {
     width: 16px;
     width: 1rem;
   }
 }
 @media screen and (min-width: 37.5em) {
-  .mrgn {
+  .szd-edge {
     width: 16px;
     width: 1rem;
   }
 }
 @media screen and (min-width: 63em) {
-  .mrgn {
+  .szd-edge {
     width: 32px;
     width: 2rem;
   }
@@ -643,14 +643,14 @@ legend {
 /* barva řádku/sloupečku */
 /*** ------------ GRID – VERTICAL/BASELINE ---------------- **/
 /* zobrazení základního vertikálního gridu – baseline */
-.gr-bl {
+.szd-grid-baseline {
   z-index: 2001;
   /* většinou se používá v css kolem 999, tohle by snad mělo zajistit převýšení */
   pointer-events: none;
   /* spec. nastavení pro grid */
   /* řádky */
 }
-.gr-bl .gr {
+.szd-grid-baseline .szd-grid {
   /* vzhled */
   min-height: 100%;
   overflow: hidden;
@@ -662,7 +662,7 @@ legend {
   left: 0;
   margin: auto;
 }
-.gr-bl .ln {
+.szd-grid-baseline .szd-line {
   /* mřížka na backgroundu */
   background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9Imxlc3NoYXQtZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmZjRiNjQiIHN0b3Atb3BhY2l0eT0iMSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmY0YjY0IiBzdG9wLW9wYWNpdHk9IjEiLz48c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+PHN0b3Agb2Zmc2V0PSI5OSUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPjwvbGluZWFyR3JhZGllbnQ+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNsZXNzaGF0LWdlbmVyYXRlZCkiIC8+PC9zdmc+);
   background-image: -webkit-linear-gradient(top, #ff4b64, #ff4b64 50%, #ffffff 50%, #ffffff);
@@ -689,7 +689,7 @@ legend {
 /* barva řádku/sloupečku */
 /*** ------------ GRID – HORIZONTAL/LAYOUT ---------------- **/
 /* zobrazení základního horizontálního gridu – layout */
-.gr-lt {
+.szd-grid-layout {
   z-index: 2000;
   /* většinou se používá v css kolem 999, tohle by snad mělo zajistit převýšení */
   pointer-events: none;
@@ -697,7 +697,7 @@ legend {
   /* unity */
   /* obsah buněk */
 }
-.gr-lt .gr {
+.szd-grid-layout .szd-grid {
   /* vzhled */
   min-height: 100%;
   overflow: hidden;
@@ -709,7 +709,7 @@ legend {
   left: 0;
   margin: auto;
 }
-.gr-lt .unt {
+.szd-grid-layout .szd-unit {
   zoom: 1;
   filter: alpha(opacity=12);
   -webkit-opacity: 0.12;
@@ -718,7 +718,7 @@ legend {
   background-color: #ffffff;
   z-index: 1;
 }
-.gr-lt .cnt {
+.szd-grid-layout .szd-inside {
   box-sizing: border-box;
   background-color: #ff4b64;
   display: block;
@@ -726,12 +726,12 @@ legend {
 }
 /* zobrazení horizontální části mřížky */
 /**
- * @name: grid.size.less
+ * @name: grid.szd-size-ize.less
  * @desc: Vzhled stránky - responzivní rozměry elementů
  */
 /*** ------------ GRID – VELIKOSTI - RESPONSIVE ---------------- **/
-.ln .unt,
-.ln .wrp {
+.szd-line .szd-unit,
+.szd-line .szd-wrap {
   /* 1 část z 24 */
   /* layout – mobile 1 */
   /* 1 část z 12ti */
@@ -759,84 +759,84 @@ legend {
   /* 1 část 1, 2 části 2, 3 části 3, 4 části 4, 12 části z 12ti */
   /* layout – mobile 1 */
   /* layout – mobile 2 */
-  /* layout – mobile 2 */
-  /* layout – mobile 2 */
+  /* layout – tablet */
+  /* layout – desktop 2 */
 }
-.ln .unt.s1of24,
-.ln .wrp.s1of24 {
+.szd-line .szd-unit.szd-size-1of24,
+.szd-line .szd-wrap.szd-size-1of24 {
   width: 4.1666666666%;
 }
-.ln .unt.s1of12,
-.ln .wrp.s1of12 {
+.szd-line .szd-unit.szd-size-1of12,
+.szd-line .szd-wrap.szd-size-1of12 {
   width: 8.33333333333333%;
 }
-.ln .unt.s2of12,
-.ln .wrp.s2of12 {
+.szd-line .szd-unit.szd-size-2of12,
+.szd-line .szd-wrap.szd-size-2of12 {
   width: 16.6666666666666%;
 }
-.ln .unt.s1of4,
-.ln .wrp.s1of4,
-.ln .unt.s3of12,
-.ln .wrp.s3of12 {
+.szd-line .szd-unit.szd-size-1of4,
+.szd-line .szd-wrap.szd-size-1of4,
+.szd-line .szd-unit.szd-size-3of12,
+.szd-line .szd-wrap.szd-size-3of12 {
   width: 25%;
 }
-.ln .unt.s1of3,
-.ln .wrp.s1of3,
-.ln .unt.s4of12,
-.ln .wrp.s4of12 {
+.szd-line .szd-unit.szd-size-1of3,
+.szd-line .szd-wrap.szd-size-1of3,
+.szd-line .szd-unit.szd-size-4of12,
+.szd-line .szd-wrap.szd-size-4of12 {
   width: 33.333333333%;
 }
-.ln .unt.s5of12,
-.ln .wrp.s5of12 {
+.szd-line .szd-unit.szd-size-5of12,
+.szd-line .szd-wrap.szd-size-5of12 {
   width: 41.6666666666666%;
 }
-.ln .unt.s1of2,
-.ln .wrp.s1of2,
-.ln .unt.s2of4,
-.ln .wrp.s2of4,
-.ln .unt.s6of12,
-.ln .wrp.s6of12 {
+.szd-line .szd-unit.szd-size-1of2,
+.szd-line .szd-wrap.szd-size-1of2,
+.szd-line .szd-unit.szd-size-2of4,
+.szd-line .szd-wrap.szd-size-2of4,
+.szd-line .szd-unit.szd-size-6of12,
+.szd-line .szd-wrap.szd-size-6of12 {
   width: 50%;
 }
-.ln .unt.s7of12,
-.ln .wrp.s7of12 {
+.szd-line .szd-unit.szd-size-7of12,
+.szd-line .szd-wrap.szd-size-7of12 {
   width: 58.3333333333333%;
 }
-.ln .unt.s2of3,
-.ln .wrp.s2of3,
-.ln .unt.s8of12,
-.ln .wrp.s8of12 {
+.szd-line .szd-unit.szd-size-2of3,
+.szd-line .szd-wrap.szd-size-2of3,
+.szd-line .szd-unit.szd-size-8of12,
+.szd-line .szd-wrap.szd-size-8of12 {
   width: 66.666666666%;
 }
-.ln .unt.s3of4,
-.ln .wrp.s3of4,
-.ln .unt.s9of12,
-.ln .wrp.s9of12 {
+.szd-line .szd-unit.szd-size-3of4,
+.szd-line .szd-wrap.szd-size-3of4,
+.szd-line .szd-unit.szd-size-9of12,
+.szd-line .szd-wrap.szd-size-9of12 {
   width: 75%;
 }
-.ln .unt.s10of12,
-.ln .wrp.s10of12 {
+.szd-line .szd-unit.szd-size-10of12,
+.szd-line .szd-wrap.szd-size-10of12 {
   width: 83.3333333333333%;
 }
-.ln .unt.s11of12,
-.ln .wrp.s11of12 {
+.szd-line .szd-unit.szd-size-11of12,
+.szd-line .szd-wrap.szd-size-11of12 {
   width: 91.6666666666666%;
 }
-.ln .unt.s1of1,
-.ln .wrp.s1of1,
-.ln .unt.s2of2,
-.ln .wrp.s2of2,
-.ln .unt.s3of3,
-.ln .wrp.s3of3,
-.ln .unt.s4of4,
-.ln .wrp.s4of4,
-.ln .unt.s12of12,
-.ln .wrp.s12of12 {
+.szd-line .szd-unit.szd-size-1of1,
+.szd-line .szd-wrap.szd-size-1of1,
+.szd-line .szd-unit.szd-size-2of2,
+.szd-line .szd-wrap.szd-size-2of2,
+.szd-line .szd-unit.szd-size-3of3,
+.szd-line .szd-wrap.szd-size-3of3,
+.szd-line .szd-unit.szd-size-4of4,
+.szd-line .szd-wrap.szd-size-4of4,
+.szd-line .szd-unit.szd-size-12of12,
+.szd-line .szd-wrap.szd-size-12of12 {
   width: 100%;
 }
 @media screen and (min-width: 25.5em) {
-  .ln .unt,
-  .ln .wrp {
+  .szd-line .szd-unit,
+  .szd-line .szd-wrap {
     /* 1 část z 24 */
     /* 1 část z 12ti */
     /* 2 část z 12ti */
@@ -851,82 +851,82 @@ legend {
     /* 11 části z 12ti */
     /* 1 část 1, 2 části 2, 3 části 3, 4 části 4, 12 části z 12ti */
   }
-  .ln .unt.m2-s1of24,
-  .ln .wrp.m2-s1of24 {
+  .szd-line .szd-unit.szd-size-1of24-mobile1,
+  .szd-line .szd-wrap.szd-size-1of24-mobile1 {
     width: 4.1666666666%;
   }
-  .ln .unt.m2-s1of12,
-  .ln .wrp.m2-s1of12 {
+  .szd-line .szd-unit.szd-size-1of12-mobile1,
+  .szd-line .szd-wrap.szd-size-1of12-mobile1 {
     width: 8.33333333333333%;
   }
-  .ln .unt.m2-s2of12,
-  .ln .wrp.m2-s2of12 {
+  .szd-line .szd-unit.szd-size-2of12-mobile1,
+  .szd-line .szd-wrap.szd-size-2of12-mobile1 {
     width: 16.6666666666666%;
   }
-  .ln .unt.m2-s1of4,
-  .ln .wrp.m2-s1of4,
-  .ln .unt.m2-s3of12,
-  .ln .wrp.m2-s3of12 {
+  .szd-line .szd-unit.szd-size-1of4-mobile1,
+  .szd-line .szd-wrap.szd-size-1of4-mobile1,
+  .szd-line .szd-unit.szd-size-3of12-mobile1,
+  .szd-line .szd-wrap.szd-size-3of12-mobile1 {
     width: 25%;
   }
-  .ln .unt.m2-s1of3,
-  .ln .wrp.m2-s1of3,
-  .ln .unt.m2-s4of12,
-  .ln .wrp.m2-s4of12 {
+  .szd-line .szd-unit.szd-size-1of3-mobile1,
+  .szd-line .szd-wrap.szd-size-1of3-mobile1,
+  .szd-line .szd-unit.szd-size-4of12-mobile1,
+  .szd-line .szd-wrap.szd-size-4of12-mobile1 {
     width: 33.333333333%;
   }
-  .ln .unt.m2-s5of12,
-  .ln .wrp.m2-s5of12 {
+  .szd-line .szd-unit.szd-size-5of12-mobile1,
+  .szd-line .szd-wrap.szd-size-5of12-mobile1 {
     width: 41.6666666666666%;
   }
-  .ln .unt.m2-s1of2,
-  .ln .wrp.m2-s1of2,
-  .ln .unt.m2-s2of4,
-  .ln .wrp.m2-s2of4,
-  .ln .unt.m2-s6of12,
-  .ln .wrp.m2-s6of12 {
+  .szd-line .szd-unit.szd-size-1of2-mobile1,
+  .szd-line .szd-wrap.szd-size-1of2-mobile1,
+  .szd-line .szd-unit.szd-size-2of4-mobile1,
+  .szd-line .szd-wrap.szd-size-2of4-mobile1,
+  .szd-line .szd-unit.szd-size-6of12-mobile1,
+  .szd-line .szd-wrap.szd-size-6of12-mobile1 {
     width: 50%;
   }
-  .ln .unt.m2-s7of12,
-  .ln .wrp.m2-s7of12 {
+  .szd-line .szd-unit.szd-size-7of12-mobile1,
+  .szd-line .szd-wrap.szd-size-7of12-mobile1 {
     width: 58.3333333333333%;
   }
-  .ln .unt.m2-s2of3,
-  .ln .wrp.m2-s2of3,
-  .ln .unt.m2-s8of12,
-  .ln .wrp.m2-s8of12 {
+  .szd-line .szd-unit.szd-size-2of3-mobile1,
+  .szd-line .szd-wrap.szd-size-2of3-mobile1,
+  .szd-line .szd-unit.szd-size-8of12-mobile1,
+  .szd-line .szd-wrap.szd-size-8of12-mobile1 {
     width: 66.666666666%;
   }
-  .ln .unt.m2-s3of4,
-  .ln .wrp.m2-s3of4,
-  .ln .unt.m2-s9of12,
-  .ln .wrp.m2-s9of12 {
+  .szd-line .szd-unit.szd-size-3of4-mobile1,
+  .szd-line .szd-wrap.szd-size-3of4-mobile1,
+  .szd-line .szd-unit.szd-size-9of12-mobile1,
+  .szd-line .szd-wrap.szd-size-9of12-mobile1 {
     width: 75%;
   }
-  .ln .unt.m2-s10of12,
-  .ln .wrp.m2-s10of12 {
+  .szd-line .szd-unit.szd-size-10of12-mobile1,
+  .szd-line .szd-wrap.szd-size-10of12-mobile1 {
     width: 83.3333333333333%;
   }
-  .ln .unt.m2-s11of12,
-  .ln .wrp.m2-s11of12 {
+  .szd-line .szd-unit.szd-size-11of12-mobile1,
+  .szd-line .szd-wrap.szd-size-11of12-mobile1 {
     width: 91.6666666666666%;
   }
-  .ln .unt.m2-s1of1,
-  .ln .wrp.m2-s1of1,
-  .ln .unt.m2-s2of2,
-  .ln .wrp.m2-s2of2,
-  .ln .unt.m2-s3of3,
-  .ln .wrp.m2-s3of3,
-  .ln .unt.m2-s4of4,
-  .ln .wrp.m2-s4of4,
-  .ln .unt.m2-s12of12,
-  .ln .wrp.m2-s12of12 {
+  .szd-line .szd-unit.szd-size-1of1-mobile1,
+  .szd-line .szd-wrap.szd-size-1of1-mobile1,
+  .szd-line .szd-unit.szd-size-2of2-mobile1,
+  .szd-line .szd-wrap.szd-size-2of2-mobile1,
+  .szd-line .szd-unit.szd-size-3of3-mobile1,
+  .szd-line .szd-wrap.szd-size-3of3-mobile1,
+  .szd-line .szd-unit.szd-size-4of4-mobile1,
+  .szd-line .szd-wrap.szd-size-4of4-mobile1,
+  .szd-line .szd-unit.szd-size-12of12-mobile1,
+  .szd-line .szd-wrap.szd-size-12of12-mobile1 {
     width: 100%;
   }
 }
 @media screen and (min-width: 37.5em) {
-  .ln .unt,
-  .ln .wrp {
+  .szd-line .szd-unit,
+  .szd-line .szd-wrap {
     /* 1 část z 24 */
     /* 1 část z 12ti */
     /* 2 část z 12ti */
@@ -941,82 +941,82 @@ legend {
     /* 11 části z 12ti */
     /* 1 část 1, 2 části 2, 3 části 3, 4 části 4, 12 části z 12ti */
   }
-  .ln .unt.tb-s1of24,
-  .ln .wrp.tb-s1of24 {
+  .szd-line .szd-unit.szd-size-1of24-tablet,
+  .szd-line .szd-wrap.szd-size-1of24-tablet {
     width: 4.1666666666%;
   }
-  .ln .unt.tb-s1of12,
-  .ln .wrp.tb-s1of12 {
+  .szd-line .szd-unit.szd-size-1of12-tablet,
+  .szd-line .szd-wrap.szd-size-1of12-tablet {
     width: 8.33333333333333%;
   }
-  .ln .unt.tb-s2of12,
-  .ln .wrp.tb-s2of12 {
+  .szd-line .szd-unit.szd-size-2of12-tablet,
+  .szd-line .szd-wrap.szd-size-2of12-tablet {
     width: 16.6666666666666%;
   }
-  .ln .unt.tb-s1of4,
-  .ln .wrp.tb-s1of4,
-  .ln .unt.tb-s3of12,
-  .ln .wrp.tb-s3of12 {
+  .szd-line .szd-unit.szd-size-1of4-tablet,
+  .szd-line .szd-wrap.szd-size-1of4-tablet,
+  .szd-line .szd-unit.szd-size-3of12-tablet,
+  .szd-line .szd-wrap.szd-size-3of12-tablet {
     width: 25%;
   }
-  .ln .unt.tb-s1of3,
-  .ln .wrp.tb-s1of3,
-  .ln .unt.tb-s4of12,
-  .ln .wrp.tb-s4of12 {
+  .szd-line .szd-unit.szd-size-1of3-tablet,
+  .szd-line .szd-wrap.szd-size-1of3-tablet,
+  .szd-line .szd-unit.szd-size-4of12-tablet,
+  .szd-line .szd-wrap.szd-size-4of12-tablet {
     width: 33.333333333%;
   }
-  .ln .unt.tb-s5of12,
-  .ln .wrp.tb-s5of12 {
+  .szd-line .szd-unit.szd-size-5of12-tablet,
+  .szd-line .szd-wrap.szd-size-5of12-tablet {
     width: 41.6666666666666%;
   }
-  .ln .unt.tb-s1of2,
-  .ln .wrp.tb-s1of2,
-  .ln .unt.tb-s2of4,
-  .ln .wrp.tb-s2of4,
-  .ln .unt.tb-s6of12,
-  .ln .wrp.tb-s6of12 {
+  .szd-line .szd-unit.szd-size-1of2-tablet,
+  .szd-line .szd-wrap.szd-size-1of2-tablet,
+  .szd-line .szd-unit.szd-size-2of4-tablet,
+  .szd-line .szd-wrap.szd-size-2of4-tablet,
+  .szd-line .szd-unit.szd-size-6of12-tablet,
+  .szd-line .szd-wrap.szd-size-6of12-tablet {
     width: 50%;
   }
-  .ln .unt.tb-s7of12,
-  .ln .wrp.tb-s7of12 {
+  .szd-line .szd-unit.szd-size-7of12-tablet,
+  .szd-line .szd-wrap.szd-size-7of12-tablet {
     width: 58.3333333333333%;
   }
-  .ln .unt.tb-s2of3,
-  .ln .wrp.tb-s2of3,
-  .ln .unt.tb-s8of12,
-  .ln .wrp.tb-s8of12 {
+  .szd-line .szd-unit.szd-size-2of3-tablet,
+  .szd-line .szd-wrap.szd-size-2of3-tablet,
+  .szd-line .szd-unit.szd-size-8of12-tablet,
+  .szd-line .szd-wrap.szd-size-8of12-tablet {
     width: 66.666666666%;
   }
-  .ln .unt.tb-s3of4,
-  .ln .wrp.tb-s3of4,
-  .ln .unt.tb-s9of12,
-  .ln .wrp.tb-s9of12 {
+  .szd-line .szd-unit.szd-size-3of4-tablet,
+  .szd-line .szd-wrap.szd-size-3of4-tablet,
+  .szd-line .szd-unit.szd-size-9of12-tablet,
+  .szd-line .szd-wrap.szd-size-9of12-tablet {
     width: 75%;
   }
-  .ln .unt.tb-s10of12,
-  .ln .wrp.tb-s10of12 {
+  .szd-line .szd-unit.szd-size-10of12-tablet,
+  .szd-line .szd-wrap.szd-size-10of12-tablet {
     width: 83.3333333333333%;
   }
-  .ln .unt.tb-s11of12,
-  .ln .wrp.tb-s11of12 {
+  .szd-line .szd-unit.szd-size-11of12-tablet,
+  .szd-line .szd-wrap.szd-size-11of12-tablet {
     width: 91.6666666666666%;
   }
-  .ln .unt.tb-s1of1,
-  .ln .wrp.tb-s1of1,
-  .ln .unt.tb-s2of2,
-  .ln .wrp.tb-s2of2,
-  .ln .unt.tb-s3of3,
-  .ln .wrp.tb-s3of3,
-  .ln .unt.tb-s4of4,
-  .ln .wrp.tb-s4of4,
-  .ln .unt.tb-s12of12,
-  .ln .wrp.tb-s12of12 {
+  .szd-line .szd-unit.szd-size-1of1-tablet,
+  .szd-line .szd-wrap.szd-size-1of1-tablet,
+  .szd-line .szd-unit.szd-size-2of2-tablet,
+  .szd-line .szd-wrap.szd-size-2of2-tablet,
+  .szd-line .szd-unit.szd-size-3of3-tablet,
+  .szd-line .szd-wrap.szd-size-3of3-tablet,
+  .szd-line .szd-unit.szd-size-4of4-tablet,
+  .szd-line .szd-wrap.szd-size-4of4-tablet,
+  .szd-line .szd-unit.szd-size-12of12-tablet,
+  .szd-line .szd-wrap.szd-size-12of12-tablet {
     width: 100%;
   }
 }
 @media screen and (min-width: 63em) {
-  .ln .unt,
-  .ln .wrp {
+  .szd-line .szd-unit,
+  .szd-line .szd-wrap {
     /* 1 část z 24 */
     /* 1 část z 12ti */
     /* 2 část z 12ti */
@@ -1031,76 +1031,76 @@ legend {
     /* 11 části z 12ti */
     /* 1 část 1, 2 části 2, 3 části 3, 4 části 4, 12 části z 12ti */
   }
-  .ln .unt.dk-s1of24,
-  .ln .wrp.dk-s1of24 {
+  .szd-line .szd-unit.szd-size-1of24-desktop,
+  .szd-line .szd-wrap.szd-size-1of24-desktop {
     width: 4.1666666666%;
   }
-  .ln .unt.dk-s1of12,
-  .ln .wrp.dk-s1of12 {
+  .szd-line .szd-unit.szd-size-1of12-desktop,
+  .szd-line .szd-wrap.szd-size-1of12-desktop {
     width: 8.33333333333333%;
   }
-  .ln .unt.dk-s2of12,
-  .ln .wrp.dk-s2of12 {
+  .szd-line .szd-unit.szd-size-2of12-desktop,
+  .szd-line .szd-wrap.szd-size-2of12-desktop {
     width: 16.6666666666666%;
   }
-  .ln .unt.dk-s1of4,
-  .ln .wrp.dk-s1of4,
-  .ln .unt.dk-s3of12,
-  .ln .wrp.dk-s3of12 {
+  .szd-line .szd-unit.szd-size-1of4-desktop,
+  .szd-line .szd-wrap.szd-size-1of4-desktop,
+  .szd-line .szd-unit.szd-size-3of12-desktop,
+  .szd-line .szd-wrap.szd-size-3of12-desktop {
     width: 25%;
   }
-  .ln .unt.dk-s1of3,
-  .ln .wrp.dk-s1of3,
-  .ln .unt.dk-s4of12,
-  .ln .wrp.dk-s4of12 {
+  .szd-line .szd-unit.szd-size-1of3-desktop,
+  .szd-line .szd-wrap.szd-size-1of3-desktop,
+  .szd-line .szd-unit.szd-size-4of12-desktop,
+  .szd-line .szd-wrap.szd-size-4of12-desktop {
     width: 33.333333333%;
   }
-  .ln .unt.dk-s5of12,
-  .ln .wrp.dk-s5of12 {
+  .szd-line .szd-unit.szd-size-5of12-desktop,
+  .szd-line .szd-wrap.szd-size-5of12-desktop {
     width: 41.6666666666666%;
   }
-  .ln .unt.dk-s1of2,
-  .ln .wrp.dk-s1of2,
-  .ln .unt.dk-s2of4,
-  .ln .wrp.dk-s2of4,
-  .ln .unt.dk-s6of12,
-  .ln .wrp.dk-s6of12 {
+  .szd-line .szd-unit.szd-size-1of2-desktop,
+  .szd-line .szd-wrap.szd-size-1of2-desktop,
+  .szd-line .szd-unit.szd-size-2of4-desktop,
+  .szd-line .szd-wrap.szd-size-2of4-desktop,
+  .szd-line .szd-unit.szd-size-6of12-desktop,
+  .szd-line .szd-wrap.szd-size-6of12-desktop {
     width: 50%;
   }
-  .ln .unt.dk-s7of12,
-  .ln .wrp.dk-s7of12 {
+  .szd-line .szd-unit.szd-size-7of12-desktop,
+  .szd-line .szd-wrap.szd-size-7of12-desktop {
     width: 58.3333333333333%;
   }
-  .ln .unt.dk-s2of3,
-  .ln .wrp.dk-s2of3,
-  .ln .unt.dk-s8of12,
-  .ln .wrp.dk-s8of12 {
+  .szd-line .szd-unit.szd-size-2of3-desktop,
+  .szd-line .szd-wrap.szd-size-2of3-desktop,
+  .szd-line .szd-unit.szd-size-8of12-desktop,
+  .szd-line .szd-wrap.szd-size-8of12-desktop {
     width: 66.666666666%;
   }
-  .ln .unt.dk-s3of4,
-  .ln .wrp.dk-s3of4,
-  .ln .unt.dk-s9of12,
-  .ln .wrp.dk-s9of12 {
+  .szd-line .szd-unit.szd-size-3of4-desktop,
+  .szd-line .szd-wrap.szd-size-3of4-desktop,
+  .szd-line .szd-unit.szd-size-9of12-desktop,
+  .szd-line .szd-wrap.szd-size-9of12-desktop {
     width: 75%;
   }
-  .ln .unt.dk-s10of12,
-  .ln .wrp.dk-s10of12 {
+  .szd-line .szd-unit.szd-size-10of12-desktop,
+  .szd-line .szd-wrap.szd-size-10of12-desktop {
     width: 83.3333333333333%;
   }
-  .ln .unt.dk-s11of12,
-  .ln .wrp.dk-s11of12 {
+  .szd-line .szd-unit.szd-size-11of12-desktop,
+  .szd-line .szd-wrap.szd-size-11of12-desktop {
     width: 91.6666666666666%;
   }
-  .ln .unt.dk-s1of1,
-  .ln .wrp.dk-s1of1,
-  .ln .unt.dk-s2of2,
-  .ln .wrp.dk-s2of2,
-  .ln .unt.dk-s3of3,
-  .ln .wrp.dk-s3of3,
-  .ln .unt.dk-s4of4,
-  .ln .wrp.dk-s4of4,
-  .ln .unt.dk-s12of12,
-  .ln .wrp.dk-s12of12 {
+  .szd-line .szd-unit.szd-size-1of1-desktop,
+  .szd-line .szd-wrap.szd-size-1of1-desktop,
+  .szd-line .szd-unit.szd-size-2of2-desktop,
+  .szd-line .szd-wrap.szd-size-2of2-desktop,
+  .szd-line .szd-unit.szd-size-3of3-desktop,
+  .szd-line .szd-wrap.szd-size-3of3-desktop,
+  .szd-line .szd-unit.szd-size-4of4-desktop,
+  .szd-line .szd-wrap.szd-size-4of4-desktop,
+  .szd-line .szd-unit.szd-size-12of12-desktop,
+  .szd-line .szd-wrap.szd-size-12of12-desktop {
     width: 100%;
   }
 }
@@ -1114,7 +1114,7 @@ legend {
 /* barvy */
 /*** ------------ GRID – MANAGER ---------------- **/
 /* zobrazení ovládacích prvků */
-.gr-mg {
+.szd-grid-manager {
   position: absolute;
   /* přepozicování fixního gridu nad absolutně pozicovanými */
   z-index: 2002;
@@ -1125,10 +1125,10 @@ legend {
   /* skupina tlačítek */
   /* pomocné informace */
 }
-.gr-mg * {
+.szd-grid-manager * {
   box-sizing: border-box;
 }
-.gr-mg .gr {
+.szd-grid-manager .szd-grid {
   /* mixiny */
   zoom: 1;
   filter: alpha(opacity=90);
@@ -1154,15 +1154,15 @@ legend {
   /* zmenšená forma */
 }
 @media screen and (min-width: 37.5em) {
-  .gr-mg .gr {
+  .szd-grid-manager .szd-grid {
     text-align: center;
   }
 }
-.shrnking.gr-mg .gr,
-.unshrnking.gr-mg .gr {
+.szd-shrinking.szd-grid-manager .szd-grid,
+.szd-unshrinking.szd-grid-manager .szd-grid {
   min-width: 0;
 }
-.shrnk.gr-mg .gr {
+.szd-shrinked.szd-grid-manager .szd-grid {
   width: 56px;
   width: 3.5rem;
   border-top-right-radius: 8px;
@@ -1171,18 +1171,18 @@ legend {
   overflow: hidden;
 }
 @media screen and (min-width: 37.5em) {
-  .shrnk.gr-mg .gr {
+  .szd-shrinked.szd-grid-manager .szd-grid {
     width: 120px;
     width: 7.5rem;
   }
 }
-.gr-mg .fl-lft {
+.szd-grid-manager .szd-left {
   float: left;
 }
-.gr-mg .fl-rght {
+.szd-grid-manager .szd-right {
   float: right;
 }
-.gr-mg .btn {
+.szd-grid-manager .szd-button {
   /* mixiny */
   margin: 0;
   padding: 0;
@@ -1228,28 +1228,28 @@ legend {
   /* ikonka */
   /* popisek */
 }
-.gr-mg .btn:hover,
-.gr-mg .btn:visited,
-.gr-mg .btn:focus {
+.szd-grid-manager .szd-button:hover,
+.szd-grid-manager .szd-button:visited,
+.szd-grid-manager .szd-button:focus {
   outline: none;
   text-decoration: none;
 }
 @media screen and (min-width: 37.5em) {
-  .gr-mg .btn {
+  .szd-grid-manager .szd-button {
     margin: 0px 16px;
     margin: 0rem 1rem;
     width: auto;
     height: auto;
   }
 }
-.shrnking.gr-mg .btn {
+.szd-shrinking.szd-grid-manager .szd-button {
   zoom: 1;
   filter: alpha(opacity=0);
   -webkit-opacity: 0;
   -moz-opacity: 0;
   opacity: 0;
 }
-.unshrnking.gr-mg .btn {
+.szd-unshrinking.szd-grid-manager .szd-button {
   zoom: 1;
   filter: alpha(opacity=0);
   -webkit-opacity: 0;
@@ -1257,10 +1257,10 @@ legend {
   opacity: 0;
   display: none;
 }
-.shrnk.gr-mg .btn {
+.szd-shrinked.szd-grid-manager .szd-button {
   display: none;
 }
-.gr-mg .btn.btnLg {
+.szd-grid-manager .szd-button.szd-button-open {
   zoom: 1;
   filter: alpha(opacity=0);
   -webkit-opacity: 0;
@@ -1270,7 +1270,7 @@ legend {
   /* zmenšená forma – animace */
   /* zmenšená forma */
 }
-.unshrnking.gr-mg .btn.btnLg {
+.szd-unshrinking.szd-grid-manager .szd-button.szd-button-open {
   zoom: 1;
   filter: alpha(opacity=0);
   -webkit-opacity: 0;
@@ -1278,7 +1278,7 @@ legend {
   opacity: 0;
   display: none;
 }
-.shrnk.gr-mg .btn.btnLg {
+.szd-shrinked.szd-grid-manager .szd-button.szd-button-open {
   zoom: 1;
   filter: alpha(opacity=100);
   -webkit-opacity: 1;
@@ -1286,46 +1286,46 @@ legend {
   opacity: 1;
   display: inline-block;
 }
-.gr-mg .btn.btnCls {
+.szd-grid-manager .szd-button.szd-button-close {
   margin-right: 16px;
   margin-right: 1rem;
 }
-.gr-mg .btn.actv {
+.szd-grid-manager .szd-button.szd-button-active {
   color: #ffffff;
   background-color: #152d54;
   border-color: #152d54;
 }
-.no-touch.gr-mg .btn.actv {
+.szd-no-touch.szd-grid-manager .szd-button.szd-button-active {
   color: #ffffff;
   background-color: #152d54;
   border-color: #152d54;
 }
-:not(.no-touch).gr-mg .btn:hover,
-:not(.no-touch).gr-mg .btn.actv:hover {
+:not(.szd-no-touch).szd-grid-manager .szd-button:hover,
+:not(.szd-no-touch).szd-grid-manager .szd-button.actv:hover {
   color: #ffffff;
   background-color: #051938;
   border-color: #051938;
 }
-.gr-mg .btn .icn-ctrl {
+.szd-grid-manager .szd-button .szd-icon {
   margin-right: 0;
 }
 @media screen and (min-width: 37.5em) {
-  .gr-mg .btn .icn-ctrl {
+  .szd-grid-manager .szd-button .szd-icon {
     margin-right: 8px;
     margin-right: 0.5rem;
   }
 }
-.gr-mg .btn .lbl {
+.szd-grid-manager .szd-button .szd-icon-label {
   position: relative;
   top: -1px;
   display: none;
 }
 @media screen and (min-width: 37.5em) {
-  .gr-mg .btn .lbl {
+  .szd-grid-manager .szd-button .szd-icon-label {
     display: inline;
   }
 }
-.gr-mg .btnGrp {
+.szd-grid-manager .szd-button-group {
   /* mixiny */
   zoom: 1;
   filter: alpha(opacity=100);
@@ -1346,22 +1346,14 @@ legend {
   /* odsazení */
   /* odsazení */
 }
-.shrnking.gr-mg .btnGrp {
+.szd-shrinking.szd-grid-manager .szd-button-group {
   zoom: 1;
   filter: alpha(opacity=0);
   -webkit-opacity: 0;
   -moz-opacity: 0;
   opacity: 0;
 }
-.unshrnking.gr-mg .btnGrp {
-  zoom: 1;
-  filter: alpha(opacity=0);
-  -webkit-opacity: 0;
-  -moz-opacity: 0;
-  opacity: 0;
-  display: none;
-}
-.shrnk.gr-mg .btnGrp {
+.szd-unshrinking.szd-grid-manager .szd-button-group {
   zoom: 1;
   filter: alpha(opacity=0);
   -webkit-opacity: 0;
@@ -1369,19 +1361,27 @@ legend {
   opacity: 0;
   display: none;
 }
-.gr-mg .btnGrp .btn:first-child {
+.szd-shrinked.szd-grid-manager .szd-button-group {
+  zoom: 1;
+  filter: alpha(opacity=0);
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  opacity: 0;
+  display: none;
+}
+.szd-grid-manager .szd-button-group .szd-button:first-child {
   margin-left: 0;
 }
-.gr-mg .btnGrp .btn:last-child {
+.szd-grid-manager .szd-button-group .szd-button:last-child {
   margin-left: 0;
   margin-right: 0;
 }
 @media screen and (min-width: 37.5em) {
-  .gr-mg .btnGrp {
+  .szd-grid-manager .szd-button-group {
     margin: auto;
   }
 }
-.gr-mg .inf {
+.szd-grid-manager .szd-info {
   /* mixiny */
   zoom: 1;
   filter: alpha(opacity=100);
@@ -1404,58 +1404,40 @@ legend {
   /* zmenšená forma – animace */
   /* zmenšená forma */
 }
-.gr-mg .inf .prt {
+.szd-grid-manager .szd-info .szd-info-port {
   margin-right: 8px;
   margin-right: 0.5rem;
   margin-right: .5em;
 }
-.gr-mg .inf.sz {
+.szd-grid-manager .szd-info.szd-info-size {
   display: none;
   /* zmenšená forma – animace */
   /* zmenšená forma – animace */
   /* zmenšená forma */
 }
 @media screen and (min-width: 32em) {
-  .gr-mg .inf.sz {
+  .szd-grid-manager .szd-info.szd-info-size {
     display: inline-block;
   }
 }
 @media screen and (min-width: 37.5em) {
-  .gr-mg .inf.sz {
+  .szd-grid-manager .szd-info.szd-info-size {
     display: none;
   }
 }
 @media screen and (min-width: 48em) {
-  .gr-mg .inf.sz {
+  .szd-grid-manager .szd-info.szd-info-size {
     display: inline-block;
   }
 }
-.shrnking.gr-mg .inf.sz {
+.szd-shrinking.szd-grid-manager .szd-info.szd-info-size {
   zoom: 1;
   filter: alpha(opacity=0);
   -webkit-opacity: 0;
   -moz-opacity: 0;
   opacity: 0;
 }
-.unshrnking.gr-mg .inf.sz {
-  zoom: 1;
-  filter: alpha(opacity=0);
-  -webkit-opacity: 0;
-  -moz-opacity: 0;
-  opacity: 0;
-  display: none;
-}
-.shrnk.gr-mg .inf.sz {
-  display: none;
-}
-.shrnking.gr-mg .inf {
-  zoom: 1;
-  filter: alpha(opacity=0);
-  -webkit-opacity: 0;
-  -moz-opacity: 0;
-  opacity: 0;
-}
-.unshrnking.gr-mg .inf {
+.szd-unshrinking.szd-grid-manager .szd-info.szd-info-size {
   zoom: 1;
   filter: alpha(opacity=0);
   -webkit-opacity: 0;
@@ -1463,7 +1445,25 @@ legend {
   opacity: 0;
   display: none;
 }
-.shrnk.gr-mg .inf {
+.szd-shrinked.szd-grid-manager .szd-info.szd-info-size {
+  display: none;
+}
+.szd-shrinking.szd-grid-manager .szd-info {
+  zoom: 1;
+  filter: alpha(opacity=0);
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  opacity: 0;
+}
+.szd-unshrinking.szd-grid-manager .szd-info {
+  zoom: 1;
+  filter: alpha(opacity=0);
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  opacity: 0;
+  display: none;
+}
+.szd-shrinked.szd-grid-manager .szd-info {
   display: none;
 }
 /* ovládací prvky pro ovládání mřížky přes widget */

@@ -30,17 +30,17 @@
  * }
  */
  
-.rem(@property; @size-px-list; @base-font-size-px: @root-font-size-px) {
-    ._remFallback(@property; @size-px-list);
-    ._pxToRelativeUnit(@property; @size-px-list; @base-font-size-px; rem);
+.rem(@property; @size-px-list; @base-font-size-px: @szd-root-font-size-px) {
+    ._rem-fallback(@property; @size-px-list);
+    ._px-to-relative-unit(@property; @size-px-list; @base-font-size-px; rem);
 }
 
-.em(@property; @size-px-list; @base-font-size-px: @root-font-size-px) {
-    ._pxToRelativeUnit(@property; @size-px-list; @base-font-size-px; em);
+.em(@property; @size-px-list; @base-font-size-px: @szd-root-font-size-px) {
+    ._px-to-relative-unit(@property; @size-px-list; @base-font-size-px; em);
 }
 
 // 4 rozmery
-._pxToRelativeUnit(@property; @size-px-list; @ratio; @unit) when (length(@size-px-list) = 4) {
+._px-to-relative-unit(@property; @size-px-list; @ratio; @unit) when (length(@size-px-list) = 4) {
     @val1: extract(@size-px-list, 1);
     @val2: extract(@size-px-list, 2);
     @val3: extract(@size-px-list, 3);
@@ -54,7 +54,7 @@
     @{property}: @rel1 @rel2 @rel3 @rel4;
 }
 // 3 rozmery
-._pxToRelativeUnit(@property; @size-px-list; @ratio; @unit) when (length(@size-px-list) = 3) {
+._px-to-relative-unit(@property; @size-px-list; @ratio; @unit) when (length(@size-px-list) = 3) {
     @val1: extract(@size-px-list, 1);
     @val2: extract(@size-px-list, 2);
     @val3: extract(@size-px-list, 3);
@@ -66,7 +66,7 @@
     @{property}: @rel1 @rel2 @rel3;
 }
 // 2 rozmery
-._pxToRelativeUnit(@property; @size-px-list; @ratio; @unit) when (length(@size-px-list) = 2) {
+._px-to-relative-unit(@property; @size-px-list; @ratio; @unit) when (length(@size-px-list) = 2) {
     @val1: extract(@size-px-list, 1);
     @val2: extract(@size-px-list, 2);
 
@@ -76,7 +76,7 @@
     @{property}: @rel1 @rel2;
 }
 // 1 rozmer
-._pxToRelativeUnit(@property; @size-px-list; @ratio; @unit) when (length(@size-px-list) = 1) {
+._px-to-relative-unit(@property; @size-px-list; @ratio; @unit) when (length(@size-px-list) = 1) {
     @val1: extract(@size-px-list, 1);
 
     @rel1: unit(@val1 / @ratio, @unit);
@@ -84,7 +84,7 @@
     @{property}: @rel1;
 }
 
-._remFallback(@property; @size-px-list) when (length(@size-px-list) = 4) {
+._rem-fallback(@property; @size-px-list) when (length(@size-px-list) = 4) {
     @val1: extract(@size-px-list, 1);
     @val2: extract(@size-px-list, 2);
     @val3: extract(@size-px-list, 3);
@@ -92,20 +92,20 @@
 
     @{property}: unit(@val1, px) unit(@val2, px) unit(@val3, px) unit(@val4, px);
 }
-._remFallback(@property; @size-px-list) when (length(@size-px-list) = 3) {
+._rem-fallback(@property; @size-px-list) when (length(@size-px-list) = 3) {
     @val1: extract(@size-px-list, 1);
     @val2: extract(@size-px-list, 2);
     @val3: extract(@size-px-list, 3);
 
     @{property}: unit(@val1, px) unit(@val2, px) unit(@val3, px);
 }
-._remFallback(@property; @size-px-list) when (length(@size-px-list) = 2) {
+._rem-fallback(@property; @size-px-list) when (length(@size-px-list) = 2) {
     @val1: extract(@size-px-list, 1);
     @val2: extract(@size-px-list, 2);
 
     @{property}: unit(@val1, px) unit(@val2, px);
 }
-._remFallback(@property; @size-px-list) when (length(@size-px-list) = 1) {
+._rem-fallback(@property; @size-px-list) when (length(@size-px-list) = 1) {
     @val1: extract(@size-px-list, 1);
 
     @{property}: unit(@val1, px);
@@ -138,11 +138,11 @@
  * }
  */
 
-.make-rem-size(@size-px; @base-font-size-px: @root-font-size-px) {
+.make-rem-size(@size-px; @base-font-size-px: @szd-root-font-size-px) {
     @rem-size: unit(@size-px / @base-font-size-px, rem);
 }
 
-.make-em-size(@size-px; @base-font-size-px: @root-font-size-px) {
+.make-em-size(@size-px; @base-font-size-px: @szd-root-font-size-px) {
     @em-size: unit(@size-px / @base-font-size-px, em);
 }
 
@@ -161,7 +161,7 @@
  */
 
 // translate3D
-.rem-translate3D(@size-px-list; @base-font-size-px: @root-font-size-px) {
+.rem-translate3D(@size-px-list; @base-font-size-px: @szd-root-font-size-px) {
     @val1: extract(@size-px-list, 1);
     @val2: extract(@size-px-list, 2);
     @val3: extract(@size-px-list, 3);
@@ -174,7 +174,7 @@
 }
 
 // translate2D
-.rem-translate2D(@size-px-list; @base-font-size-px: @root-font-size-px) {
+.rem-translate2D(@size-px-list; @base-font-size-px: @szd-root-font-size-px) {
     @val1: extract(@size-px-list, 1);
     @val2: extract(@size-px-list, 2);
 
@@ -185,7 +185,7 @@
 }
 
 // transform
-.rem-transform(@property; @size-px; @base-font-size-px: @root-font-size-px) {
+.rem-transform(@property; @size-px; @base-font-size-px: @szd-root-font-size-px) {
     @rem: unit(@size-px / @base-font-size-px, rem);
 
     .transform(~"@{property}(@{rem})");

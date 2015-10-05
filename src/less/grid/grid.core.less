@@ -6,7 +6,7 @@
 /*** ------------ GRID – OBAL ---------------- **/
 
 /* grid – základní obal */
-.gr {
+.szd-grid {
 
 	/* default */
 	#szd.transition(500ms width ease-in-out);
@@ -14,32 +14,32 @@
 	margin: auto;
 
 	/* layout – mobil 1 */
-	#szd.rem(min-width; @m1-minWidth-px);
-	#szd.rem(padding; 0 @m1-padding);
+	#szd.rem(min-width; @szd-mobile1-minWidth-px);
+	#szd.rem(padding; 0 @szd-mobile1-padding);
 	padding-left: 0;
 
 	@media screen {
 
 		/* layout – mobil 2 */
-		@media (min-width: @m2-minWidth) {
-			#szd.rem(min-width; @m2-minWidth-px);
-			#szd.rem(padding; 0 @m2-padding);
-			#szd.rem(padding-left; unit(@m2-padding - @m2-gutter, 'px'));
+		@media (min-width: @szd-mobile2-minWidth) {
+			#szd.rem(min-width; @szd-mobile2-minWidth-px);
+			#szd.rem(padding; 0 @szd-mobile2-padding);
+			#szd.rem(padding-left; unit(@szd-mobile2-padding - @szd-mobile2-gutter, 'px'));
 		}
 
 		/* layout – tablet */
-		@media (min-width: @tb-minWidth) {
-			#szd.rem(min-width; @tb-minWidth-px);
-			#szd.rem(padding; 0 @tb-padding);
-			#szd.rem(padding-left; unit(@tb-padding - @tb-gutter, 'px'));
+		@media (min-width: @szd-tablet-minWidth) {
+			#szd.rem(min-width; @szd-tablet-minWidth-px);
+			#szd.rem(padding; 0 @szd-tablet-padding);
+			#szd.rem(padding-left; unit(@szd-tablet-padding - @szd-tablet-gutter, 'px'));
 		}
 
 		/* layout – desktop */
-		@media (min-width: @dk-minWidth) {
-			#szd.rem(min-width; @dk-minWidth-px);
-			#szd.rem(max-width; @dk-maxWidth-px);
-			#szd.rem(padding; 0 @dk-padding);
-			#szd.rem(padding-left; unit(@dk-padding - @dk-gutter, 'px'));
+		@media (min-width: @szd-desktop-minWidth) {
+			#szd.rem(min-width; @szd-desktop-minWidth-px);
+			#szd.rem(max-width; @szd-desktop-maxWidth-px);
+			#szd.rem(padding; 0 @szd-desktop-padding);
+			#szd.rem(padding-left; unit(@szd-desktop-padding - @szd-desktop-gutter, 'px'));
 		}
 
 	}

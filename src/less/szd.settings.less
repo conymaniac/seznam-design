@@ -6,64 +6,64 @@
 /*** ------------ ROZŠÍŘENÝ SEZNAM DESIGN ---------------- **/
 @szd-base-style: "szd.base.less";
 @szd-extended-style: "szd.extended.less";
-@extended: false;
+@szd-extended: false;
 
 
 /*** ------------ CESTA K SOUBORŮM ---------------- **/
-@lib-path-import: ''; 			/* cesta pro LESS soubory */
-@lib-path-static: '../'; 		/* cesta ke statickým souborům */
+@szd-lib-path-import: ''; 			/* cesta pro LESS soubory */
+@szd-lib-path-static: '../'; 		/* cesta ke statickým souborům */
 
 
 /*** ------------ TYPOGRAFIE ---------------------- **/
-@root-font-size-px: 16;
+@szd-root-font-size-px: 16;
 
 
 /*** ------------ NASTAVENÍ GRIDU ----------------- **/
 
 /* layout – mobil 1 */
-@m1-minWidth-px: 320px;
-@m1-maxWidth-px: 407px;
-@m1-minWidth: 20em;             /* 320px */
-@m1-maxWidth: 25.4375em;        /* 407px */
-@m1-padding: 8px;
-@m1-gutter: 8px;
+@szd-mobile1-minWidth-px: 320px;
+@szd-mobile1-maxWidth-px: 407px;
+@szd-mobile1-minWidth: 20em;             /* 320px */
+@szd-mobile1-maxWidth: 25.4375em;        /* 407px */
+@szd-mobile1-padding: 8px;
+@szd-mobile1-gutter: 8px;
 
 /* layout – mobil 2 */
-@m2-minWidth-px: 408px;
-@m2-maxWidth-px: 599px;
-@m2-minWidth: 25.5em;           /* 408px */
-@m2-maxWidth: 37.4375em;        /* 599px */
-@m2-padding: 16px;
-@m2-gutter: 8px;
+@szd-mobile2-minWidth-px: 408px;
+@szd-mobile2-maxWidth-px: 599px;
+@szd-mobile2-minWidth: 25.5em;           /* 408px */
+@szd-mobile2-maxWidth: 37.4375em;        /* 599px */
+@szd-mobile2-padding: 16px;
+@szd-mobile2-gutter: 8px;
 
 /* layout – tablet */
-@tb-minWidth-px: 600px;
-@tb-maxWidth-px: 1007px;
-@tb-minWidth: 37.5em;           /* 600px */
-@tb-maxWidth: 62.9375em;        /* 1007px */
-@tb-padding: 16px;
-@tb-gutter: 8px;
+@szd-tablet-minWidth-px: 600px;
+@szd-tablet-maxWidth-px: 1007px;
+@szd-tablet-minWidth: 37.5em;           /* 600px */
+@szd-tablet-maxWidth: 62.9375em;        /* 1007px */
+@szd-tablet-padding: 16px;
+@szd-tablet-gutter: 8px;
 
 /* layout – desktop */
-@dk-minWidth-px: 1008px;
-@dk-maxWidth-px: 1008px;
-@dk-minWidth: 63em;             /* 1008px */
-@dk-maxWidth: 63em;             /* 1008px */
-@dk-padding: 32px;
-@dk-gutter: 16px;
+@szd-desktop-minWidth-px: 1008px;
+@szd-desktop-maxWidth-px: 1008px;
+@szd-desktop-minWidth: 63em;             /* 1008px */
+@szd-desktop-maxWidth: 63em;             /* 1008px */
+@szd-desktop-padding: 32px;
+@szd-desktop-gutter: 16px;
 
 
 /*** –––––––––––– IMPORT STYLŮ ––––––––––––––––––– **/
-.import(@extended) {
+.import(@szd-extended) {
 
-	& when (@extended = false) {
-		@import "@{lib-path-import}@{szd-base-style}";
+	& when (@szd-extended = false) {
+		@import "@{szd-lib-path-import}@{szd-base-style}";
 	}
 
-	& when (@extended = true) {
-		@import "@{lib-path-import}@{szd-extended-style}";
+	& when (@szd-extended = true) {
+		@import "@{szd-lib-path-import}@{szd-extended-style}";
 	}
 	
 }
 
-.import(@extended);
+.import(@szd-extended);

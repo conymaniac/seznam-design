@@ -39,8 +39,8 @@ a také změnit cestu v odpovídajících souborech v nastavení.
 ```
 /src/less/szd.settings.less
 
-@lib-path-import: ''; 			/* cesta pro LESS soubory */
-@lib-path-static: '../'; 		/* cesta ke statickým souborům */
+@szd-lib-path-import: ''; 			/* cesta pro LESS soubory */
+@szd-lib-path-static: '../'; 		/* cesta ke statickým souborům */
 ```
 
 ``` javascript
@@ -52,7 +52,7 @@ a také změnit cestu v odpovídajících souborech v nastavení.
 Jednotlivé soubory pak vložíme do HTML a inicializujeme Grid widget. 
 
 ```html
-<link type="text/css" rel="stylesheet" href="/static/bower/seznam-design/dist/css/szd.base.min.css">
+<link type="text/css" rel="stylesheet" href="/static/bower/seznam-design/dist/css/szd.min.css">
 <script type="text/javascript" src="/static/bower/seznam-design/dist/js/szd.min.js"></script>
 <script type="text/javascript">
 	Grid.cfg();
@@ -91,33 +91,33 @@ Výchozí nastavení breakpointů, gutteru a celkového paddingu gridu:
 
 ``` css
 /* layout – mobil 1 */
-@m1-minWidth: 20em; 			/* 320px */
-@m1-maxWidth: 25.4375em;		/* 407px */
-@m1-padding: 0.5em;				/* 8px */
-@m1-gutter: 0.5em;				/* 8px */
+@szd-mobile1-minWidth: 20em; 			/* 320px */
+@szd-mobile1-maxWidth: 25.4375em;		/* 407px */
+@szd-mobile1-padding: 0.5em;				/* 8px */
+@szd-mobile1-gutter: 0.5em;				/* 8px */
 
 /* layout – mobil 2 */
-@m2-minWidth: 25.5em;			/* 408px */
-@m2-maxWidth: 37.4375em;		/* 599px */
-@m2-padding: 1em;				/* 16px */
-@m2-gutter: 0.5em;				/* 8px */
+@szd-mobile2-minWidth: 25.5em;			/* 408px */
+@szd-mobile2-maxWidth: 37.4375em;		/* 599px */
+@szd-mobile2-padding: 1em;				/* 16px */
+@szd-mobile2-gutter: 0.5em;				/* 8px */
 
 /* layout – tablet */
-@tb-minWidth: 37.5em;			/* 600px */
-@tb-maxWidth: 62.9375em;		/* 1007px */
-@tb-padding: 1em;				/* 16px */
-@tb-gutter: 0.5em; 				/* 8px */
+@szd-tablet-minWidth: 37.5em;			/* 600px */
+@szd-tablet-maxWidth: 62.9375em;		/* 1007px */
+@szd-tablet-padding: 1em;				/* 16px */
+@szd-tablet-gutter: 0.5em; 				/* 8px */
 
 /* layout – desktop */
-@dk-minWidth: 63em; 			/* 1008px */
-@dk-maxWidth: 63em;				/* 1008px */
-@dk-padding: 2em;				/* 32px */
-@dk-gutter: 1em; 				/* 16px */
+@szd-desktop-minWidth: 63em; 			/* 1008px */
+@szd-desktop-maxWidth: 63em;			/* 1008px */
+@szd-desktop-padding: 2em;				/* 32px */
+@szd-desktop-gutter: 1em; 				/* 16px */
 ```
 
 ---  
 
 Stav: Working Draft  
-Verze: 0.2.0  
+Verze: 0.2.1  
 Využívá:  npm, grunt, less, browserify  
 Kontakt: [Dominik Michna](mailto:dominik.michna@firma.seznam.cz)

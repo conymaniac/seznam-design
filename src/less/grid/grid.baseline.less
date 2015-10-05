@@ -12,12 +12,12 @@
 /*** ------------ GRID – VERTICAL/BASELINE ---------------- **/
 
 /* zobrazení základního vertikálního gridu – baseline */
-.gr-bl {
+.szd-grid-baseline {
     z-index: 2001;      /* většinou se používá v css kolem 999, tohle by snad mělo zajistit převýšení */
     pointer-events: none;
 
     /* spec. nastavení pro grid */
-    .gr {
+    .szd-grid {
 
         /* vzhled */
         min-height: 100%;
@@ -33,7 +33,7 @@
     }
 
     /* řádky */
-    .ln {
+    .szd-line {
         & {
             /* mřížka na backgroundu */
             #szd.make-rem-size(16px);

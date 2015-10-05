@@ -18,7 +18,7 @@
 /*** ------------ GRID – MANAGER ---------------- **/
 
 /* zobrazení ovládacích prvků */
-.gr-mg {
+.szd-grid-manager {
     position: absolute; /* přepozicování fixního gridu nad absolutně pozicovanými */
     z-index: 2002;      /* většinou se používá v css kolem 999, tohle by snad mělo zajistit převýšení */
     
@@ -27,7 +27,7 @@
     }
 
     /* spec. nastavení pro grid */
-    .gr {
+    .szd-grid {
 
         /* mixiny */
         #szd.opacity(0.9);
@@ -47,25 +47,25 @@
         left: 0;
         margin: auto;
 
-       @media screen and (min-width: @tb-minWidth) {
+       @media screen and (min-width: @szd-tablet-minWidth) {
             text-align: center;
         }
 
         /* zmenšená forma */
-        .shrnking&,
-        .unshrnking& {
+        .szd-shrinking&,
+        .szd-unshrinking& {
             min-width: 0;
         }
 
         /* zmenšená forma */
-        .shrnk& {
+        .szd-shrinked& {
             #szd.rem(width; 56px);
             #szd.rem(border-top-right-radius; 8px);
 
             min-width: 0;
             overflow: hidden;
 
-            @media screen and (min-width: @tb-minWidth) {
+            @media screen and (min-width: @szd-tablet-minWidth) {
                 #szd.rem(width; 120px);
             }
         }
@@ -73,16 +73,16 @@
     }
 
     /* flow elementů – v případě, že se někdo nemá general.extension.less */
-    .fl-lft {
+    .szd-left {
         float: left;
     }
 
-    .fl-rght {
+    .szd-right {
         float: right;
     }
 
     /* tlačítko */
-    .btn {
+    .szd-button {
 
         /* mixiny */
         #szd.clear-element();
@@ -104,58 +104,58 @@
         background: transparent;
         cursor: pointer;
 
-        @media screen and (min-width: @tb-minWidth) {
+        @media screen and (min-width: @szd-tablet-minWidth) {
             #szd.rem(margin; 0 16px);
             width: auto;
             height: auto;
         }
 
         /* zmenšená forma – animace */
-        .shrnking& {
+        .szd-shrinking& {
             #szd.opacity(0);
         }
 
         /* zmenšená forma – animace */
-        .unshrnking& {
+        .szd-unshrinking& {
             #szd.opacity(0);
             display: none;
         }
 
         /* zmenšená forma */
-        .shrnk& {
+        .szd-shrinked& {
             display: none;
         }
         
         /* první tlačítko */
-        &.btnLg {
+        &.szd-button-open {
             #szd.opacity(0);
             display: none;
             
             /* zmenšená forma – animace */
-            .unshrnking& {
+            .szd-unshrinking& {
                 #szd.opacity(0);
                 display: none;
             }
 
             /* zmenšená forma */
-            .shrnk& {
+            .szd-shrinked& {
                 #szd.opacity(1);
                 display: inline-block;
             }
         }
 
         /* první tlačítko */
-        &.btnCls {
+        &.szd-button-close {
             #szd.rem(margin-right; 16px);
         }
 
         /* aktivní tlačítko */
-        &.actv {
+        &.szd-button-active {
             color: @cl-btn-3;
             background-color: @cl-btn-1;
             border-color: @cl-btn-1;
 
-            .no-touch& {
+            .szd-no-touch& {
                 color: @cl-btn-3;
                 background-color: @cl-btn-1;
                 border-color: @cl-btn-1;
@@ -164,7 +164,7 @@
         
         /* hover efekt */
         &:hover, &.actv:hover {
-            :not(.no-touch)& {
+            :not(.szd-no-touch)& {
                 color: @cl-btn-3;
                 background-color: @cl-btn-2;
                 border-color: @cl-btn-2;
@@ -172,21 +172,21 @@
         }
 
         /* ikonka */
-        .icn-ctrl {
+        .szd-icon {
             margin-right: 0;
 
-            @media screen and (min-width: @tb-minWidth) {
+            @media screen and (min-width: @szd-tablet-minWidth) {
                 #szd.rem(margin-right; 8px);
             }
         }
         
         /* popisek */
-        .lbl {
+        .szd-icon-label {
             position: relative;
             top: -1px;
             display: none;
             
-            @media screen and (min-width: @tb-minWidth) {
+            @media screen and (min-width: @szd-tablet-minWidth) {
                 display: inline;
             }
         }
@@ -194,7 +194,7 @@
     }
 
     /* skupina tlačítek */
-    .btnGrp {
+    .szd-button-group {
 
         /* mixiny */
         #szd.opacity(1);
@@ -208,40 +208,40 @@
         text-align: center;
 
         /* zmenšená forma – animace */
-        .shrnking& {
+        .szd-shrinking& {
             #szd.opacity(0);
         }
 
         /* zmenšená forma – animace */
-        .unshrnking& {
+        .szd-unshrinking& {
             #szd.opacity(0);
             display: none;
         }
 
         /* zmenšená forma */
-        .shrnk& {
+        .szd-shrinked& {
             #szd.opacity(0);
             display: none;
         }
 
         /* odsazení */
-        .btn:first-child {
+        .szd-button:first-child {
             margin-left: 0;
         }
 
         /* odsazení */
-        .btn:last-child {
+        .szd-button:last-child {
             margin-left: 0;
             margin-right: 0;
         }
 
-        @media screen and (min-width: @tb-minWidth) {
+        @media screen and (min-width: @szd-tablet-minWidth) {
             margin: auto;
         }
     }
 
     /* pomocné informace */
-    .inf {
+    .szd-info {
         /* mixiny */
         #szd.opacity(1);
 
@@ -255,13 +255,13 @@
         display: inline-block;
         color: @cl-btn-1;
 
-        .prt {
+        .szd-info-port {
             #szd.rem(margin-right; 8px);
             margin-right: .5em;
         }
 
         /* info o velikosti viewportu skryjeme na mobilu */
-        &.sz {
+        &.szd-info-size {
             display: none;
 
             @media screen {
@@ -269,7 +269,7 @@
                     display: inline-block;
                 }
     
-                @media (min-width: @tb-minWidth) {
+                @media (min-width: @szd-tablet-minWidth) {
                     display: none;
                 }
                 
@@ -279,35 +279,35 @@
             }
 
             /* zmenšená forma – animace */
-            .shrnking& {
+            .szd-shrinking& {
                 #szd.opacity(0);
             }
 
             /* zmenšená forma – animace */
-            .unshrnking& {
+            .szd-unshrinking& {
                 #szd.opacity(0);
                 display: none;
             }
 
             /* zmenšená forma */
-            .shrnk& {
+            .szd-shrinked& {
                 display: none;
             }
         }
 
         /* zmenšená forma – animace */
-        .shrnking& {
+        .szd-shrinking& {
             #szd.opacity(0);
         }
 
         /* zmenšená forma – animace */
-        .unshrnking& {
+        .szd-unshrinking& {
             #szd.opacity(0);
             display: none;
         }
 
         /* zmenšená forma */
-        .shrnk& {
+        .szd-shrinked& {
             display: none;
         }
 
