@@ -115,9 +115,45 @@ Výchozí nastavení breakpointů, gutteru a celkového paddingu gridu:
 @szd-desktop-gutter: 1em; 				/* 16px */
 ```
 
+#### Rozšířené možnosti
+
+V rozšíření verzi Seznam Design obsahuje i pár základních tříd.
+
+U tříd pro tlačítka a odkazy lze pak po vložení základního LESS souboru ze Seznam Designu  
+nastavit vlastní barvy.
+
+Výchozí nastavení v Seznam Designu:
+
+``` css
+/*** ------------ ODKAZY -------------------------- **/
+@szd-link-color: rgba(0, 0, 255, 1.0);
+@szd-link-color-focus: rgba(0, 0, 255, 1.0);
+@szd-link-color-active: rgba(255, 0, 0, 1.0);
+@szd-link-color-visited: rgba(128, 0, 128, 1.0);
+
+
+/*** ------------ TLAČÍTKA ------------------------ **/
+
+/* barva textu tlačítek dle stavů */
+@szd-button-color: rgba(0, 0, 0, 1.0);
+@szd-button-color-focus: rgba(255, 255, 255, 1.0);
+@szd-button-color-active: rgba(255, 255, 255, 1.0);
+@szd-button-color-activated: rgba(255, 255, 255, 1.0);
+
+/* barva pozadí tlačítek dle stavů */
+@szd-button-background-color: rgba(0, 0, 0, 0.03);
+@szd-button-background-color-focus: rgba(0, 0, 0, 0.7);
+@szd-button-background-color-active: rgba(0, 0, 0, 0.9);
+@szd-button-background-color-activated: rgba(0, 0, 0, 0.5);
+
+/* zaoblení a barva krajů tlačítek */
+@szd-button-border-color: rgba(0, 0, 0, 0.7);
+@szd-button-radius: 0;
+```
+
 ---  
 
 Stav: Working Draft  
-Verze: 0.2.1  
+Verze: 0.2.2  
 Využívá:  npm, grunt, less, browserify  
 Kontakt: [Dominik Michna](mailto:dominik.michna@firma.seznam.cz)

@@ -1,6 +1,6 @@
 /**
  * @overview Pack všech skriptů pro Grid
- * @version 0.2.1
+ * @version 0.2.2
  * @author Dominik Michna (dominik.michna@firma.seznam.cz)
  */
 

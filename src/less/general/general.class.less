@@ -9,6 +9,17 @@
     box-sizing: border-box;
 }
 
+/*** ------------ ACCESSIBILITY -------------------- **/
+
+.szd-blind {
+	position: absolute;
+	left: -2000px;
+	top: -2000px;
+	height: 1px;
+	width: 1px;
+	display: block;
+}
+
 /*** ------------ FLOW -------------------- **/
 
 /* float left */
@@ -83,20 +94,44 @@ button {
 .szd-link {
 
 	/* základní vzhled */
+	color: @szd-link-color;
 	cursor: pointer;
 
-	/* podtržení */
-	&:hover {
+	/* podtržení na hover */
+	&:hover,
+	&:focus,
+	&.szd-link-focus {
+
+		/* základní vzhled */
+		color: @szd-link-color-focus;
+
 		&.szd-link-underline,
 		.szd-link-underline {
+			color: currentColor;
 			text-decoration: underline;
 		}
 	}
-	&:focus {
+
+	/* aktivní prvek */
+	&:active,
+	&.szd-link-active {
+
+		/* základní vzhled */
+		color: @szd-link-color-active;
+
 		&.szd-link-underline,
 		.szd-link-underline {
-			text-decoration: none;
+			color: currentColor;
+			text-decoration: underline;
 		}
+	}
+
+	/* navštívený odkaz */
+	&:visited,
+	&.szd-link-visited {
+
+		/* základní vzhled */
+		color: @szd-link-color-visited;
 	}
 
 }
@@ -105,20 +140,76 @@ button {
 .szd-button {
 
 	/* základní vzhled */
+	color: @szd-button-color;
+	border-style: solid;
+	border-width: 1px;
+	border-color: @szd-button-border-color;
+	background-color: @szd-button-background-color;
 	cursor: pointer;
 	
 	/* podtržení */
-	&:hover {
-		&.szd-button-underline,
-		.szd-button-underline {
-			text-decoration: underline;
-		}
-	}
+	&:hover,
 	&:focus {
-		&.szd-button-underline,
-		.szd-button-underline {
-			text-decoration: none;
-		}
+
+		/* základní vzhled */
+		color: @szd-button-color-focus;
+		background-color: @szd-button-background-color-focus;
 	}
 
+	/* aktivní prvek */
+	&:active,
+	&.szd-button-active {
+
+		/* základní vzhled */
+		color: @szd-button-color-active;
+		background-color: @szd-button-background-color-active;
+	}
+
+	/* aktivovaný prvek */
+	&.szd-button-activated {
+
+		/* základní vzhled */
+		color: @szd-button-color-activated;
+		background-color: @szd-button-background-color-activated;
+	}
+
+}
+
+/* skupina tlačítek */
+.szd-button-group {
+
+	/* clear floatování */
+	float: none;
+	
+	&:before,
+	&:after {
+		content: ' ';
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+
+	/* základní vzhled */
+	display: block;
+	width: 100%;
+
+	.szd-button {
+		float: left;
+		border-right-width: 0;
+
+		&:first-child,
+		&.szd-button-first {
+			border-top-left-radius: @szd-button-radius;
+			border-bottom-left-radius: @szd-button-radius;
+		}
+
+		&:last-child,
+		&.szd-button-last {
+			border-right-width: 1px;
+			border-top-right-radius: @szd-button-radius;
+			border-bottom-right-radius: @szd-button-radius;
+		}
+	}
 }
