@@ -300,7 +300,7 @@ legend {
 .szd-headline,
 .szd-subheadline,
 .szd-bread,
-.szd-label {
+.szd-caption {
   -webkit-transition: 200ms font-size linear;
   -moz-transition: 200ms font-size linear;
   -o-transition: 200ms font-size linear;
@@ -404,7 +404,7 @@ legend {
     line-height: 1.25rem;
   }
 }
-/* popisek – label */
+/* popisek – caption */
 .szd-caption {
   /* layout - mobil 1, mobil 2 */
   font-size: 12px;
