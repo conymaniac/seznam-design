@@ -107,7 +107,7 @@ button {
 
 		&.szd-link-underline,
 		.szd-link-underline {
-			color: currentColor;
+			// color: currentColor;
 			text-decoration: underline;
 		}
 	}
@@ -121,7 +121,7 @@ button {
 
 		&.szd-link-underline,
 		.szd-link-underline {
-			color: currentColor;
+			// color: currentColor;
 			text-decoration: underline;
 		}
 	}
@@ -144,6 +144,7 @@ button {
 	border-style: solid;
 	border-width: 1px;
 	border-color: @szd-button-border-color;
+	border-radius: @szd-button-radius;
 	background-color: @szd-button-background-color;
 	cursor: pointer;
 	
@@ -153,27 +154,39 @@ button {
 
 		/* základní vzhled */
 		color: @szd-button-color-focus;
+		border-color: @szd-button-border-color-focus;
 		background-color: @szd-button-background-color-focus;
 	}
 
 	/* aktivní prvek */
-	&:active,
-	&.szd-button-active {
+	&:active {
 
 		/* základní vzhled */
 		color: @szd-button-color-active;
+		border-color: @szd-button-border-color-active;
 		background-color: @szd-button-background-color-active;
 	}
 
-	/* aktivovaný prvek */
-	&.szd-button-activated {
+}
+
+	.szd-button-active {
+		.szd-button;
+
+		/* základní vzhled */
+		color: @szd-button-color-active;
+		border-color: @szd-button-border-color-active;
+		background-color: @szd-button-background-color-active;
+	}
+
+	.szd-button-activated {
+		.szd-button;
 
 		/* základní vzhled */
 		color: @szd-button-color-activated;
+		border-color: @szd-button-background-color-activated;
 		background-color: @szd-button-background-color-activated;
 	}
 
-}
 
 /* skupina tlačítek */
 .szd-button-group {
@@ -197,6 +210,7 @@ button {
 
 	.szd-button {
 		float: left;
+		border-radius: 0;
 		border-right-width: 0;
 
 		&:first-child,
