@@ -322,19 +322,11 @@ legend {
 }
 /* plakát – poster */
 .szd-poster {
-  /* layout - mobil 1, mobil-2 */
-  font-size: 24px;
-  font-size: 1.5rem;
-  line-height: 31px;
-  line-height: 1.9375rem;
-}
-@media (min-width: 37.5em) {
-  .szd-poster {
-    font-size: 34px;
-    font-size: 2.125rem;
-    line-height: 40px;
-    line-height: 2.5rem;
-  }
+  /* layout - mobil 1, mobil-2, tablet, desktop */
+  font-size: 34px;
+  font-size: 2.125rem;
+  line-height: 40px;
+  line-height: 2.5rem;
 }
 /* titulek – title */
 .szd-title {
@@ -346,7 +338,7 @@ legend {
 }
 /* nadpis – headline */
 .szd-headline {
-  /* layout - mobil 1, mobil-2 */
+  /* layout - mobil 1, mobil-2, tablet, desktop */
   font-size: 20px;
   font-size: 1.25rem;
   line-height: 32px;
@@ -354,81 +346,27 @@ legend {
 }
 /* podnadpis – subheadline */
 .szd-subheadline {
-  /* layout - mobil 1, mobil 2 */
+  /* layout - mobil 1, mobil-2, tablet, desktop */
   font-size: 16px;
   font-size: 1rem;
   line-height: 24px;
   line-height: 1.5rem;
-  /* layout – tablet */
-  /* layout – desktop */
-}
-@media (min-width: 37.5em) {
-  .szd-subheadline {
-    font-size: 18px;
-    font-size: 1.125rem;
-    line-height: 24px;
-    line-height: 1.5rem;
-  }
-}
-@media (min-width: 63em) {
-  .szd-subheadline {
-    font-size: 16px;
-    font-size: 1rem;
-    line-height: 24px;
-    line-height: 1.5rem;
-  }
 }
 /* chleba – bread */
 .szd-bread {
-  /* layout - mobil 1, mobil 2 */
+  /* layout - mobil 1, mobil-2, tablet, desktop */
   font-size: 14px;
   font-size: 0.875rem;
   line-height: 20px;
   line-height: 1.25rem;
-  /* layout – tablet */
-  /* layout – desktop */
-}
-@media (min-width: 37.5em) {
-  .szd-bread {
-    font-size: 16px;
-    font-size: 1rem;
-    line-height: 24px;
-    line-height: 1.5rem;
-  }
-}
-@media (min-width: 63em) {
-  .szd-bread {
-    font-size: 14px;
-    font-size: 0.875rem;
-    line-height: 20px;
-    line-height: 1.25rem;
-  }
 }
 /* popisek – caption */
 .szd-caption {
-  /* layout - mobil 1, mobil 2 */
+  /* layout - mobil 1, mobil-2, tablet, desktop */
   font-size: 12px;
   font-size: 0.75rem;
   line-height: 16px;
   line-height: 1rem;
-  /* layout – tablet */
-  /* layout – desktop */
-}
-@media (min-width: 37.5em) {
-  .szd-caption {
-    font-size: 14px;
-    font-size: 0.875rem;
-    line-height: 20px;
-    line-height: 1.25rem;
-  }
-}
-@media (min-width: 63em) {
-  .szd-caption {
-    font-size: 12px;
-    font-size: 0.75rem;
-    line-height: 16px;
-    line-height: 1rem;
-  }
 }
 /* textové styly */
 /* gridy */

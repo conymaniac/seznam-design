@@ -154,6 +154,6 @@ Výchozí nastavení v Seznam Designu:
 ---  
 
 Stav: Working Draft  
-Verze: 0.2.2  
+Verze: 0.2.3  
 Využívá:  npm, grunt, less, browserify  
 Kontakt: [Dominik Michna](mailto:dominik.michna@firma.seznam.cz)
