@@ -444,7 +444,6 @@ legend {
 .szd-unit {
   box-sizing: border-box;
   width: 100%;
-  height: 100%;
 }
 /* řádek */
 .szd-line {
@@ -591,6 +590,7 @@ legend {
   /* většinou se používá v css kolem 999, tohle by snad mělo zajistit převýšení */
   pointer-events: none;
   /* spec. nastavení pro grid */
+  /* společné nastavení */
   /* řádky */
 }
 .szd-grid-baseline .szd-grid {
@@ -604,6 +604,10 @@ legend {
   bottom: 0;
   left: 0;
   margin: auto;
+}
+.szd-grid-baseline .szd-line,
+.szd-grid-baseline .szd-unit {
+  height: 100%;
 }
 .szd-grid-baseline .szd-line {
   /* mřížka na backgroundu */
@@ -637,6 +641,7 @@ legend {
   /* většinou se používá v css kolem 999, tohle by snad mělo zajistit převýšení */
   pointer-events: none;
   /* spec. nastavení pro grid */
+  /* společné nastavení */
   /* unity */
   /* obsah buněk */
 }
@@ -651,6 +656,10 @@ legend {
   bottom: 0;
   left: 0;
   margin: auto;
+}
+.szd-grid-layout .szd-line,
+.szd-grid-layout .szd-unit {
+  height: 100%;
 }
 .szd-grid-layout .szd-unit {
   zoom: 1;
