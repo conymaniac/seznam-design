@@ -14,7 +14,7 @@ bower install --save seznam-design
 
 Podrobnější nastavení Seznam Designu v aplikaci založené na IMA.js pak dále ve wiki.
 
-[Nastavení Seznam Design v IMA.js](https://gitlab.kancelar.seznam.cz/webmasters-common/seznam-design/wikis/imajs).
+[Nastavení Seznam Design v IMA.js](https://github.com/conymaniac/seznam-design/wiki/IMA).
 
 #### Distribuční verze
 
